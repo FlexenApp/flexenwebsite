@@ -8,6 +8,7 @@
   class="pointer-events-none fixed right-0 bottom-0 left-0 z-60"
   role="dialog"
   aria-label="Cookie Consent"
+  aria-describedby="cookie-text"
 >
   <div class="pointer-events-auto mx-auto max-w-4xl translate-y-full p-4 opacity-0 sm:p-6" id="cookie-consent-inner">
     <div
@@ -79,6 +80,9 @@
     const locale = document.documentElement.lang || 'de'
     const isEn = locale.startsWith('en')
 
+    // Localize aria-label on the dialog
+    wrapper.setAttribute('aria-label', isEn ? 'Cookie Consent' : 'Cookie-Hinweis')
+
     // Populate text based on detected locale
     textEl.textContent = isEn
       ? 'This website does not use cookies for tracking. We use Plausible Analytics \u2014 cookie-free and GDPR compliant.'
@@ -90,10 +94,12 @@
     // Show with short delay so the page paints first
     setTimeout(() => {
       inner.classList.add('visible')
+      // Move focus into the dialog once visible
+      acceptBtn.focus()
     }, 1000)
 
-    // Dismiss
-    acceptBtn.addEventListener('click', () => {
+    // Dismiss helper
+    function dismiss() {
       inner.classList.remove('visible')
       inner.classList.add('dismissing')
       localStorage.setItem(STORAGE_KEY, 'true')
@@ -110,6 +116,32 @@
       setTimeout(() => {
         if (wrapper.parentNode) wrapper.remove()
       }, 500)
+    }
+
+    // Dismiss on click
+    acceptBtn.addEventListener('click', dismiss)
+
+    // Dismiss on Escape key
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && wrapper.parentNode && inner.classList.contains('visible')) {
+        dismiss()
+      }
+    })
+
+    // Focus trap within the cookie dialog
+    wrapper.addEventListener('keydown', (e) => {
+      if (e.key !== 'Tab') return
+      const focusableEls = wrapper.querySelectorAll<HTMLElement>('a, button')
+      if (focusableEls.length === 0) return
+      const firstEl = focusableEls[0]
+      const lastEl = focusableEls[focusableEls.length - 1]
+      if (e.shiftKey && document.activeElement === firstEl) {
+        e.preventDefault()
+        lastEl.focus()
+      } else if (!e.shiftKey && document.activeElement === lastEl) {
+        e.preventDefault()
+        firstEl.focus()
+      }
     })
   }
 

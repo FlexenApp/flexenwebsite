@@ -17,15 +17,15 @@ const content = locale === 'de' ? de : en
     <div class="content">
       <!-- Flexen Logo Text -->
       <div class="mb-12">
-        <a href={localePath(locale, '/')} class="font-heading text-2xl font-bold tracking-tight">
+        <a href={localePath(locale, '/')} class="font-heading text-2xl font-bold tracking-tight" aria-label={locale === 'de' ? 'Flexen — Zur Startseite' : 'Flexen — Back to homepage'}>
           <span class="text-flexen-accent">F</span><span class="text-white">lexen</span>
         </a>
       </div>
 
-      <div class="mb-12 grid grid-cols-2 gap-8 md:grid-cols-4">
+      <nav class="mb-12 grid grid-cols-2 gap-8 md:grid-cols-4" aria-label={locale === 'de' ? 'Footer-Navigation' : 'Footer navigation'}>
         <!-- Product -->
         <div>
-          <h4 class="font-heading mb-4 font-semibold">{content.footer.product.title}</h4>
+          <h3 class="font-heading mb-4 text-base font-semibold">{content.footer.product.title}</h3>
           <ul class="text-secondary space-y-2 text-sm">
             <li>
               <a href={localePath(locale, '/features')} class="transition-colors hover:text-white"
@@ -45,7 +45,7 @@ const content = locale === 'de' ? de : en
 
         <!-- Company -->
         <div>
-          <h4 class="font-heading mb-4 font-semibold">{content.footer.company.title}</h4>
+          <h3 class="font-heading mb-4 text-base font-semibold">{content.footer.company.title}</h3>
           <ul class="text-secondary space-y-2 text-sm">
             <li>
               <a
@@ -58,7 +58,7 @@ const content = locale === 'de' ? de : en
 
         <!-- Legal -->
         <div>
-          <h4 class="font-heading mb-4 font-semibold">{content.footer.legal.title}</h4>
+          <h3 class="font-heading mb-4 text-base font-semibold">{content.footer.legal.title}</h3>
           <ul class="text-secondary space-y-2 text-sm">
             <li>
               <a
@@ -76,10 +76,10 @@ const content = locale === 'de' ? de : en
 
         <!-- Download -->
         <div>
-          <h4 class="font-heading mb-4 font-semibold">{locale === 'de' ? 'App laden' : 'Download'}</h4>
+          <h3 class="font-heading mb-4 text-base font-semibold">{locale === 'de' ? 'App laden' : 'Download'}</h3>
           <AppStoreBadges locale={locale} size="sm" campaign="footer" />
         </div>
-      </div>
+      </nav>
 
       <div class="text-tertiary border-t border-white/5 pt-8 text-center text-sm">
         <p>{content.footer.copyright}</p>

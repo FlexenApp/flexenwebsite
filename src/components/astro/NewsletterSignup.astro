@@ -27,7 +27,7 @@ const isCard = variant === 'card'
       <div class="container">
         <div class="content mx-auto max-w-3xl">
           <div class="gradient-card reveal rounded-2xl border border-white/5 p-8 text-center sm:p-12">
-            <h2 class="mb-3 text-[length:var(--text-h3)] font-bold">{headline}</h2>
+            <h2 class="mb-3 text-h3 font-bold">{headline}</h2>
             <p class="text-secondary text-body mx-auto mb-8 max-w-lg">{subline}</p>
             <form action="#" method="POST" class="mx-auto flex max-w-md flex-col gap-3 sm:flex-row">
               <label for="newsletter-email-card" class="sr-only">
@@ -48,15 +48,15 @@ const isCard = variant === 'card'
                 {buttonText}
               </button>
             </form>
-            <p class="text-tertiary mt-4 text-[length:var(--text-small)]">{microcopy}</p>
+            <p class="text-tertiary mt-4 text-small">{microcopy}</p>
           </div>
         </div>
       </div>
     </section>
   ) : (
     <div class="gradient-card rounded-2xl border border-white/5 p-6">
-      <h3 class="mb-2 text-[length:var(--text-h4)] font-bold">{headline}</h3>
-      <p class="text-secondary mb-4 text-[length:var(--text-small)]">{subline}</p>
+      <h3 class="mb-2 text-h3 font-bold">{headline}</h3>
+      <p class="text-secondary mb-4 text-small">{subline}</p>
       <form action="#" method="POST" class="space-y-3">
         <label for="newsletter-email-inline" class="sr-only">
           {placeholder}
@@ -76,7 +76,7 @@ const isCard = variant === 'card'
           {buttonText}
         </button>
       </form>
-      <p class="text-tertiary mt-3 text-[length:var(--text-small)]">{microcopy}</p>
+      <p class="text-tertiary mt-3 text-small">{microcopy}</p>
     </div>
   )
 }

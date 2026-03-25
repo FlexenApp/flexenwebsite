@@ -11,7 +11,7 @@ const { value, suffix = '', label, class: className = '' } = Astro.props
 
 <div class:list={['text-center', className]}>
   <span
-    class="text-flexen-accent font-heading block text-[length:var(--text-h1)] font-bold tabular-nums"
+    class="text-flexen-accent font-heading block text-h1 font-bold tabular-nums"
     data-count-target={value}
     data-count-suffix={suffix}
     aria-label={`${value}${suffix}`}

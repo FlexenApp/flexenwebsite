@@ -30,7 +30,7 @@ function isActive(href: string): boolean {
 }
 ---
 
-<nav id="main-nav" class="fixed top-0 right-0 left-0 z-50 transition-all duration-300">
+<nav id="main-nav" class="fixed top-0 right-0 left-0 z-50 transition-all duration-300" aria-label={locale === 'de' ? 'Hauptnavigation' : 'Main navigation'}>
   <div class="container">
     <div class="flex h-16 items-center justify-between md:h-20">
       <!-- Logo -->
@@ -60,6 +60,7 @@ function isActive(href: string): boolean {
         <a
           href={`/${alt}${pathWithoutLocale}`}
           class="text-tertiary text-sm font-medium uppercase transition-colors hover:text-white"
+          aria-label={locale === 'de' ? `Sprache wechseln zu Englisch` : `Switch language to German`}
         >
           {alt.toUpperCase()}
         </a>
@@ -74,7 +75,7 @@ function isActive(href: string): boolean {
       </div>
 
       <!-- Mobile Menu Button -->
-      <button id="mobile-menu-btn" class="flex flex-col gap-1.5 p-2 md:hidden" aria-label="Menu" aria-expanded="false">
+      <button id="mobile-menu-btn" class="flex flex-col gap-1.5 p-2 md:hidden" aria-label={locale === 'de' ? 'Menü öffnen' : 'Open menu'} aria-expanded="false" aria-controls="mobile-menu">
         <span class="h-0.5 w-6 origin-center bg-white transition-transform" id="hamburger-top"></span>
         <span class="h-0.5 w-6 bg-white transition-opacity" id="hamburger-mid"></span>
         <span class="h-0.5 w-6 origin-center bg-white transition-transform" id="hamburger-bot"></span>
@@ -108,6 +109,7 @@ function isActive(href: string): boolean {
         href={`/${alt}${pathWithoutLocale}`}
         data-close-menu
         class="text-tertiary text-lg uppercase transition-colors hover:text-white"
+        aria-label={locale === 'de' ? `Sprache wechseln zu Englisch` : `Switch language to German`}
       >
         {alt.toUpperCase()}
       </a>
@@ -143,6 +145,8 @@ function isActive(href: string): boolean {
     bot?.classList.remove('-rotate-45', '-translate-y-[4px]')
     btn?.setAttribute('aria-expanded', 'false')
     document.body.style.overflow = ''
+    // Return focus to the toggle button
+    btn?.focus()
   }
 
   function openMenu() {
@@ -154,7 +158,33 @@ function isActive(href: string): boolean {
     bot?.classList.add('-rotate-45', '-translate-y-[4px]')
     btn?.setAttribute('aria-expanded', 'true')
     document.body.style.overflow = 'hidden'
+    // Move focus to the first link in the menu
+    const firstLink = menu?.querySelector('a') as HTMLElement | null
+    firstLink?.focus()
   }
+
+  // Close mobile menu on Escape key
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && isOpen) {
+      closeMenu()
+    }
+  })
+
+  // Focus trap: keep Tab within the mobile menu when open
+  menu?.addEventListener('keydown', (e) => {
+    if (e.key !== 'Tab' || !isOpen) return
+    const focusableEls = menu.querySelectorAll<HTMLElement>('a, button')
+    if (focusableEls.length === 0) return
+    const firstEl = focusableEls[0]
+    const lastEl = focusableEls[focusableEls.length - 1]
+    if (e.shiftKey && document.activeElement === firstEl) {
+      e.preventDefault()
+      lastEl.focus()
+    } else if (!e.shiftKey && document.activeElement === lastEl) {
+      e.preventDefault()
+      firstEl.focus()
+    }
+  })
 
   // Scroll: transparent -> solid
   let lastScroll = 0

@@ -20,7 +20,7 @@ const faqSchema = getFAQSchema(de.faq.items)
   <section class="section gradient-hero flex min-h-screen items-center" aria-label="Hero">
     <div class="container">
       <div class="content text-center">
-        <h1 class="font-heading mb-6 text-[length:var(--text-hero)] font-bold" data-hero-headline style="opacity:0;">
+        <h1 class="font-heading mb-6 text-hero font-bold" data-hero-headline style="opacity:0;">
           {de.hero.headline}
         </h1>
         <p class="text-secondary text-body mx-auto mb-8" data-hero-subline>
@@ -41,10 +41,10 @@ const faqSchema = getFAQSchema(de.faq.items)
             {de.hero.ctaSecondary}
           </a>
         </div>
-        <p class="text-tertiary reveal text-[length:var(--text-small)]">
+        <p class="text-tertiary reveal text-small">
           {de.hero.microcopy}
         </p>
-        <p class="text-secondary reveal mt-4 text-[length:var(--text-small)]">
+        <p class="text-secondary reveal mt-4 text-small">
           {de.hero.socialProof}
         </p>
         <div class="reveal mt-8 flex justify-center">
@@ -58,7 +58,7 @@ const faqSchema = getFAQSchema(de.faq.items)
   <section class="section" id="day-story" aria-labelledby="day-story-title">
     <div class="container">
       <div class="content">
-        <h2 id="day-story-title" class="font-heading reveal mb-16 text-center text-[length:var(--text-h2)] font-bold">
+        <h2 id="day-story-title" class="font-heading reveal mb-16 text-center text-h2 font-bold">
           {de.dayStory.sectionTitle}
         </h2>
         <div class="space-y-24">
@@ -74,10 +74,10 @@ const faqSchema = getFAQSchema(de.faq.items)
                 class={`day-scene flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12`}
               >
                 <div class="flex-1">
-                  <span class="day-time text-flexen-accent mb-2 block font-mono text-[length:var(--text-small)]">
+                  <span class="day-time text-flexen-accent mb-2 block font-mono text-small">
                     {scene.time}
                   </span>
-                  <h3 class="font-heading day-title mb-4 text-[length:var(--text-h3)] font-bold">{scene.title}</h3>
+                  <h3 class="font-heading day-title mb-4 text-h3 font-bold">{scene.title}</h3>
                   <p class="day-description text-secondary text-body">{scene.description}</p>
                 </div>
                 <div
@@ -97,7 +97,7 @@ const faqSchema = getFAQSchema(de.faq.items)
   <section class="section" id="features" aria-labelledby="features-title">
     <div class="container">
       <div class="content">
-        <h2 id="features-title" class="font-heading reveal mb-4 text-center text-[length:var(--text-h2)] font-bold">
+        <h2 id="features-title" class="font-heading reveal mb-4 text-center text-h2 font-bold">
           {de.features.sectionTitle}
         </h2>
         <p class="text-secondary reveal text-body mb-16 text-center">
@@ -110,14 +110,14 @@ const faqSchema = getFAQSchema(de.faq.items)
             <span class="gradient-accent mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium text-white"
               >{de.features.julio.badge}</span
             >
-            <h3 class="font-heading mb-3 text-[length:var(--text-h3)] font-bold">{de.features.julio.title}</h3>
+            <h3 class="font-heading mb-3 text-h3 font-bold">{de.features.julio.title}</h3>
             <p class="text-secondary text-body">{de.features.julio.description}</p>
           </div>
           <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
             <span class="bg-success/20 text-success mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium"
               >{de.features.foodAI.badge}</span
             >
-            <h3 class="font-heading mb-3 text-[length:var(--text-h3)] font-bold">{de.features.foodAI.title}</h3>
+            <h3 class="font-heading mb-3 text-h3 font-bold">{de.features.foodAI.title}</h3>
             <p class="text-secondary text-body">{de.features.foodAI.description}</p>
           </div>
           <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
@@ -125,15 +125,15 @@ const faqSchema = getFAQSchema(de.faq.items)
               class="bg-flexen-accent/20 text-flexen-accent mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium"
               >{de.features.training.badge}</span
             >
-            <h3 class="font-heading mb-3 text-[length:var(--text-h3)] font-bold">{de.features.training.title}</h3>
+            <h3 class="font-heading mb-3 text-h3 font-bold">{de.features.training.title}</h3>
             <p class="text-secondary text-body">{de.features.training.description}</p>
           </div>
           <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
-            <h3 class="font-heading mb-3 text-[length:var(--text-h3)] font-bold">{de.features.sleep.title}</h3>
+            <h3 class="font-heading mb-3 text-h3 font-bold">{de.features.sleep.title}</h3>
             <p class="text-secondary text-body">{de.features.sleep.description}</p>
           </div>
           <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
-            <h3 class="font-heading mb-3 text-[length:var(--text-h3)] font-bold">{de.features.journal.title}</h3>
+            <h3 class="font-heading mb-3 text-h3 font-bold">{de.features.journal.title}</h3>
             <p class="text-secondary text-body">{de.features.journal.description}</p>
           </div>
         </div>
@@ -147,7 +147,7 @@ const faqSchema = getFAQSchema(de.faq.items)
       <div class="content">
         <h2
           id="social-proof-title"
-          class="font-heading reveal mb-16 text-center text-[length:var(--text-h2)] font-bold"
+          class="font-heading reveal mb-16 text-center text-h2 font-bold"
         >
           {de.socialProof.sectionTitle}
         </h2>
@@ -156,7 +156,7 @@ const faqSchema = getFAQSchema(de.faq.items)
             de.socialProof.stats.map((stat) => (
               <div class="text-center">
                 <span
-                  class="text-flexen-accent block text-[length:var(--text-h1)] font-bold"
+                  class="text-flexen-accent block text-h1 font-bold"
                   data-count-target={stat.value}
                   data-count-suffix={stat.suffix}
                 >
@@ -176,9 +176,9 @@ const faqSchema = getFAQSchema(de.faq.items)
                 <div class="flex items-center justify-between">
                   <div>
                     <span class="block font-semibold">{t.name}</span>
-                    <span class="text-tertiary text-[length:var(--text-small)]">{t.role}</span>
+                    <span class="text-tertiary text-small">{t.role}</span>
                   </div>
-                  <span class="text-flexen-accent text-[length:var(--text-small)] font-semibold">{t.result}</span>
+                  <span class="text-flexen-accent text-small font-semibold">{t.result}</span>
                 </div>
               </div>
             ))
@@ -192,7 +192,7 @@ const faqSchema = getFAQSchema(de.faq.items)
   <section class="section" id="pricing" aria-labelledby="pricing-title">
     <div class="container">
       <div class="content">
-        <h2 id="pricing-title" class="font-heading reveal mb-4 text-center text-[length:var(--text-h2)] font-bold">
+        <h2 id="pricing-title" class="font-heading reveal mb-4 text-center text-h2 font-bold">
           {de.pricing.sectionTitle}
         </h2>
         <p class="text-secondary reveal text-body mb-16 text-center">
@@ -200,10 +200,10 @@ const faqSchema = getFAQSchema(de.faq.items)
         </p>
         <div class="stagger-children mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
           <div class="gradient-card rounded-2xl border border-white/5 p-8">
-            <h3 class="font-heading mb-1 text-[length:var(--text-h3)] font-bold">{de.pricing.free.name}</h3>
+            <h3 class="font-heading mb-1 text-h3 font-bold">{de.pricing.free.name}</h3>
             <p class="text-tertiary mb-6">{de.pricing.free.subtitle}</p>
             <div class="mb-6">
-              <span class="text-[length:var(--text-h1)] font-bold">{de.pricing.free.price}&euro;</span>
+              <span class="text-h1 font-bold">{de.pricing.free.price}&euro;</span>
               <span class="text-tertiary ml-2">{de.pricing.free.period}</span>
             </div>
             <a
@@ -229,10 +229,10 @@ const faqSchema = getFAQSchema(de.faq.items)
               class="gradient-accent absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-semibold text-white"
               >{de.pricing.premium.popular}</span
             >
-            <h3 class="font-heading mb-1 text-[length:var(--text-h3)] font-bold">{de.pricing.premium.name}</h3>
+            <h3 class="font-heading mb-1 text-h3 font-bold">{de.pricing.premium.name}</h3>
             <p class="text-tertiary mb-6">{de.pricing.premium.subtitle}</p>
             <div class="mb-6">
-              <span class="text-[length:var(--text-h1)] font-bold">{de.pricing.premium.priceMonthly}&euro;</span>
+              <span class="text-h1 font-bold">{de.pricing.premium.priceMonthly}&euro;</span>
               <span class="text-tertiary ml-2">{de.pricing.premium.period}</span>
             </div>
             <a
@@ -263,7 +263,7 @@ const faqSchema = getFAQSchema(de.faq.items)
   <section class="section" id="faq" aria-labelledby="faq-title">
     <div class="container">
       <div class="content mx-auto max-w-3xl">
-        <h2 id="faq-title" class="font-heading reveal mb-16 text-center text-[length:var(--text-h2)] font-bold">
+        <h2 id="faq-title" class="font-heading reveal mb-16 text-center text-h2 font-bold">
           {de.faq.sectionTitle}
         </h2>
         <div class="stagger-children space-y-4">
@@ -290,7 +290,7 @@ const faqSchema = getFAQSchema(de.faq.items)
   <section class="section gradient-hero" aria-label="Call to Action">
     <div class="container">
       <div class="content text-center">
-        <h2 class="font-heading reveal mb-6 text-[length:var(--text-h1)] font-bold">{de.finalCta.headline}</h2>
+        <h2 class="font-heading reveal mb-6 text-h1 font-bold">{de.finalCta.headline}</h2>
         <p class="text-secondary reveal text-body mx-auto mb-8">{de.finalCta.subline}</p>
         <a
           href="#pricing"
