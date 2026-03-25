@@ -1,0 +1,20 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro'
+---
+
+<BaseLayout title="404 — Seite nicht gefunden" description="Diese Seite existiert nicht." locale="de" canonicalPath="/404">
+  <section class="section min-h-[70vh] flex items-center justify-center">
+    <div class="container">
+      <div class="content text-center">
+        <span class="text-[length:var(--text-hero)] font-bold text-flexen-accent block mb-4 font-heading">404</span>
+        <h1 class="text-[length:var(--text-h2)] font-bold mb-4 font-heading">Seite nicht gefunden</h1>
+        <p class="text-secondary text-[length:var(--text-body)] mb-8">
+          Die gesuchte Seite existiert nicht oder wurde verschoben.
+        </p>
+        <a href="/de/" class="btn-glow inline-flex items-center justify-center px-8 py-4 rounded-xl gradient-accent text-white font-semibold text-lg transition-transform hover:scale-[1.02] active:scale-[0.97]">
+          Zur Startseite
+        </a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

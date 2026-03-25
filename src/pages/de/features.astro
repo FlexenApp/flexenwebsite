@@ -1,0 +1,328 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import de from '../../i18n/de.json'
+---
+
+<BaseLayout title="Features — Flexen" description="Entdecke Flexens KI-Coach Julio, automatische Essenserkennung, personalisierte Trainingspläne und Schlaf-Tracking." locale="de" canonicalPath="/de/features">
+
+  <!-- Hero Section -->
+  <section class="section gradient-hero min-h-[70vh] flex items-center pt-32">
+    <div class="container">
+      <div class="content text-center">
+        <h1 class="text-[length:var(--text-hero)] font-bold mb-6 reveal">
+          {de.features.sectionTitle}
+        </h1>
+        <p class="text-secondary text-[length:var(--text-body)] mx-auto mb-8 max-w-2xl reveal">
+          {de.features.sectionSubtitle}
+        </p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center reveal">
+          <a
+            href="#julio"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white/10 text-white/80 font-medium hover:bg-white/5 transition-colors"
+          >
+            Features entdecken
+          </a>
+          <a
+            href="#"
+            class="btn-glow inline-flex items-center justify-center px-8 py-4 rounded-xl gradient-accent text-white font-semibold text-lg transition-transform hover:scale-[1.02] active:scale-[0.97]"
+          >
+            {de.hero.cta}
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: Julio -->
+  <section class="section" id="julio">
+    <div class="container">
+      <div class="content">
+        <div class="flex flex-col md:flex-row gap-16 items-center">
+          <div class="flex-1 reveal">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium gradient-accent text-white mb-4">{de.features.julio.badge}</span>
+            <h2 class="text-[length:var(--text-h2)] font-bold mb-4">{de.features.julio.title}</h2>
+            <p class="text-secondary text-[length:var(--text-body)] mb-8">{de.features.julio.description}</p>
+            <ul class="space-y-4 stagger-children">
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Echtzeit-Trainingspläne</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Sag Julio dein Ziel — er baut dir den Plan in Sekunden. Angepasst an dein Level und Equipment.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Ernährungsberatung mit deinen Daten</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Julio kennt dein Kalorienziel, deine Vorlieben und Allergien. Er schlägt vor, was du essen solltest.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Schlaf-Tipps basierend auf deinen Mustern</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Er analysiert deine Schlafhistorie und gibt dir konkrete Tipps für bessere Erholung.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Natürliche Sprache</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Kein Menü-Klicken. Schreib einfach was du willst — Julio versteht dich.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="flex-1 flex justify-center reveal">
+            <div class="w-full max-w-[300px] aspect-[9/16] rounded-[2.5rem] bg-flexen-dark-mid border border-white/5 shadow-2xl shadow-flexen-accent/5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: Food AI -->
+  <section class="section" id="food-ai">
+    <div class="container">
+      <div class="content">
+        <div class="flex flex-col md:flex-row-reverse gap-16 items-center">
+          <div class="flex-1 reveal">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-success/20 text-success mb-4">{de.features.foodAI.badge}</span>
+            <h2 class="text-[length:var(--text-h2)] font-bold mb-4">{de.features.foodAI.title}</h2>
+            <p class="text-secondary text-[length:var(--text-body)] mb-8">{de.features.foodAI.description}</p>
+            <ul class="space-y-4 stagger-children">
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Über 10.000 Lebensmittel</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Unsere KI erkennt Gerichte, einzelne Zutaten und sogar zusammengestellte Teller mit ca. 90% Genauigkeit.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Barcode-Scanner</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Verpackte Produkte einfach scannen — Nährwerte werden automatisch aus unserer Datenbank geladen.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Lernt aus deinen Korrekturen</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Korrigierst du ein Ergebnis, merkt sich die KI das. Je öfter du sie nutzt, desto genauer wird sie.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Automatische Makro-Berechnung</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Kalorien, Protein, Kohlenhydrate, Fett — alles wird sofort berechnet und in dein Tagesprotokoll eingetragen.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="flex-1 flex justify-center reveal">
+            <div class="w-full max-w-[300px] aspect-[9/16] rounded-[2.5rem] bg-flexen-dark-mid border border-white/5 shadow-2xl shadow-success/5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: Training -->
+  <section class="section" id="training">
+    <div class="container">
+      <div class="content">
+        <div class="flex flex-col md:flex-row gap-16 items-center">
+          <div class="flex-1 reveal">
+            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-flexen-accent/20 text-flexen-accent mb-4">{de.features.training.badge}</span>
+            <h2 class="text-[length:var(--text-h2)] font-bold mb-4">{de.features.training.title}</h2>
+            <p class="text-secondary text-[length:var(--text-body)] mb-8">{de.features.training.description}</p>
+            <ul class="space-y-4 stagger-children">
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Progressive Overload automatisch</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Julio erhöht Gewicht und Volumen basierend auf deinem Fortschritt — du musst nicht selbst rechnen.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Eingebauter Timer</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Satz-Timer und Pausenzeiten laufen automatisch. Vibration wenn die nächste Übung dran ist.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Übungsanleitungen mit Videos</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Jede Übung wird erklärt — mit korrekter Ausführung und typischen Fehlern.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Flexibel bei Equipment</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Gym, Homegym oder Bodyweight — Julio passt den Plan an das an, was dir zur Verfügung steht.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="flex-1 flex justify-center reveal">
+            <div class="w-full max-w-[300px] aspect-[9/16] rounded-[2.5rem] bg-flexen-dark-mid border border-white/5 shadow-2xl shadow-flexen-accent/5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: Sleep -->
+  <section class="section" id="sleep">
+    <div class="container">
+      <div class="content">
+        <div class="flex flex-col md:flex-row-reverse gap-16 items-center">
+          <div class="flex-1 reveal">
+            <h2 class="text-[length:var(--text-h2)] font-bold mb-4">{de.features.sleep.title}</h2>
+            <p class="text-secondary text-[length:var(--text-body)] mb-8">{de.features.sleep.description}</p>
+            <ul class="space-y-4 stagger-children">
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Automatisches Tracking</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Über Health Connect und HealthKit — kein Wearable nötig, aber kompatibel mit allen gängigen Geräten.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Schlafphasen-Analyse</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Sieh genau, wie viel Tiefschlaf und REM-Schlaf du bekommst — und was das für deine Erholung bedeutet.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Muster erkennen</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Flexen zeigt dir Trends über Wochen und Monate — erkenne, was deinen Schlaf verbessert oder verschlechtert.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="flex-1 flex justify-center reveal">
+            <div class="w-full max-w-[300px] aspect-[9/16] rounded-[2.5rem] bg-flexen-dark-mid border border-white/5 shadow-2xl shadow-purple-500/5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Feature: Journal -->
+  <section class="section" id="journal">
+    <div class="container">
+      <div class="content">
+        <div class="flex flex-col md:flex-row gap-16 items-center">
+          <div class="flex-1 reveal">
+            <h2 class="text-[length:var(--text-h2)] font-bold mb-4">{de.features.journal.title}</h2>
+            <p class="text-secondary text-[length:var(--text-body)] mb-8">{de.features.journal.description}</p>
+            <ul class="space-y-4 stagger-children">
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Spracheingabe</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Sprich einfach drauflos — Flexen wandelt deine Worte in Text um. Journaling ohne tippen.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Stimmungs-Tracking</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Erfasse deine Stimmung mit einem Tap. Sieh über Wochen, wie sich Training und Ernährung auf dein Wohlbefinden auswirken.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Tägliche Schreibimpulse</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Keine Idee was du schreiben sollst? Flexen gibt dir jeden Tag einen neuen Impuls für Reflexion und Achtsamkeit.</p>
+                </div>
+              </li>
+              <li class="flex items-start gap-3 text-secondary">
+                <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
+                <div>
+                  <span class="text-white font-medium">Alles verbunden</span>
+                  <p class="text-[length:var(--text-small)] mt-1">Dein Journal ist verknüpft mit Training, Schlaf und Ernährung. Julio erkennt Zusammenhänge, die du allein nicht siehst.</p>
+                </div>
+              </li>
+            </ul>
+          </div>
+          <div class="flex-1 flex justify-center reveal">
+            <div class="w-full max-w-[300px] aspect-[9/16] rounded-[2.5rem] bg-flexen-dark-mid border border-white/5 shadow-2xl shadow-amber-500/5"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- All Features Overview -->
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-4 reveal">Alles auf einen Blick</h2>
+        <p class="text-secondary text-[length:var(--text-body)] text-center mb-16 reveal">Was in Free und Premium enthalten ist.</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+          <div class="p-6 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
+            <div class="w-10 h-10 rounded-xl gradient-accent flex items-center justify-center mb-4 text-white font-bold">J</div>
+            <h3 class="font-semibold text-lg mb-2">KI-Coach Julio</h3>
+            <p class="text-secondary text-[length:var(--text-small)]">Unbegrenzte Anfragen mit Premium. 3 pro Tag in Free.</p>
+          </div>
+          <div class="p-6 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
+            <div class="w-10 h-10 rounded-xl bg-success/20 flex items-center justify-center mb-4 text-success font-bold">F</div>
+            <h3 class="font-semibold text-lg mb-2">Foto-Essenserkennung</h3>
+            <p class="text-secondary text-[length:var(--text-small)]">KI-gestützt in Premium. Manuelles Logging in Free.</p>
+          </div>
+          <div class="p-6 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
+            <div class="w-10 h-10 rounded-xl bg-flexen-accent/20 flex items-center justify-center mb-4 text-flexen-accent font-bold">T</div>
+            <h3 class="font-semibold text-lg mb-2">Trainingspläne</h3>
+            <p class="text-secondary text-[length:var(--text-small)]">Unbegrenzte Pläne in Premium. 1 aktiver Plan in Free.</p>
+          </div>
+          <div class="p-6 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
+            <div class="w-10 h-10 rounded-xl bg-purple-500/20 flex items-center justify-center mb-4 text-purple-400 font-bold">S</div>
+            <h3 class="font-semibold text-lg mb-2">Schlaf-Tracking</h3>
+            <p class="text-secondary text-[length:var(--text-small)]">Erweiterte Analysen in Premium. Basis-Tracking in Free.</p>
+          </div>
+          <div class="p-6 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
+            <div class="w-10 h-10 rounded-xl bg-amber-500/20 flex items-center justify-center mb-4 text-amber-400 font-bold">M</div>
+            <h3 class="font-semibold text-lg mb-2">Journal & Mental Health</h3>
+            <p class="text-secondary text-[length:var(--text-small)]">Voice-Journal und Impulse in Premium. Basis-Journal in Free.</p>
+          </div>
+          <div class="p-6 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
+            <div class="w-10 h-10 rounded-xl bg-rose-500/20 flex items-center justify-center mb-4 text-rose-400 font-bold">+</div>
+            <h3 class="font-semibold text-lg mb-2">Keine Werbung</h3>
+            <p class="text-secondary text-[length:var(--text-small)]">Premium ist komplett werbefrei. Deine Daten werden nie verkauft.</p>
+          </div>
+        </div>
+        <div class="text-center mt-12 reveal">
+          <a
+            href="/de/#pricing"
+            class="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white/10 text-white/80 font-medium hover:bg-white/5 transition-colors"
+          >
+            Preise vergleichen
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section gradient-hero">
+    <div class="container">
+      <div class="content text-center">
+        <h2 class="text-[length:var(--text-h1)] font-bold mb-6 reveal">{de.finalCta.headline}</h2>
+        <p class="text-secondary text-[length:var(--text-body)] mx-auto mb-8 reveal">{de.finalCta.subline}</p>
+        <a href="#" class="btn-glow inline-flex items-center justify-center px-10 py-4 rounded-xl gradient-accent text-white font-semibold text-lg transition-transform hover:scale-[1.02] active:scale-[0.97] reveal">{de.finalCta.cta}</a>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>

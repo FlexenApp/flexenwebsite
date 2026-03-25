@@ -1,0 +1,22 @@
+---
+interface Props {
+  value: string
+  suffix?: string
+  label: string
+  class?: string
+}
+
+const { value, suffix = '', label, class: className = '' } = Astro.props
+---
+
+<div class:list={['text-center', className]}>
+  <span
+    class="text-[length:var(--text-h1)] font-bold text-flexen-accent block font-heading tabular-nums"
+    data-count-target={value}
+    data-count-suffix={suffix}
+    aria-label={`${value}${suffix}`}
+  >
+    {value}{suffix}
+  </span>
+  <span class="text-secondary text-[length:var(--text-body)] mt-1 block">{label}</span>
+</div>

@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "title": "Flexen — AI Coach for Fitness, Nutrition & Wellbeing",
+    "description": "Flexen uses AI for personalized meal plans, workout tracking and automatic calorie counting. For iOS & Android. Start free today."
+  },
+  "nav": {
+    "features": "Features",
+    "pricing": "Pricing",
+    "blog": "Blog",
+    "cta": "Start for free"
+  },
+  "hero": {
+    "headline": "Your AI coach for fitness, nutrition & wellbeing",
+    "subline": "Snap a photo of your meal, let Julio build your workout plan, and sleep better — all in one app. No more manual tracking.",
+    "cta": "Start my free training",
+    "ctaSecondary": "Explore features",
+    "microcopy": "No credit card required · Cancel anytime",
+    "socialProof": "★★★★★ 4.8 from 1,200+ reviews"
+  },
+  "dayStory": {
+    "sectionTitle": "A day with Flexen",
+    "morning": {
+      "time": "7:00 AM",
+      "title": "Good morning. Your sleep score is ready.",
+      "description": "Flexen analyzes your sleep automatically via Health Connect. No wearable needed. See how rested you are instantly — and what you can improve today."
+    },
+    "breakfast": {
+      "time": "8:30 AM",
+      "title": "Snap a photo. Know your calories.",
+      "description": "Tired of weighing every single ingredient? Take a photo of your breakfast. Flexen's AI identifies food in under 2 seconds and logs calories and macros automatically."
+    },
+    "training": {
+      "time": "12:00 PM",
+      "title": "Your plan. Your pace. Your coach.",
+      "description": "Tell Julio what you want to train. He builds your plan — with timers, sets and rest periods. Personalized to your level, your goals and your equipment."
+    },
+    "evening": {
+      "time": "8:00 PM",
+      "title": "Say it out loud. Julio listens.",
+      "description": "Long day? Capture your thoughts with voice input. Flexen converts your voice to text — your journal, without typing a single word."
+    },
+    "night": {
+      "time": "11:00 PM",
+      "title": "Sleep well. Flexen's got you.",
+      "description": "Sleep tracking starts automatically. Tomorrow morning you'll know how deep you slept. Good night."
+    }
+  },
+  "features": {
+    "sectionTitle": "Everything you need. Nothing you don't.",
+    "sectionSubtitle": "Nutrition, training, sleep, mental health — one app instead of five.",
+    "julio": {
+      "title": "Julio — Your personal AI coach",
+      "description": "Julio isn't a chatbot. He knows your data, your goals, your routine. Ask him what to eat, get a custom workout plan, or get tips for better sleep. In real time.",
+      "badge": "AI-Powered"
+    },
+    "foodAI": {
+      "title": "Snap a photo instead of typing",
+      "description": "Pull out your phone, take a photo, done. Flexen's AI recognizes your food and calculates calories and macros automatically. Plus: barcode scanner for packaged foods.",
+      "badge": "Saves 12 min/meal"
+    },
+    "training": {
+      "title": "Workout plans that adapt",
+      "description": "No generic cookie-cutter plan. Julio creates workouts based on your progress, equipment and available time. With built-in timer and exercise guides.",
+      "badge": "Personalized"
+    },
+    "sleep": {
+      "title": "Understand your sleep. Improve your sleep.",
+      "description": "Automatic sleep tracking via Health Connect. See your sleep phases, spot patterns, and finally understand why you wake up tired."
+    },
+    "journal": {
+      "title": "Your mind needs training too",
+      "description": "Journal with voice input, mood tracking and daily writing prompts. Because fitness doesn't just happen at the gym."
+    }
+  },
+  "socialProof": {
+    "sectionTitle": "Thousands use Flexen. Every day.",
+    "stats": [
+      { "value": "12000", "suffix": "+", "label": "Active users" },
+      { "value": "850000", "suffix": "+", "label": "Meals tracked" },
+      { "value": "45000", "suffix": "+", "label": "Workouts completed" }
+    ],
+    "testimonials": [
+      {
+        "name": "Sarah M.",
+        "role": "Working mom, 2 kids",
+        "text": "I don't have time to log every single calorie. With Flexen I just take a photo and I'm done. Saves me at least 15 minutes every day.",
+        "result": "Lost 17 lbs in 12 weeks"
+      },
+      {
+        "name": "Marco T.",
+        "role": "Student, powerlifter",
+        "text": "Julio built me a better training plan than my gym buddy who's been lifting for 5 years. And the plan adjusts every week.",
+        "result": "12% strength increase in 8 weeks"
+      },
+      {
+        "name": "Lisa K.",
+        "role": "Yoga instructor",
+        "text": "Finally an app that's not just about the gym. The journal and sleep tracking helped me improve my entire routine.",
+        "result": "32% better sleep quality"
+      }
+    ]
+  },
+  "pricing": {
+    "sectionTitle": "Find your plan",
+    "sectionSubtitle": "Start free. Upgrade when you're ready.",
+    "toggle": {
+      "monthly": "Monthly",
+      "yearly": "Yearly",
+      "yearlyBadge": "Save 40%"
+    },
+    "free": {
+      "name": "Free",
+      "subtitle": "To get started",
+      "price": "0",
+      "period": "Forever",
+      "cta": "Get started free",
+      "features": [
+        "Basic nutrition & workout tracking",
+        "3 AI queries per day with Julio",
+        "Manual food logging",
+        "1 active workout plan",
+        "Sleep tracking",
+        "Basic journal"
+      ]
+    },
+    "premium": {
+      "name": "Premium",
+      "subtitle": "For maximum results",
+      "priceMonthly": "9.99",
+      "priceYearly": "5.99",
+      "period": "/month",
+      "cta": "Try 7 days free",
+      "popular": "Most popular",
+      "features": [
+        "Everything in Free",
+        "Unlimited AI access with Julio",
+        "AI food recognition via photo",
+        "Unlimited workout plans",
+        "Advanced sleep analytics",
+        "Voice journal & writing prompts",
+        "Personalized recommendations",
+        "Ad-free experience"
+      ]
+    },
+    "guarantee": "30-day money-back guarantee · Cancel anytime"
+  },
+  "faq": {
+    "sectionTitle": "Frequently asked questions",
+    "items": [
+      {
+        "question": "Is Flexen really free?",
+        "answer": "Yes. The basic version is free forever — no trial period, no catch. Premium unlocks advanced AI features and unlimited usage."
+      },
+      {
+        "question": "How accurate is the AI food recognition?",
+        "answer": "Flexen's AI recognizes over 10,000 foods with approximately 90% accuracy. You can always correct results, and the AI learns from your corrections."
+      },
+      {
+        "question": "Who is Julio?",
+        "answer": "Julio is Flexen's AI coach. He's not a simple chatbot — he has access to all your data and can take action: create workout plans, give nutrition advice, and answer your questions."
+      },
+      {
+        "question": "Do I need a wearable for sleep tracking?",
+        "answer": "No. Flexen uses Health Connect on Android and HealthKit on iOS. If you have a wearable, data syncs automatically. Without one, you can track sleep manually."
+      },
+      {
+        "question": "Does Flexen work on iOS and Android?",
+        "answer": "Yes, Flexen is available on both platforms. Download the app from the App Store or Google Play Store."
+      },
+      {
+        "question": "Can I cancel Premium anytime?",
+        "answer": "Absolutely. Cancel anytime — directly in the app or through your app store. No hidden fees, no tricks."
+      },
+      {
+        "question": "Is my data sold to third parties?",
+        "answer": "Never. Your health data belongs to you. We don't sell user data and never will. Learn more in our privacy policy."
+      },
+      {
+        "question": "What makes Flexen different from MyFitnessPal or Noom?",
+        "answer": "Flexen is the only app that combines an AI coach, photo food recognition, workout planning, sleep tracking and journaling in one app. Others do one thing — Flexen does it all."
+      },
+      {
+        "question": "Are there family or group features?",
+        "answer": "We currently offer friend codes and nudges to motivate your friends. Family plans are on our roadmap."
+      },
+      {
+        "question": "What languages is Flexen available in?",
+        "answer": "Flexen is currently available in German and English. More languages are coming."
+      }
+    ]
+  },
+  "finalCta": {
+    "headline": "Ready for your first day?",
+    "subline": "Start free. No subscription required. Julio's waiting.",
+    "cta": "Download Flexen now"
+  },
+  "footer": {
+    "product": {
+      "title": "Product",
+      "features": "Features",
+      "pricing": "Pricing",
+      "blog": "Blog"
+    },
+    "company": {
+      "title": "Company",
+      "about": "About us",
+      "careers": "Careers",
+      "press": "Press"
+    },
+    "legal": {
+      "title": "Legal",
+      "imprint": "Imprint",
+      "privacy": "Privacy Policy",
+      "terms": "Terms of Service",
+      "cookies": "Cookie Settings"
+    },
+    "social": {
+      "title": "Social"
+    },
+    "copyright": "© 2026 Flexen. All rights reserved.",
+    "madeWith": "Built with ❤️ in Germany"
+  }
+}

@@ -1,0 +1,229 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getFAQSchema, getBreadcrumbSchema } from '../../lib/seo'
+import en from '../../i18n/en.json'
+
+const faqSchema = getFAQSchema(en.faq.items)
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: 'https://flexen.app/en/' },
+  { name: 'Pricing', url: 'https://flexen.app/en/pricing' },
+])
+---
+
+<BaseLayout
+  title="Pricing — Flexen"
+  description="Use Flexen for free or unlock Premium: unlimited AI, food recognition, advanced analytics. From $5.99/month."
+  locale="en"
+  canonicalPath="/en/pricing"
+  schema={[faqSchema, breadcrumbSchema]}
+>
+  <!-- Hero -->
+  <section class="section gradient-hero pt-32 pb-12">
+    <div class="container">
+      <div class="content text-center">
+        <h1 class="text-[length:var(--text-h1)] font-bold mb-4 reveal">
+          {en.pricing.sectionTitle}
+        </h1>
+        <p class="text-secondary text-[length:var(--text-body)] mx-auto mb-12 max-w-2xl reveal">
+          {en.pricing.sectionSubtitle}
+        </p>
+
+        <!-- Billing Toggle -->
+        <div class="flex items-center justify-center gap-4 mb-16 reveal" id="billing-toggle">
+          <span class="text-[length:var(--text-body)] font-medium transition-colors duration-300 text-tertiary" data-toggle-label="monthly">
+            {en.pricing.toggle.monthly}
+          </span>
+          <button
+            type="button"
+            class="relative w-16 h-8 rounded-full gradient-accent p-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-flexen-accent/50"
+            id="toggle-switch"
+            aria-label="Switch billing period"
+            data-active="yearly"
+          >
+            <span class="block w-6 h-6 rounded-full bg-white transition-transform duration-300 translate-x-8" id="toggle-knob"></span>
+          </button>
+          <span class="text-[length:var(--text-body)] font-medium transition-colors duration-300 text-white" data-toggle-label="yearly">
+            {en.pricing.toggle.yearly}
+          </span>
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold gradient-accent text-white">
+            {en.pricing.toggle.yearlyBadge}
+          </span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Cards -->
+  <section class="section pt-0">
+    <div class="container">
+      <div class="content">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto stagger-children">
+          <!-- Free Plan -->
+          <div class="p-8 rounded-2xl gradient-card border border-white/5 card-hover text-left flex flex-col">
+            <h2 class="text-[length:var(--text-h3)] font-bold mb-1">{en.pricing.free.name}</h2>
+            <p class="text-tertiary mb-6">{en.pricing.free.subtitle}</p>
+            <div class="mb-6">
+              <span class="text-[length:var(--text-h1)] font-bold">${en.pricing.free.price}</span>
+              <span class="text-tertiary ml-2">{en.pricing.free.period}</span>
+            </div>
+            <a
+              href="#"
+              class="block w-full text-center py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-white/5 transition-colors mb-8"
+            >
+              {en.pricing.free.cta}
+            </a>
+            <ul class="space-y-3 flex-1">
+              {en.pricing.free.features.map((f) => (
+                <li class="flex items-start gap-3 text-secondary">
+                  <span class="text-success mt-0.5 shrink-0">&#10003;</span>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          <!-- Premium Plan -->
+          <div class="p-8 rounded-2xl border-2 border-flexen-accent relative gradient-card card-hover text-left flex flex-col">
+            <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-semibold gradient-accent text-white">
+              {en.pricing.premium.popular}
+            </span>
+            <h2 class="text-[length:var(--text-h3)] font-bold mb-1">{en.pricing.premium.name}</h2>
+            <p class="text-tertiary mb-6">{en.pricing.premium.subtitle}</p>
+            <div class="mb-6">
+              <span
+                class="text-[length:var(--text-h1)] font-bold"
+                id="premium-price"
+                data-price-monthly={en.pricing.premium.priceMonthly}
+                data-price-yearly={en.pricing.premium.priceYearly}
+                data-currency="$"
+              >
+                ${en.pricing.premium.priceYearly}
+              </span>
+              <span class="text-tertiary ml-2">{en.pricing.premium.period}</span>
+            </div>
+            <div class="mb-8">
+              <span class="text-tertiary text-[length:var(--text-small)] line-through" id="premium-compare">
+                ${en.pricing.premium.priceMonthly}/month
+              </span>
+            </div>
+            <a
+              href="#"
+              class="btn-glow block w-full text-center py-3 rounded-xl gradient-accent text-white font-semibold hover:scale-[1.02] active:scale-[0.97] transition-transform mb-8"
+            >
+              {en.pricing.premium.cta}
+            </a>
+            <ul class="space-y-3 flex-1">
+              {en.pricing.premium.features.map((f) => (
+                <li class="flex items-start gap-3 text-secondary">
+                  <span class="text-success mt-0.5 shrink-0">&#10003;</span>
+                  <span>{f}</span>
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+
+        <!-- Guarantee -->
+        <p class="text-center text-tertiary mt-8 reveal">
+          <svg class="inline-block w-5 h-5 mr-2 text-success align-text-bottom" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+          </svg>
+          {en.pricing.guarantee}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container">
+      <div class="content max-w-3xl mx-auto">
+        <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-16 reveal">
+          {en.faq.sectionTitle}
+        </h2>
+        <div class="space-y-4 stagger-children">
+          {en.faq.items.map((item) => (
+            <details class="group p-6 rounded-2xl gradient-card border border-white/5 cursor-pointer">
+              <summary class="flex items-center justify-between font-semibold text-[length:var(--text-body)] list-none">
+                {item.question}
+                <span class="text-flexen-accent transition-transform group-open:rotate-45 text-xl">+</span>
+              </summary>
+              <p class="text-secondary text-[length:var(--text-body)] mt-4 pt-4 border-t border-white/5">
+                {item.answer}
+              </p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section gradient-hero">
+    <div class="container">
+      <div class="content text-center">
+        <h2 class="text-[length:var(--text-h1)] font-bold mb-6 reveal">
+          {en.finalCta.headline}
+        </h2>
+        <p class="text-secondary text-[length:var(--text-body)] mx-auto mb-8 reveal">
+          {en.finalCta.subline}
+        </p>
+        <a
+          href="#"
+          class="btn-glow inline-flex items-center justify-center px-10 py-4 rounded-xl gradient-accent text-white font-semibold text-lg transition-transform hover:scale-[1.02] active:scale-[0.97] reveal"
+        >
+          {en.finalCta.cta}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Pricing Toggle Script -->
+  <script>
+    function initPricingToggle() {
+      const toggleSwitch = document.getElementById('toggle-switch')
+      const toggleKnob = document.getElementById('toggle-knob')
+      const premiumPrice = document.getElementById('premium-price')
+      const premiumCompare = document.getElementById('premium-compare')
+      const monthlyLabel = document.querySelector('[data-toggle-label="monthly"]')
+      const yearlyLabel = document.querySelector('[data-toggle-label="yearly"]')
+
+      if (!toggleSwitch || !toggleKnob || !premiumPrice) return
+
+      const currency = premiumPrice.dataset.currency || '$'
+
+      function setYearly() {
+        toggleSwitch.dataset.active = 'yearly'
+        toggleKnob.style.transform = 'translateX(2rem)'
+        premiumPrice.textContent = currency + premiumPrice.dataset.priceYearly
+        if (premiumCompare) premiumCompare.style.display = ''
+        if (monthlyLabel) monthlyLabel.classList.replace('text-white', 'text-tertiary')
+        if (yearlyLabel) yearlyLabel.classList.replace('text-tertiary', 'text-white')
+      }
+
+      function setMonthly() {
+        toggleSwitch.dataset.active = 'monthly'
+        toggleKnob.style.transform = 'translateX(0)'
+        premiumPrice.textContent = currency + premiumPrice.dataset.priceMonthly
+        if (premiumCompare) premiumCompare.style.display = 'none'
+        if (monthlyLabel) monthlyLabel.classList.replace('text-tertiary', 'text-white')
+        if (yearlyLabel) yearlyLabel.classList.replace('text-white', 'text-tertiary')
+      }
+
+      toggleSwitch.addEventListener('click', () => {
+        if (toggleSwitch.dataset.active === 'yearly') {
+          setMonthly()
+        } else {
+          setYearly()
+        }
+      })
+
+      // Default to yearly
+      setYearly()
+    }
+
+    // Run on load and after Astro page transitions
+    initPricingToggle()
+    document.addEventListener('astro:after-swap', initPricingToggle)
+  </script>
+</BaseLayout>

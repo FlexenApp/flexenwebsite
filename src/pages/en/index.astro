@@ -1,0 +1,170 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getAppSchema } from '../../lib/seo'
+import en from '../../i18n/en.json'
+
+const schema = getAppSchema()
+---
+
+<BaseLayout title={en.meta.title} description={en.meta.description} locale="en" canonicalPath="/en/" schema={schema}>
+  <section class="section gradient-hero min-h-screen flex items-center">
+    <div class="container"><div class="content text-center">
+      <h1 class="text-[length:var(--text-hero)] font-bold mb-6 reveal">{en.hero.headline}</h1>
+      <p class="text-secondary text-[length:var(--text-body)] mx-auto mb-8 reveal">{en.hero.subline}</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 reveal">
+        <a href="#" class="btn-glow inline-flex items-center justify-center px-8 py-4 rounded-xl gradient-accent text-white font-semibold text-lg transition-transform hover:scale-[1.02] active:scale-[0.97]">{en.hero.cta}</a>
+        <a href="/en/features" class="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white/10 text-white/80 font-medium hover:bg-white/5 transition-colors">{en.hero.ctaSecondary}</a>
+      </div>
+      <p class="text-tertiary text-[length:var(--text-small)] reveal">{en.hero.microcopy}</p>
+      <p class="text-secondary text-[length:var(--text-small)] mt-4 reveal">{en.hero.socialProof}</p>
+    </div></div>
+  </section>
+
+  <!-- Day Story Section -->
+  <section class="section" id="day-story">
+    <div class="container"><div class="content">
+      <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-16 reveal">{en.dayStory.sectionTitle}</h2>
+      <div class="space-y-24">
+        {[en.dayStory.morning, en.dayStory.breakfast, en.dayStory.training, en.dayStory.evening, en.dayStory.night].map((scene, i) => (
+          <div class={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center reveal`}>
+            <div class="flex-1">
+              <span class="text-flexen-accent font-mono text-[length:var(--text-small)] mb-2 block">{scene.time}</span>
+              <h3 class="text-[length:var(--text-h3)] font-bold mb-4">{scene.title}</h3>
+              <p class="text-secondary text-[length:var(--text-body)]">{scene.description}</p>
+            </div>
+            <div class="flex-1 aspect-[9/16] max-w-[300px] rounded-3xl bg-flexen-dark-mid border border-white/5"></div>
+          </div>
+        ))}
+      </div>
+    </div></div>
+  </section>
+
+  <!-- Features Bento Grid -->
+  <section class="section" id="features">
+    <div class="container"><div class="content">
+      <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-4 reveal">{en.features.sectionTitle}</h2>
+      <p class="text-secondary text-[length:var(--text-body)] text-center mb-16 reveal">{en.features.sectionSubtitle}</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
+        <div class="md:col-span-2 lg:col-span-2 p-8 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-medium gradient-accent text-white mb-4">{en.features.julio.badge}</span>
+          <h3 class="text-[length:var(--text-h3)] font-bold mb-3">{en.features.julio.title}</h3>
+          <p class="text-secondary text-[length:var(--text-body)]">{en.features.julio.description}</p>
+        </div>
+        <div class="p-8 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-success/20 text-success mb-4">{en.features.foodAI.badge}</span>
+          <h3 class="text-[length:var(--text-h3)] font-bold mb-3">{en.features.foodAI.title}</h3>
+          <p class="text-secondary text-[length:var(--text-body)]">{en.features.foodAI.description}</p>
+        </div>
+        <div class="p-8 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
+          <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-flexen-accent/20 text-flexen-accent mb-4">{en.features.training.badge}</span>
+          <h3 class="text-[length:var(--text-h3)] font-bold mb-3">{en.features.training.title}</h3>
+          <p class="text-secondary text-[length:var(--text-body)]">{en.features.training.description}</p>
+        </div>
+        <div class="p-8 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
+          <h3 class="text-[length:var(--text-h3)] font-bold mb-3">{en.features.sleep.title}</h3>
+          <p class="text-secondary text-[length:var(--text-body)]">{en.features.sleep.description}</p>
+        </div>
+        <div class="p-8 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
+          <h3 class="text-[length:var(--text-h3)] font-bold mb-3">{en.features.journal.title}</h3>
+          <p class="text-secondary text-[length:var(--text-body)]">{en.features.journal.description}</p>
+        </div>
+      </div>
+    </div></div>
+  </section>
+
+  <!-- Social Proof -->
+  <section class="section" id="social-proof">
+    <div class="container"><div class="content">
+      <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-16 reveal">{en.socialProof.sectionTitle}</h2>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 stagger-children">
+        {en.socialProof.stats.map((stat) => (
+          <div class="text-center">
+            <span class="text-[length:var(--text-h1)] font-bold text-flexen-accent block" data-count-target={stat.value} data-count-suffix={stat.suffix}>{stat.value}{stat.suffix}</span>
+            <span class="text-secondary text-[length:var(--text-body)]">{stat.label}</span>
+          </div>
+        ))}
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
+        {en.socialProof.testimonials.map((testimonial) => (
+          <div class="p-8 rounded-2xl gradient-card border border-white/5 card-hover">
+            <p class="text-secondary text-[length:var(--text-body)] mb-6 italic">&ldquo;{testimonial.text}&rdquo;</p>
+            <div class="flex items-center justify-between">
+              <div>
+                <span class="font-semibold block">{testimonial.name}</span>
+                <span class="text-tertiary text-[length:var(--text-small)]">{testimonial.role}</span>
+              </div>
+              <span class="text-flexen-accent font-semibold text-[length:var(--text-small)]">{testimonial.result}</span>
+            </div>
+          </div>
+        ))}
+      </div>
+    </div></div>
+  </section>
+
+  <!-- Pricing -->
+  <section class="section" id="pricing">
+    <div class="container"><div class="content">
+      <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-4 reveal">{en.pricing.sectionTitle}</h2>
+      <p class="text-secondary text-[length:var(--text-body)] text-center mb-16 reveal">{en.pricing.sectionSubtitle}</p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto stagger-children">
+        <div class="p-8 rounded-2xl gradient-card border border-white/5">
+          <h3 class="text-[length:var(--text-h3)] font-bold mb-1">{en.pricing.free.name}</h3>
+          <p class="text-tertiary mb-6">{en.pricing.free.subtitle}</p>
+          <div class="mb-6">
+            <span class="text-[length:var(--text-h1)] font-bold">${en.pricing.free.price}</span>
+            <span class="text-tertiary ml-2">{en.pricing.free.period}</span>
+          </div>
+          <a href="#" class="block w-full text-center py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-white/5 transition-colors mb-8">{en.pricing.free.cta}</a>
+          <ul class="space-y-3">
+            {en.pricing.free.features.map((f) => (
+              <li class="flex items-start gap-3 text-secondary"><span class="text-success mt-0.5">&#10003;</span><span>{f}</span></li>
+            ))}
+          </ul>
+        </div>
+        <div class="p-8 rounded-2xl border-2 border-flexen-accent relative gradient-card">
+          <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-semibold gradient-accent text-white">{en.pricing.premium.popular}</span>
+          <h3 class="text-[length:var(--text-h3)] font-bold mb-1">{en.pricing.premium.name}</h3>
+          <p class="text-tertiary mb-6">{en.pricing.premium.subtitle}</p>
+          <div class="mb-6">
+            <span class="text-[length:var(--text-h1)] font-bold">${en.pricing.premium.priceMonthly}</span>
+            <span class="text-tertiary ml-2">{en.pricing.premium.period}</span>
+          </div>
+          <a href="#" class="btn-glow block w-full text-center py-3 rounded-xl gradient-accent text-white font-semibold hover:scale-[1.02] active:scale-[0.97] transition-transform mb-8">{en.pricing.premium.cta}</a>
+          <ul class="space-y-3">
+            {en.pricing.premium.features.map((f) => (
+              <li class="flex items-start gap-3 text-secondary"><span class="text-success mt-0.5">&#10003;</span><span>{f}</span></li>
+            ))}
+          </ul>
+        </div>
+      </div>
+      <p class="text-center text-tertiary mt-8 reveal">{en.pricing.guarantee}</p>
+    </div></div>
+  </section>
+
+  <!-- FAQ -->
+  <section class="section" id="faq">
+    <div class="container"><div class="content max-w-3xl mx-auto">
+      <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-16 reveal">{en.faq.sectionTitle}</h2>
+      <div class="space-y-4 stagger-children">
+        {en.faq.items.map((item) => (
+          <details class="group p-6 rounded-2xl gradient-card border border-white/5 cursor-pointer">
+            <summary class="flex items-center justify-between font-semibold text-[length:var(--text-body)] list-none">
+              {item.question}
+              <span class="text-flexen-accent transition-transform group-open:rotate-45 text-xl">+</span>
+            </summary>
+            <p class="text-secondary text-[length:var(--text-body)] mt-4 pt-4 border-t border-white/5">{item.answer}</p>
+          </details>
+        ))}
+      </div>
+    </div></div>
+  </section>
+
+  <!-- Final CTA -->
+  <section class="section gradient-hero">
+    <div class="container"><div class="content text-center">
+      <h2 class="text-[length:var(--text-h1)] font-bold mb-6 reveal">{en.finalCta.headline}</h2>
+      <p class="text-secondary text-[length:var(--text-body)] mx-auto mb-8 reveal">{en.finalCta.subline}</p>
+      <a href="#" class="btn-glow inline-flex items-center justify-center px-10 py-4 rounded-xl gradient-accent text-white font-semibold text-lg transition-transform hover:scale-[1.02] active:scale-[0.97] reveal">{en.finalCta.cta}</a>
+    </div></div>
+  </section>
+</BaseLayout>

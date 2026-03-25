@@ -1,0 +1,31 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro'
+import de from '../../../i18n/de.json'
+---
+
+<BaseLayout
+  title="Blog — Flexen"
+  description="Tipps zu Fitness, Ern&auml;hrung, Schlaf und KI. Der Flexen Blog."
+  locale="de"
+  canonicalPath="/de/blog"
+>
+  <section class="section">
+    <div class="container">
+      <div class="content">
+        <h1 class="text-[length:var(--text-h1)] font-bold mb-4 font-heading reveal">Blog</h1>
+        <p class="text-secondary text-[length:var(--text-body)] mb-16 reveal">
+          Tipps, Guides und Insights zu Fitness, Ern&auml;hrung und KI.
+        </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Blog posts will be rendered here once content exists -->
+          <div class="p-8 rounded-2xl gradient-card border border-white/5 text-center col-span-full">
+            <p class="text-tertiary text-[length:var(--text-body)]">
+              Bald erscheinen hier unsere ersten Artikel. Bleib dran!
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

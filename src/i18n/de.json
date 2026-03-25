@@ -1,0 +1,223 @@
+{
+  "meta": {
+    "title": "Flexen — KI-Coach für Fitness, Ernährung & Wohlbefinden",
+    "description": "Flexen nutzt KI für personalisierte Ernährungspläne, Workout-Tracking und automatische Kalorienzählung. Für iOS & Android. Jetzt kostenlos starten."
+  },
+  "nav": {
+    "features": "Features",
+    "pricing": "Preise",
+    "blog": "Blog",
+    "cta": "Kostenlos starten"
+  },
+  "hero": {
+    "headline": "Dein KI-Coach für Fitness, Ernährung & Wohlbefinden",
+    "subline": "Fotografiere dein Essen, lass Julio deinen Trainingsplan bauen und schlaf besser — alles in einer App. Kein manuelles Eintragen mehr.",
+    "cta": "Mein kostenloses Training starten",
+    "ctaSecondary": "Features entdecken",
+    "microcopy": "Keine Kreditkarte nötig · Jederzeit kündbar",
+    "socialProof": "★★★★★ 4.8 aus 1.200+ Bewertungen"
+  },
+  "dayStory": {
+    "sectionTitle": "Ein Tag mit Flexen",
+    "morning": {
+      "time": "07:00",
+      "title": "Guten Morgen. Dein Schlaf-Score ist da.",
+      "description": "Flexen analysiert deinen Schlaf automatisch über Health Connect. Kein Wearable nötig. Du siehst sofort, wie erholt du bist — und was du heute besser machen kannst."
+    },
+    "breakfast": {
+      "time": "08:30",
+      "title": "Foto machen. Kalorien wissen.",
+      "description": "Keine Lust, jede Zutat einzeln abzuwiegen? Fotografiere dein Frühstück. Flexens KI erkennt Lebensmittel in unter 2 Sekunden und trägt Kalorien und Makros automatisch ein."
+    },
+    "training": {
+      "time": "12:00",
+      "title": "Dein Plan. Dein Tempo. Dein Coach.",
+      "description": "Sag Julio was du trainieren willst. Er baut dir den Plan — mit Timer, Sätzen und Pausen. Personalisiert auf dein Level, deine Ziele und dein Equipment."
+    },
+    "evening": {
+      "time": "20:00",
+      "title": "Sprich es aus. Julio hört zu.",
+      "description": "Dein Tag war viel? Halte deine Gedanken per Spracheingabe fest. Flexen wandelt deine Stimme in Text um — dein Journal, ohne tippen zu müssen."
+    },
+    "night": {
+      "time": "23:00",
+      "title": "Schlaf gut. Flexen passt auf.",
+      "description": "Schlaf-Tracking startet automatisch. Morgen früh weißt du, wie tief du geschlafen hast. Gute Nacht."
+    }
+  },
+  "features": {
+    "sectionTitle": "Alles was du brauchst. Nichts, was du nicht brauchst.",
+    "sectionSubtitle": "Ernährung, Training, Schlaf, Mental Health — in einer App statt in fünf.",
+    "julio": {
+      "title": "Julio — Dein persönlicher KI-Coach",
+      "description": "Julio ist kein Chatbot. Er kennt deine Daten, deine Ziele, deinen Alltag. Frag ihn was du essen sollst, lass dir einen Trainingsplan bauen oder hol dir Tipps für besseren Schlaf. In Echtzeit.",
+      "badge": "KI-Powered"
+    },
+    "foodAI": {
+      "title": "Fotografieren statt tippen",
+      "description": "Handy zücken, Foto machen, fertig. Flexens KI erkennt dein Essen und berechnet Kalorien und Makros automatisch. Dazu: Barcode-Scanner für verpackte Lebensmittel.",
+      "badge": "Spart 12 Min/Mahlzeit"
+    },
+    "training": {
+      "title": "Trainingspläne die sich anpassen",
+      "description": "Kein generischer 08/15-Plan. Julio erstellt Workouts basierend auf deinem Fortschritt, deinem Equipment und deiner verfügbaren Zeit. Mit eingebautem Timer und Übungsanleitungen.",
+      "badge": "Personalisiert"
+    },
+    "sleep": {
+      "title": "Schlaf verstehen. Schlaf verbessern.",
+      "description": "Automatisches Schlaf-Tracking über Health Connect. Sieh deine Schlafphasen, erkenne Muster und versteh endlich, warum du morgens müde bist."
+    },
+    "journal": {
+      "title": "Dein Kopf braucht auch Training",
+      "description": "Journal mit Spracheingabe, Stimmungs-Tracking und täglichen Schreibimpulsen. Weil Fitness nicht nur im Gym passiert."
+    }
+  },
+  "socialProof": {
+    "sectionTitle": "Tausende nutzen Flexen. Täglich.",
+    "stats": [
+      { "value": "12000", "suffix": "+", "label": "Aktive Nutzer" },
+      { "value": "850000", "suffix": "+", "label": "Mahlzeiten getrackt" },
+      { "value": "45000", "suffix": "+", "label": "Trainings absolviert" }
+    ],
+    "testimonials": [
+      {
+        "name": "Sarah M.",
+        "role": "Berufstätig, 2 Kinder",
+        "text": "Ich hab keine Zeit jede Kalorie einzutippen. Mit Flexen mach ich ein Foto und fertig. Spart mir jeden Tag mindestens 15 Minuten.",
+        "result": "8 kg in 12 Wochen"
+      },
+      {
+        "name": "Marco T.",
+        "role": "Student, Kraftsportler",
+        "text": "Julio hat mir einen besseren Trainingsplan gebaut als mein Gym-Kumpel der seit 5 Jahren trainiert. Und der Plan passt sich jede Woche an.",
+        "result": "12% mehr Kraftleistung in 8 Wochen"
+      },
+      {
+        "name": "Lisa K.",
+        "role": "Yoga-Lehrerin",
+        "text": "Endlich eine App die nicht nur aufs Gym fokussiert ist. Das Journal und Schlaf-Tracking haben mir geholfen, meine ganze Routine zu verbessern.",
+        "result": "32% bessere Schlafqualität"
+      }
+    ]
+  },
+  "pricing": {
+    "sectionTitle": "Finde deinen Plan",
+    "sectionSubtitle": "Starte kostenlos. Upgrade wenn du bereit bist.",
+    "toggle": {
+      "monthly": "Monatlich",
+      "yearly": "Jährlich",
+      "yearlyBadge": "Spare 40%"
+    },
+    "free": {
+      "name": "Kostenlos",
+      "subtitle": "Für den Einstieg",
+      "price": "0",
+      "period": "Für immer",
+      "cta": "Kostenlos starten",
+      "features": [
+        "Basis-Tracking für Ernährung & Sport",
+        "3 KI-Anfragen pro Tag an Julio",
+        "Manuelles Food-Logging",
+        "1 aktiver Trainingsplan",
+        "Schlaf-Tracking",
+        "Basis-Journal"
+      ]
+    },
+    "premium": {
+      "name": "Premium",
+      "subtitle": "Für maximale Ergebnisse",
+      "priceMonthly": "9,99",
+      "priceYearly": "5,99",
+      "period": "/Monat",
+      "cta": "7 Tage gratis testen",
+      "popular": "Beliebteste Wahl",
+      "features": [
+        "Alles aus Kostenlos",
+        "Unbegrenzte KI-Nutzung mit Julio",
+        "KI-Essenserkennung per Foto",
+        "Unbegrenzte Trainingspläne",
+        "Erweiterte Schlaf-Analysen",
+        "Voice-Journal & Schreibimpulse",
+        "Personalisierte Empfehlungen",
+        "Keine Werbung"
+      ]
+    },
+    "guarantee": "30 Tage Geld-zurück-Garantie · Jederzeit kündbar"
+  },
+  "faq": {
+    "sectionTitle": "Häufige Fragen",
+    "items": [
+      {
+        "question": "Ist Flexen wirklich kostenlos?",
+        "answer": "Ja. Die Basis-Version ist dauerhaft kostenlos — kein Testzeitraum, kein Haken. Premium schaltet erweiterte KI-Features und unbegrenzte Nutzung frei."
+      },
+      {
+        "question": "Wie genau ist die KI-Essenserkennung?",
+        "answer": "Flexens KI erkennt über 10.000 Lebensmittel mit einer Genauigkeit von ca. 90%. Du kannst Ergebnisse jederzeit korrigieren, und die KI lernt aus deinen Korrekturen."
+      },
+      {
+        "question": "Wer ist Julio?",
+        "answer": "Julio ist Flexens KI-Coach. Er ist kein einfacher Chatbot — er hat Zugriff auf all deine Daten und kann aktiv Aktionen ausführen: Trainingspläne erstellen, Ernährungstipps geben und deine Fragen beantworten."
+      },
+      {
+        "question": "Brauche ich ein Wearable für Schlaf-Tracking?",
+        "answer": "Nein. Flexen nutzt Health Connect auf Android und HealthKit auf iOS. Wenn du ein Wearable hast, werden die Daten automatisch synchronisiert. Ohne Wearable kannst du Schlaf manuell tracken."
+      },
+      {
+        "question": "Funktioniert Flexen auf iOS und Android?",
+        "answer": "Ja, Flexen ist für beide Plattformen verfügbar. Lade die App im App Store oder Google Play Store herunter."
+      },
+      {
+        "question": "Kann ich Flexen Premium jederzeit kündigen?",
+        "answer": "Absolut. Du kannst jederzeit kündigen — direkt in der App oder über deinen App Store. Keine versteckten Kosten, keine Tricks."
+      },
+      {
+        "question": "Werden meine Daten verkauft?",
+        "answer": "Niemals. Deine Gesundheitsdaten gehören dir. Wir verkaufen keine Nutzerdaten und werden das auch nie tun. Mehr dazu in unserer Datenschutzerklärung."
+      },
+      {
+        "question": "Was unterscheidet Flexen von MyFitnessPal oder YAZIO?",
+        "answer": "Flexen ist die einzige App die KI-Coach, Essenserkennung per Foto, Trainingsplanung, Schlaf-Tracking und Journal in einer App vereint. Andere Apps machen eins davon — Flexen macht alles."
+      },
+      {
+        "question": "Gibt es eine Familienversion oder Gruppen-Features?",
+        "answer": "Aktuell bieten wir Friend Codes und Nudges an, um Freunde zu motivieren. Familien-Pläne sind für die Zukunft geplant."
+      },
+      {
+        "question": "In welchen Sprachen ist Flexen verfügbar?",
+        "answer": "Flexen ist aktuell auf Deutsch und Englisch verfügbar. Weitere Sprachen folgen."
+      }
+    ]
+  },
+  "finalCta": {
+    "headline": "Bereit für deinen ersten Tag?",
+    "subline": "Kostenlos starten. Kein Abo nötig. Julio wartet schon.",
+    "cta": "Jetzt Flexen laden"
+  },
+  "footer": {
+    "product": {
+      "title": "Produkt",
+      "features": "Features",
+      "pricing": "Preise",
+      "blog": "Blog"
+    },
+    "company": {
+      "title": "Unternehmen",
+      "about": "Über uns",
+      "careers": "Karriere",
+      "press": "Presse"
+    },
+    "legal": {
+      "title": "Rechtliches",
+      "imprint": "Impressum",
+      "privacy": "Datenschutz",
+      "terms": "AGB",
+      "cookies": "Cookie-Einstellungen"
+    },
+    "social": {
+      "title": "Social"
+    },
+    "copyright": "© 2026 Flexen. Alle Rechte vorbehalten.",
+    "madeWith": "Gebaut mit ❤️ in Deutschland"
+  }
+}

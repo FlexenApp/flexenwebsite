@@ -1,0 +1,140 @@
+---
+import { t, localePath, altLocale } from '../../lib/i18n'
+
+interface Props {
+  locale: 'de' | 'en'
+  currentPath?: string
+}
+
+const { locale, currentPath = '' } = Astro.props
+const alt = altLocale(locale)
+const pathWithoutLocale = currentPath.replace(/^\/(de|en)/, '')
+
+const navItems = [
+  { label: t(locale, 'nav.features'), href: localePath(locale, '/features') },
+  { label: t(locale, 'nav.pricing'), href: localePath(locale, locale === 'de' ? '/preise' : '/pricing') },
+  { label: t(locale, 'nav.blog'), href: localePath(locale, '/blog') },
+]
+---
+
+<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+  <div class="container">
+    <div class="flex items-center justify-between h-16 md:h-20">
+      <!-- Logo -->
+      <a href={localePath(locale, '/')} class="flex items-center gap-2 font-heading font-bold text-xl">
+        <span class="text-flexen-accent">F</span>
+        <span>lexen</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center gap-8">
+        {navItems.map((item) => (
+          <a
+            href={item.href}
+            class="text-secondary hover:text-white transition-colors text-sm font-medium"
+          >
+            {item.label}
+          </a>
+        ))}
+
+        <!-- Language Switch -->
+        <a
+          href={`/${alt}${pathWithoutLocale}`}
+          class="text-tertiary hover:text-white transition-colors text-sm font-medium uppercase"
+        >
+          {alt.toUpperCase()}
+        </a>
+
+        <!-- CTA -->
+        <a
+          href="#"
+          class="px-5 py-2.5 rounded-lg gradient-accent text-white text-sm font-semibold transition-transform hover:scale-[1.02] active:scale-[0.97]"
+        >
+          {t(locale, 'nav.cta')}
+        </a>
+      </div>
+
+      <!-- Mobile Menu Button -->
+      <button
+        id="mobile-menu-btn"
+        class="md:hidden flex flex-col gap-1.5 p-2"
+        aria-label="Menu"
+        aria-expanded="false"
+      >
+        <span class="w-6 h-0.5 bg-white transition-transform origin-center" id="hamburger-top"></span>
+        <span class="w-6 h-0.5 bg-white transition-opacity" id="hamburger-mid"></span>
+        <span class="w-6 h-0.5 bg-white transition-transform origin-center" id="hamburger-bot"></span>
+      </button>
+    </div>
+  </div>
+
+  <!-- Mobile Menu -->
+  <div id="mobile-menu" class="md:hidden fixed inset-0 top-16 bg-flexen-dark/95 backdrop-blur-lg -translate-x-full transition-transform duration-300 ease-[var(--ease-default)]">
+    <div class="container py-8 flex flex-col gap-6">
+      {navItems.map((item) => (
+        <a href={item.href} class="text-2xl font-semibold text-secondary hover:text-white transition-colors">
+          {item.label}
+        </a>
+      ))}
+      <hr class="border-white/10" />
+      <a
+        href={`/${alt}${pathWithoutLocale}`}
+        class="text-lg text-tertiary hover:text-white transition-colors uppercase"
+      >
+        {alt.toUpperCase()}
+      </a>
+      <a href="#" class="mt-4 block text-center py-3 rounded-xl gradient-accent text-white font-semibold">
+        {t(locale, 'nav.cta')}
+      </a>
+    </div>
+  </div>
+</nav>
+
+<!-- Nav scroll behavior + mobile toggle -->
+<script>
+  const nav = document.getElementById('main-nav')
+  const btn = document.getElementById('mobile-menu-btn')
+  const menu = document.getElementById('mobile-menu')
+  const top = document.getElementById('hamburger-top')
+  const mid = document.getElementById('hamburger-mid')
+  const bot = document.getElementById('hamburger-bot')
+
+  let isOpen = false
+
+  // Scroll: transparent -> solid
+  let lastScroll = 0
+  window.addEventListener('scroll', () => {
+    const scrollY = window.scrollY
+    if (scrollY > 80) {
+      nav?.classList.add('bg-flexen-dark/90', 'backdrop-blur-lg', 'border-b', 'border-white/5')
+    } else {
+      nav?.classList.remove('bg-flexen-dark/90', 'backdrop-blur-lg', 'border-b', 'border-white/5')
+    }
+    lastScroll = scrollY
+  }, { passive: true })
+
+  // Mobile toggle
+  btn?.addEventListener('click', () => {
+    isOpen = !isOpen
+    if (isOpen) {
+      menu?.classList.remove('-translate-x-full')
+      menu?.classList.add('translate-x-0')
+      top?.classList.add('rotate-45', 'translate-y-[4px]')
+      mid?.classList.add('opacity-0')
+      bot?.classList.add('-rotate-45', '-translate-y-[4px]')
+      btn?.setAttribute('aria-expanded', 'true')
+      document.body.style.overflow = 'hidden'
+    } else {
+      menu?.classList.add('-translate-x-full')
+      menu?.classList.remove('translate-x-0')
+      top?.classList.remove('rotate-45', 'translate-y-[4px]')
+      mid?.classList.remove('opacity-0')
+      bot?.classList.remove('-rotate-45', '-translate-y-[4px]')
+      btn?.setAttribute('aria-expanded', 'false')
+      document.body.style.overflow = ''
+    }
+  })
+</script>
+
+<!-- Spacer for fixed nav -->
+<div class="h-16 md:h-20"></div>
