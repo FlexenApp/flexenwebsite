@@ -216,7 +216,7 @@ const faqSchema = getFAQSchema(de.faq.items)
                 de.pricing.free.features.map((f) => (
                   <li class="text-secondary flex items-start gap-3">
                     <>
-                      <span class="text-success mt-0.5">&#10003;</span>
+                      <span class="text-success mt-0.5" aria-hidden="true">&#10003;</span>
                       <span>{f}</span>
                     </>
                   </li>
@@ -245,7 +245,7 @@ const faqSchema = getFAQSchema(de.faq.items)
                 de.pricing.premium.features.map((f) => (
                   <li class="text-secondary flex items-start gap-3">
                     <>
-                      <span class="text-success mt-0.5">&#10003;</span>
+                      <span class="text-success mt-0.5" aria-hidden="true">&#10003;</span>
                       <span>{f}</span>
                     </>
                   </li>
@@ -272,7 +272,7 @@ const faqSchema = getFAQSchema(de.faq.items)
               <details class="group gradient-card cursor-pointer rounded-2xl border border-white/5 p-6">
                 <summary class="text-body flex list-none items-center justify-between font-semibold">
                   {item.question}
-                  <span class="text-flexen-accent text-xl transition-transform group-open:rotate-45">+</span>
+                  <span class="text-flexen-accent text-xl transition-transform group-open:rotate-45" aria-hidden="true">+</span>
                 </summary>
                 <p class="text-secondary text-body mt-4 border-t border-white/5 pt-4">{item.answer}</p>
               </details>

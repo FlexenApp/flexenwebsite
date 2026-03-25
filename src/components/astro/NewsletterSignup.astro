@@ -23,11 +23,11 @@ const isCard = variant === 'card'
 
 {
   isCard ? (
-    <section class="section" id="newsletter">
+    <section class="section" id="newsletter" aria-labelledby="newsletter-title">
       <div class="container">
         <div class="content mx-auto max-w-3xl">
           <div class="gradient-card reveal rounded-2xl border border-white/5 p-8 text-center sm:p-12">
-            <h2 class="mb-3 text-h3 font-bold">{headline}</h2>
+            <h2 id="newsletter-title" class="font-heading mb-3 text-h3 font-bold">{headline}</h2>
             <p class="text-secondary text-body mx-auto mb-8 max-w-lg">{subline}</p>
             <form action="#" method="POST" class="mx-auto flex max-w-md flex-col gap-3 sm:flex-row">
               <label for="newsletter-email-card" class="sr-only">
