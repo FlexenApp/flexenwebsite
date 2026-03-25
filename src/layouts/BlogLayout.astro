@@ -71,7 +71,7 @@ const categoryLabels: Record<string, string> = {
             }
           </p>
           <a
-            href="#"
+            href={`/${locale}/${locale === 'de' ? 'preise' : 'pricing'}`}
             class="gradient-accent mt-4 inline-flex items-center justify-center rounded-xl px-8 py-3 font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
           >
             {locale === 'de' ? 'Kostenlos starten' : 'Start for free'}
