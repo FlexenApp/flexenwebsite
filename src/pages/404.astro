@@ -1,24 +1,27 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro'
+
+const url = Astro.url.pathname
+const locale = url.startsWith('/en') ? 'en' : 'de'
 ---
 
 <BaseLayout
-  title="404 — Seite nicht gefunden"
-  description="Diese Seite existiert nicht."
-  locale="de"
+  title={locale === 'en' ? '404 — Page not found' : '404 — Seite nicht gefunden'}
+  description={locale === 'en' ? 'This page does not exist.' : 'Diese Seite existiert nicht.'}
+  locale={locale}
   canonicalPath="/404"
 >
   <section class="section flex min-h-[70vh] items-center justify-center">
     <div class="container">
       <div class="content text-center">
         <span class="text-flexen-accent font-heading mb-4 block text-hero font-bold">404</span>
-        <h1 class="font-heading mb-4 text-h2 font-bold">Seite nicht gefunden</h1>
-        <p class="text-secondary text-body mb-8">Die gesuchte Seite existiert nicht oder wurde verschoben.</p>
+        <h1 class="font-heading mb-4 text-h2 font-bold">{locale === 'en' ? 'Page not found' : 'Seite nicht gefunden'}</h1>
+        <p class="text-secondary text-body mb-8">{locale === 'en' ? "The page you're looking for doesn't exist or has been moved." : 'Die gesuchte Seite existiert nicht oder wurde verschoben.'}</p>
         <a
-          href="/de/"
+          href={`/${locale}/`}
           class="btn-glow gradient-accent inline-flex items-center justify-center rounded-xl px-8 py-4 text-lg font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
         >
-          Zur Startseite
+          {locale === 'en' ? 'Go to homepage' : 'Zur Startseite'}
         </a>
       </div>
     </div>
