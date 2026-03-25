@@ -100,21 +100,21 @@
 
     // Dismiss helper
     function dismiss() {
-      inner.classList.remove('visible')
-      inner.classList.add('dismissing')
+      inner!.classList.remove('visible')
+      inner!.classList.add('dismissing')
       localStorage.setItem(STORAGE_KEY, 'true')
 
-      inner.addEventListener(
+      inner!.addEventListener(
         'transitionend',
         () => {
-          wrapper.remove()
+          wrapper!.remove()
         },
         { once: true },
       )
 
       // Fallback for reduced-motion (no transition fires)
       setTimeout(() => {
-        if (wrapper.parentNode) wrapper.remove()
+        if (wrapper!.parentNode) wrapper!.remove()
       }, 500)
     }
 
