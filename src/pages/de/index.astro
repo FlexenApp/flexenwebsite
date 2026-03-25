@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro'
 import { getAppSchema, getFAQSchema } from '../../lib/seo'
 import de from '../../i18n/de.json'
+import NewsletterSignup from '../../components/astro/NewsletterSignup.astro'
 
 const schema = getAppSchema()
 const faqSchema = getFAQSchema(de.faq.items)
@@ -15,34 +16,34 @@ const faqSchema = getFAQSchema(de.faq.items)
   schema={[schema, faqSchema]}
 >
   <!-- Hero Section -->
-  <section class="section gradient-hero min-h-screen flex items-center">
+  <section class="section gradient-hero flex min-h-screen items-center">
     <div class="container">
       <div class="content text-center">
-        <h1 class="text-[length:var(--text-hero)] font-bold mb-6" data-hero-headline style="opacity:0;">
+        <h1 class="mb-6 text-[length:var(--text-hero)] font-bold" data-hero-headline style="opacity:0;">
           {de.hero.headline}
         </h1>
-        <p class="text-secondary text-[length:var(--text-body)] mx-auto mb-8" data-hero-subline>
+        <p class="text-secondary mx-auto mb-8 text-[length:var(--text-body)]" data-hero-subline>
           {de.hero.subline}
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6" data-hero-ctas>
+        <div class="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row" data-hero-ctas>
           <a
             href="#"
-            class="btn-glow inline-flex items-center justify-center px-8 py-4 rounded-xl gradient-accent text-white font-semibold text-lg transition-transform hover:scale-[1.02] active:scale-[0.97]"
+            class="btn-glow gradient-accent inline-flex items-center justify-center rounded-xl px-8 py-4 text-lg font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
             data-magnetic
           >
             {de.hero.cta}
           </a>
           <a
             href="/de/features"
-            class="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white/10 text-white/80 font-medium hover:bg-white/5 transition-colors"
+            class="inline-flex items-center justify-center rounded-xl border border-white/10 px-8 py-4 font-medium text-white/80 transition-colors hover:bg-white/5"
           >
             {de.hero.ctaSecondary}
           </a>
         </div>
-        <p class="text-tertiary text-[length:var(--text-small)] reveal">
+        <p class="text-tertiary reveal text-[length:var(--text-small)]">
           {de.hero.microcopy}
         </p>
-        <p class="text-secondary text-[length:var(--text-small)] mt-4 reveal">
+        <p class="text-secondary reveal mt-4 text-[length:var(--text-small)]">
           {de.hero.socialProof}
         </p>
       </div>
@@ -53,21 +54,32 @@ const faqSchema = getFAQSchema(de.faq.items)
   <section class="section" id="day-story">
     <div class="container">
       <div class="content">
-        <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-16 reveal">
+        <h2 class="reveal mb-16 text-center text-[length:var(--text-h2)] font-bold">
           {de.dayStory.sectionTitle}
         </h2>
         <div class="space-y-24">
-          {[de.dayStory.morning, de.dayStory.breakfast, de.dayStory.training, de.dayStory.evening, de.dayStory.night].map((scene, i) => (
-            <div class={`day-scene flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center`}>
-              <div class="flex-1">
-                <span class="day-time text-flexen-accent font-mono text-[length:var(--text-small)] mb-2 block">{scene.time}</span>
-                <h3 class="day-title text-[length:var(--text-h3)] font-bold mb-4">{scene.title}</h3>
-                <p class="day-description text-secondary text-[length:var(--text-body)]">{scene.description}</p>
+          {
+            [
+              de.dayStory.morning,
+              de.dayStory.breakfast,
+              de.dayStory.training,
+              de.dayStory.evening,
+              de.dayStory.night,
+            ].map((scene, i) => (
+              <div
+                class={`day-scene flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12`}
+              >
+                <div class="flex-1">
+                  <span class="day-time text-flexen-accent mb-2 block font-mono text-[length:var(--text-small)]">
+                    {scene.time}
+                  </span>
+                  <h3 class="day-title mb-4 text-[length:var(--text-h3)] font-bold">{scene.title}</h3>
+                  <p class="day-description text-secondary text-[length:var(--text-body)]">{scene.description}</p>
+                </div>
+                <div class="day-mockup bg-flexen-dark-mid aspect-[9/16] max-w-[300px] flex-1 rounded-3xl border border-white/5"></div>
               </div>
-              <div class="day-mockup flex-1 aspect-[9/16] max-w-[300px] rounded-3xl bg-flexen-dark-mid border border-white/5">
-              </div>
-            </div>
-          ))}
+            ))
+          }
         </div>
       </div>
     </div>
@@ -77,34 +89,43 @@ const faqSchema = getFAQSchema(de.faq.items)
   <section class="section" id="features">
     <div class="container">
       <div class="content">
-        <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-4 reveal">
+        <h2 class="reveal mb-4 text-center text-[length:var(--text-h2)] font-bold">
           {de.features.sectionTitle}
         </h2>
-        <p class="text-secondary text-[length:var(--text-body)] text-center mb-16 reveal">
+        <p class="text-secondary reveal mb-16 text-center text-[length:var(--text-body)]">
           {de.features.sectionSubtitle}
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 stagger-children">
-          <div class="md:col-span-2 lg:col-span-2 p-8 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
-            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium gradient-accent text-white mb-4">{de.features.julio.badge}</span>
-            <h3 class="text-[length:var(--text-h3)] font-bold mb-3">{de.features.julio.title}</h3>
+        <div class="stagger-children grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+          <div
+            class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8 md:col-span-2 lg:col-span-2"
+          >
+            <span class="gradient-accent mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium text-white"
+              >{de.features.julio.badge}</span
+            >
+            <h3 class="mb-3 text-[length:var(--text-h3)] font-bold">{de.features.julio.title}</h3>
             <p class="text-secondary text-[length:var(--text-body)]">{de.features.julio.description}</p>
           </div>
-          <div class="p-8 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
-            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-success/20 text-success mb-4">{de.features.foodAI.badge}</span>
-            <h3 class="text-[length:var(--text-h3)] font-bold mb-3">{de.features.foodAI.title}</h3>
+          <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
+            <span class="bg-success/20 text-success mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium"
+              >{de.features.foodAI.badge}</span
+            >
+            <h3 class="mb-3 text-[length:var(--text-h3)] font-bold">{de.features.foodAI.title}</h3>
             <p class="text-secondary text-[length:var(--text-body)]">{de.features.foodAI.description}</p>
           </div>
-          <div class="p-8 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
-            <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-flexen-accent/20 text-flexen-accent mb-4">{de.features.training.badge}</span>
-            <h3 class="text-[length:var(--text-h3)] font-bold mb-3">{de.features.training.title}</h3>
+          <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
+            <span
+              class="bg-flexen-accent/20 text-flexen-accent mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium"
+              >{de.features.training.badge}</span
+            >
+            <h3 class="mb-3 text-[length:var(--text-h3)] font-bold">{de.features.training.title}</h3>
             <p class="text-secondary text-[length:var(--text-body)]">{de.features.training.description}</p>
           </div>
-          <div class="p-8 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
-            <h3 class="text-[length:var(--text-h3)] font-bold mb-3">{de.features.sleep.title}</h3>
+          <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
+            <h3 class="mb-3 text-[length:var(--text-h3)] font-bold">{de.features.sleep.title}</h3>
             <p class="text-secondary text-[length:var(--text-body)]">{de.features.sleep.description}</p>
           </div>
-          <div class="p-8 rounded-2xl gradient-card border border-white/5 card-hover gradient-border">
-            <h3 class="text-[length:var(--text-h3)] font-bold mb-3">{de.features.journal.title}</h3>
+          <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
+            <h3 class="mb-3 text-[length:var(--text-h3)] font-bold">{de.features.journal.title}</h3>
             <p class="text-secondary text-[length:var(--text-body)]">{de.features.journal.description}</p>
           </div>
         </div>
@@ -116,32 +137,41 @@ const faqSchema = getFAQSchema(de.faq.items)
   <section class="section" id="social-proof">
     <div class="container">
       <div class="content">
-        <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-16 reveal">
+        <h2 class="reveal mb-16 text-center text-[length:var(--text-h2)] font-bold">
           {de.socialProof.sectionTitle}
         </h2>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 stagger-children">
-          {de.socialProof.stats.map((stat) => (
-            <div class="text-center">
-              <span class="text-[length:var(--text-h1)] font-bold text-flexen-accent block" data-count-target={stat.value} data-count-suffix={stat.suffix}>
-                {stat.value}{stat.suffix}
-              </span>
-              <span class="text-secondary text-[length:var(--text-body)]">{stat.label}</span>
-            </div>
-          ))}
-        </div>
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 stagger-children">
-          {de.socialProof.testimonials.map((t) => (
-            <div class="p-8 rounded-2xl gradient-card border border-white/5 card-hover">
-              <p class="text-secondary text-[length:var(--text-body)] mb-6 italic">&ldquo;{t.text}&rdquo;</p>
-              <div class="flex items-center justify-between">
-                <div>
-                  <span class="font-semibold block">{t.name}</span>
-                  <span class="text-tertiary text-[length:var(--text-small)]">{t.role}</span>
-                </div>
-                <span class="text-flexen-accent font-semibold text-[length:var(--text-small)]">{t.result}</span>
+        <div class="stagger-children mb-20 grid grid-cols-1 gap-8 md:grid-cols-3">
+          {
+            de.socialProof.stats.map((stat) => (
+              <div class="text-center">
+                <span
+                  class="text-flexen-accent block text-[length:var(--text-h1)] font-bold"
+                  data-count-target={stat.value}
+                  data-count-suffix={stat.suffix}
+                >
+                  {stat.value}
+                  {stat.suffix}
+                </span>
+                <span class="text-secondary text-[length:var(--text-body)]">{stat.label}</span>
               </div>
-            </div>
-          ))}
+            ))
+          }
+        </div>
+        <div class="stagger-children grid grid-cols-1 gap-6 md:grid-cols-3">
+          {
+            de.socialProof.testimonials.map((t) => (
+              <div class="gradient-card card-hover rounded-2xl border border-white/5 p-8">
+                <p class="text-secondary mb-6 text-[length:var(--text-body)] italic">&ldquo;{t.text}&rdquo;</p>
+                <div class="flex items-center justify-between">
+                  <div>
+                    <span class="block font-semibold">{t.name}</span>
+                    <span class="text-tertiary text-[length:var(--text-small)]">{t.role}</span>
+                  </div>
+                  <span class="text-flexen-accent text-[length:var(--text-small)] font-semibold">{t.result}</span>
+                </div>
+              </div>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -151,40 +181,67 @@ const faqSchema = getFAQSchema(de.faq.items)
   <section class="section" id="pricing">
     <div class="container">
       <div class="content">
-        <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-4 reveal">{de.pricing.sectionTitle}</h2>
-        <p class="text-secondary text-[length:var(--text-body)] text-center mb-16 reveal">{de.pricing.sectionSubtitle}</p>
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto stagger-children">
-          <div class="p-8 rounded-2xl gradient-card border border-white/5">
-            <h3 class="text-[length:var(--text-h3)] font-bold mb-1">{de.pricing.free.name}</h3>
+        <h2 class="reveal mb-4 text-center text-[length:var(--text-h2)] font-bold">{de.pricing.sectionTitle}</h2>
+        <p class="text-secondary reveal mb-16 text-center text-[length:var(--text-body)]">
+          {de.pricing.sectionSubtitle}
+        </p>
+        <div class="stagger-children mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
+          <div class="gradient-card rounded-2xl border border-white/5 p-8">
+            <h3 class="mb-1 text-[length:var(--text-h3)] font-bold">{de.pricing.free.name}</h3>
             <p class="text-tertiary mb-6">{de.pricing.free.subtitle}</p>
             <div class="mb-6">
               <span class="text-[length:var(--text-h1)] font-bold">{de.pricing.free.price}&euro;</span>
               <span class="text-tertiary ml-2">{de.pricing.free.period}</span>
             </div>
-            <a href="#" class="block w-full text-center py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-white/5 transition-colors mb-8">{de.pricing.free.cta}</a>
+            <a
+              href="#"
+              class="mb-8 block w-full rounded-xl border border-white/10 py-3 text-center font-medium text-white transition-colors hover:bg-white/5"
+              >{de.pricing.free.cta}</a
+            >
             <ul class="space-y-3">
-              {de.pricing.free.features.map((f) => (
-                <li class="flex items-start gap-3 text-secondary"><span class="text-success mt-0.5">&#10003;</span><span>{f}</span></li>
-              ))}
+              {
+                de.pricing.free.features.map((f) => (
+                  <li class="text-secondary flex items-start gap-3">
+                    <>
+                      <span class="text-success mt-0.5">&#10003;</span>
+                      <span>{f}</span>
+                    </>
+                  </li>
+                ))
+              }
             </ul>
           </div>
-          <div class="p-8 rounded-2xl border-2 border-flexen-accent relative gradient-card">
-            <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-semibold gradient-accent text-white">{de.pricing.premium.popular}</span>
-            <h3 class="text-[length:var(--text-h3)] font-bold mb-1">{de.pricing.premium.name}</h3>
+          <div class="border-flexen-accent gradient-card relative rounded-2xl border-2 p-8">
+            <span
+              class="gradient-accent absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-semibold text-white"
+              >{de.pricing.premium.popular}</span
+            >
+            <h3 class="mb-1 text-[length:var(--text-h3)] font-bold">{de.pricing.premium.name}</h3>
             <p class="text-tertiary mb-6">{de.pricing.premium.subtitle}</p>
             <div class="mb-6">
               <span class="text-[length:var(--text-h1)] font-bold">{de.pricing.premium.priceMonthly}&euro;</span>
               <span class="text-tertiary ml-2">{de.pricing.premium.period}</span>
             </div>
-            <a href="#" class="btn-glow block w-full text-center py-3 rounded-xl gradient-accent text-white font-semibold hover:scale-[1.02] active:scale-[0.97] transition-transform mb-8">{de.pricing.premium.cta}</a>
+            <a
+              href="#"
+              class="btn-glow gradient-accent mb-8 block w-full rounded-xl py-3 text-center font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
+              >{de.pricing.premium.cta}</a
+            >
             <ul class="space-y-3">
-              {de.pricing.premium.features.map((f) => (
-                <li class="flex items-start gap-3 text-secondary"><span class="text-success mt-0.5">&#10003;</span><span>{f}</span></li>
-              ))}
+              {
+                de.pricing.premium.features.map((f) => (
+                  <li class="text-secondary flex items-start gap-3">
+                    <>
+                      <span class="text-success mt-0.5">&#10003;</span>
+                      <span>{f}</span>
+                    </>
+                  </li>
+                ))
+              }
             </ul>
           </div>
         </div>
-        <p class="text-center text-tertiary mt-8 reveal">{de.pricing.guarantee}</p>
+        <p class="text-tertiary reveal mt-8 text-center">{de.pricing.guarantee}</p>
       </div>
     </div>
   </section>
@@ -192,33 +249,42 @@ const faqSchema = getFAQSchema(de.faq.items)
   <!-- FAQ -->
   <section class="section" id="faq">
     <div class="container">
-      <div class="content max-w-3xl mx-auto">
-        <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-16 reveal">{de.faq.sectionTitle}</h2>
-        <div class="space-y-4 stagger-children">
-          {de.faq.items.map((item) => (
-            <details class="group p-6 rounded-2xl gradient-card border border-white/5 cursor-pointer">
-              <summary class="flex items-center justify-between font-semibold text-[length:var(--text-body)] list-none">
-                {item.question}
-                <span class="text-flexen-accent transition-transform group-open:rotate-45 text-xl">+</span>
-              </summary>
-              <p class="text-secondary text-[length:var(--text-body)] mt-4 pt-4 border-t border-white/5">{item.answer}</p>
-            </details>
-          ))}
+      <div class="content mx-auto max-w-3xl">
+        <h2 class="reveal mb-16 text-center text-[length:var(--text-h2)] font-bold">{de.faq.sectionTitle}</h2>
+        <div class="stagger-children space-y-4">
+          {
+            de.faq.items.map((item) => (
+              <details class="group gradient-card cursor-pointer rounded-2xl border border-white/5 p-6">
+                <summary class="flex list-none items-center justify-between text-[length:var(--text-body)] font-semibold">
+                  {item.question}
+                  <span class="text-flexen-accent text-xl transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p class="text-secondary mt-4 border-t border-white/5 pt-4 text-[length:var(--text-body)]">
+                  {item.answer}
+                </p>
+              </details>
+            ))
+          }
         </div>
       </div>
     </div>
   </section>
 
+  <!-- Newsletter Signup -->
+  <NewsletterSignup locale="de" variant="card" />
+
   <!-- Final CTA -->
   <section class="section gradient-hero">
     <div class="container">
       <div class="content text-center">
-        <h2 class="text-[length:var(--text-h1)] font-bold mb-6 reveal">{de.finalCta.headline}</h2>
-        <p class="text-secondary text-[length:var(--text-body)] mx-auto mb-8 reveal">{de.finalCta.subline}</p>
-        <a href="#" class="btn-glow inline-flex items-center justify-center px-10 py-4 rounded-xl gradient-accent text-white font-semibold text-lg transition-transform hover:scale-[1.02] active:scale-[0.97] reveal">{de.finalCta.cta}</a>
+        <h2 class="reveal mb-6 text-[length:var(--text-h1)] font-bold">{de.finalCta.headline}</h2>
+        <p class="text-secondary reveal mx-auto mb-8 text-[length:var(--text-body)]">{de.finalCta.subline}</p>
+        <a
+          href="#"
+          class="btn-glow gradient-accent reveal inline-flex items-center justify-center rounded-xl px-10 py-4 text-lg font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
+          >{de.finalCta.cta}</a
+        >
       </div>
     </div>
   </section>
-
-
 </BaseLayout>

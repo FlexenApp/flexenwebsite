@@ -37,7 +37,7 @@ export function initScrollReveal(): void {
           start: 'top 85%',
           once: true,
         },
-      }
+      },
     )
   })
 }
@@ -65,7 +65,7 @@ export function initStaggerReveal(): void {
           start: 'top 85%',
           once: true,
         },
-      }
+      },
     )
   })
 }
@@ -107,9 +107,9 @@ export function initAllAnimations(): void {
 
   // Desktop-only interactive effects (touch devices excluded)
   if (!('ontouchstart' in window)) {
-    import('./custom-cursor').then(m => m.initCustomCursor())
-    import('./magnetic-button').then(m => m.initMagneticButtons())
-    import('./card-tilt').then(m => m.initCardTilt())
+    import('./custom-cursor').then((m) => m.initCustomCursor())
+    import('./magnetic-button').then((m) => m.initMagneticButtons())
+    import('./card-tilt').then((m) => m.initCardTilt())
   }
 }
 

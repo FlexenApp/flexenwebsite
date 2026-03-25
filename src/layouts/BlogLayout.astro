@@ -36,52 +36,47 @@ const categoryLabels: Record<string, string> = {
 }
 ---
 
-<BaseLayout
-  title={`${title} — Flexen Blog`}
-  description={description}
-  locale={locale}
-  schema={schema}
-  ogImage={image}
->
+<BaseLayout title={`${title} — Flexen Blog`} description={description} locale={locale} schema={schema} ogImage={image}>
   <article class="section pt-32">
-    <div class="container"><div class="content max-w-3xl">
-      <!-- Meta -->
-      <div class="flex items-center gap-4 mb-6">
-        <span class="inline-block px-3 py-1 rounded-full text-xs font-medium bg-flexen-accent/15 text-flexen-accent">
-          {categoryLabels[category] || category}
-        </span>
-        <time class="text-sm text-tertiary" datetime={date.toISOString()}>
-          {formattedDate}
-        </time>
-      </div>
+    <div class="container">
+      <div class="content max-w-3xl">
+        <!-- Meta -->
+        <div class="mb-6 flex items-center gap-4">
+          <span class="bg-flexen-accent/15 text-flexen-accent inline-block rounded-full px-3 py-1 text-xs font-medium">
+            {categoryLabels[category] || category}
+          </span>
+          <time class="text-tertiary text-sm" datetime={date.toISOString()}>
+            {formattedDate}
+          </time>
+        </div>
 
-      <!-- Title -->
-      <h1 class="text-[length:var(--text-h1)] font-bold mb-8">{title}</h1>
+        <!-- Title -->
+        <h1 class="mb-8 text-[length:var(--text-h1)] font-bold">{title}</h1>
 
-      <!-- Content -->
-      <div class="prose prose-invert prose-lg max-w-none
-        [&>h2]:text-[length:var(--text-h3)] [&>h2]:font-bold [&>h2]:mt-12 [&>h2]:mb-4
-        [&>h3]:text-[length:var(--text-body)] [&>h3]:font-bold [&>h3]:mt-8 [&>h3]:mb-3
-        [&>p]:text-secondary [&>p]:text-[length:var(--text-body)] [&>p]:mb-6 [&>p]:leading-relaxed
-        [&>ul]:text-secondary [&>ul]:space-y-2 [&>ul]:mb-6
-        [&>ol]:text-secondary [&>ol]:space-y-2 [&>ol]:mb-6
-        [&>blockquote]:border-l-2 [&>blockquote]:border-flexen-accent [&>blockquote]:pl-6 [&>blockquote]:italic [&>blockquote]:text-secondary
-        [&_a]:text-flexen-accent [&_a]:underline [&_a]:underline-offset-2
-        [&_strong]:text-white
-        [&_code]:bg-white/5 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:rounded [&_code]:text-sm
-      ">
-        <slot />
-      </div>
+        <!-- Content -->
+        <div
+          class="prose prose-invert prose-lg [&>p]:text-secondary [&>ul]:text-secondary [&>ol]:text-secondary [&>blockquote]:border-flexen-accent [&>blockquote]:text-secondary [&_a]:text-flexen-accent max-w-none [&_a]:underline [&_a]:underline-offset-2 [&_code]:rounded [&_code]:bg-white/5 [&_code]:px-1.5 [&_code]:py-0.5 [&_code]:text-sm [&_strong]:text-white [&>blockquote]:border-l-2 [&>blockquote]:pl-6 [&>blockquote]:italic [&>h2]:mt-12 [&>h2]:mb-4 [&>h2]:text-[length:var(--text-h3)] [&>h2]:font-bold [&>h3]:mt-8 [&>h3]:mb-3 [&>h3]:text-[length:var(--text-body)] [&>h3]:font-bold [&>ol]:mb-6 [&>ol]:space-y-2 [&>p]:mb-6 [&>p]:text-[length:var(--text-body)] [&>p]:leading-relaxed [&>ul]:mb-6 [&>ul]:space-y-2"
+        >
+          <slot />
+        </div>
 
-      <!-- CTA -->
-      <div class="mt-16 p-8 rounded-2xl gradient-card border border-white/5 text-center">
-        <p class="text-[length:var(--text-body)] font-bold mb-2">
-          {locale === 'de' ? 'Tracke deine Ernährung automatisch mit Flexen' : 'Track your nutrition automatically with Flexen'}
-        </p>
-        <a href="#" class="inline-flex items-center justify-center px-8 py-3 mt-4 rounded-xl gradient-accent text-white font-semibold transition-transform hover:scale-[1.02] active:scale-[0.97]">
-          {locale === 'de' ? 'Kostenlos starten' : 'Start for free'}
-        </a>
+        <!-- CTA -->
+        <div class="gradient-card mt-16 rounded-2xl border border-white/5 p-8 text-center">
+          <p class="mb-2 text-[length:var(--text-body)] font-bold">
+            {
+              locale === 'de'
+                ? 'Tracke deine Ernährung automatisch mit Flexen'
+                : 'Track your nutrition automatically with Flexen'
+            }
+          </p>
+          <a
+            href="#"
+            class="gradient-accent mt-4 inline-flex items-center justify-center rounded-xl px-8 py-3 font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
+          >
+            {locale === 'de' ? 'Kostenlos starten' : 'Start for free'}
+          </a>
+        </div>
       </div>
-    </div></div>
+    </div>
   </article>
 </BaseLayout>

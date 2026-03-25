@@ -87,7 +87,7 @@ export function initDayStoryAnimation(): void {
           y: 0,
           duration: 0.7,
         },
-        isMobile ? '-=0.3' : '-=0.5'
+        isMobile ? '-=0.3' : '-=0.5',
       )
     }
   })

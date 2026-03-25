@@ -58,9 +58,7 @@ export function getOrganizationSchema() {
 /**
  * BreadcrumbList schema
  */
-export function getBreadcrumbSchema(
-  items: { name: string; url: string }[]
-) {
+export function getBreadcrumbSchema(items: { name: string; url: string }[]) {
   return {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',

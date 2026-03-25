@@ -1,0 +1,118 @@
+---
+// CookieConsent.astro — TTDSG/GDPR compliant cookie consent banner
+// Detects locale from <html lang> attribute at runtime via JS
+---
+
+<div
+  id="cookie-consent"
+  class="pointer-events-none fixed right-0 bottom-0 left-0 z-60"
+  role="dialog"
+  aria-label="Cookie Consent"
+>
+  <div class="pointer-events-auto mx-auto max-w-4xl translate-y-full p-4 opacity-0 sm:p-6" id="cookie-consent-inner">
+    <div
+      class="flex flex-col items-start gap-4 rounded-2xl border border-white/5 bg-[#0a2233]/95 p-6 shadow-2xl backdrop-blur-lg sm:flex-row sm:items-center sm:gap-8 sm:p-8"
+    >
+      <p id="cookie-text" class="text-secondary text-body flex-1"></p>
+      <div class="flex shrink-0 items-center gap-3">
+        <a
+          id="cookie-link"
+          href="/de/datenschutz"
+          class="inline-flex items-center justify-center rounded-xl border border-white/10 px-5 py-2.5 text-sm font-medium whitespace-nowrap text-white/80 transition-colors hover:bg-white/5"
+        ></a>
+        <button
+          id="cookie-accept"
+          type="button"
+          class="gradient-accent inline-flex items-center justify-center rounded-xl px-5 py-2.5 text-sm font-semibold whitespace-nowrap text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
+        ></button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #cookie-consent-inner {
+    transition:
+      transform 0.5s cubic-bezier(0.33, 1, 0.68, 1),
+      opacity 0.5s cubic-bezier(0.33, 1, 0.68, 1);
+  }
+  #cookie-consent-inner.visible {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  #cookie-consent-inner.dismissing {
+    transform: translateY(120%);
+    opacity: 0;
+    transition:
+      transform 0.4s cubic-bezier(0.32, 0, 0.67, 0),
+      opacity 0.4s cubic-bezier(0.32, 0, 0.67, 0);
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    #cookie-consent-inner,
+    #cookie-consent-inner.visible,
+    #cookie-consent-inner.dismissing {
+      transition: none;
+    }
+  }
+</style>
+
+<script>
+  const STORAGE_KEY = 'flexen-cookie-dismissed'
+
+  function initCookieConsent() {
+    const wrapper = document.getElementById('cookie-consent')
+    const inner = document.getElementById('cookie-consent-inner')
+    const acceptBtn = document.getElementById('cookie-accept')
+    const linkEl = document.getElementById('cookie-link') as HTMLAnchorElement | null
+    const textEl = document.getElementById('cookie-text')
+
+    if (!wrapper || !inner || !acceptBtn || !linkEl || !textEl) return
+
+    // Already dismissed — remove entirely
+    if (localStorage.getItem(STORAGE_KEY) === 'true') {
+      wrapper.remove()
+      return
+    }
+
+    // Detect locale from <html lang>
+    const locale = document.documentElement.lang || 'de'
+    const isEn = locale.startsWith('en')
+
+    // Populate text based on detected locale
+    textEl.textContent = isEn
+      ? 'This website does not use cookies for tracking. We use Plausible Analytics \u2014 cookie-free and GDPR compliant.'
+      : 'Diese Website nutzt keine Cookies f\u00fcr Tracking. Wir verwenden Plausible Analytics \u2014 cookiefrei und DSGVO-konform.'
+    acceptBtn.textContent = isEn ? 'Got it' : 'Verstanden'
+    linkEl.textContent = isEn ? 'Learn more' : 'Mehr erfahren'
+    linkEl.href = isEn ? '/en/privacy' : '/de/datenschutz'
+
+    // Show with short delay so the page paints first
+    setTimeout(() => {
+      inner.classList.add('visible')
+    }, 1000)
+
+    // Dismiss
+    acceptBtn.addEventListener('click', () => {
+      inner.classList.remove('visible')
+      inner.classList.add('dismissing')
+      localStorage.setItem(STORAGE_KEY, 'true')
+
+      inner.addEventListener(
+        'transitionend',
+        () => {
+          wrapper.remove()
+        },
+        { once: true },
+      )
+
+      // Fallback for reduced-motion (no transition fires)
+      setTimeout(() => {
+        if (wrapper.parentNode) wrapper.remove()
+      }, 500)
+    })
+  }
+
+  initCookieConsent()
+  document.addEventListener('astro:after-swap', initCookieConsent)
+</script>

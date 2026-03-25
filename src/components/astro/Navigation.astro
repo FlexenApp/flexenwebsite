@@ -30,36 +30,36 @@ function isActive(href: string): boolean {
 }
 ---
 
-<nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
+<nav id="main-nav" class="fixed top-0 right-0 left-0 z-50 transition-all duration-300">
   <div class="container">
-    <div class="flex items-center justify-between h-16 md:h-20">
+    <div class="flex h-16 items-center justify-between md:h-20">
       <!-- Logo -->
-      <a href={localePath(locale, '/')} class="flex items-center gap-2 font-heading font-bold text-xl">
+      <a href={localePath(locale, '/')} class="font-heading flex items-center gap-2 text-xl font-bold">
         <span class="text-flexen-accent">F</span>
         <span>lexen</span>
       </a>
 
       <!-- Desktop Nav -->
-      <div class="hidden md:flex items-center gap-8">
-        {navItems.map((item) => (
-          <a
-            href={item.href}
-            class:list={[
-              'transition-colors text-sm font-medium',
-              isActive(item.href)
-                ? 'text-white'
-                : 'text-secondary hover:text-white',
-            ]}
-            aria-current={isActive(item.href) ? 'page' : undefined}
-          >
-            {item.label}
-          </a>
-        ))}
+      <div class="hidden items-center gap-8 md:flex">
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class:list={[
+                'text-sm font-medium transition-colors',
+                isActive(item.href) ? 'text-white' : 'text-secondary hover:text-white',
+              ]}
+              aria-current={isActive(item.href) ? 'page' : undefined}
+            >
+              {item.label}
+            </a>
+          ))
+        }
 
         <!-- Language Switch -->
         <a
           href={`/${alt}${pathWithoutLocale}`}
-          class="text-tertiary hover:text-white transition-colors text-sm font-medium uppercase"
+          class="text-tertiary text-sm font-medium uppercase transition-colors hover:text-white"
         >
           {alt.toUpperCase()}
         </a>
@@ -67,53 +67,55 @@ function isActive(href: string): boolean {
         <!-- CTA -->
         <a
           href="#"
-          class="px-5 py-2.5 rounded-lg gradient-accent text-white text-sm font-semibold transition-transform hover:scale-[1.02] active:scale-[0.97]"
+          class="gradient-accent rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
         >
           {t(locale, 'nav.cta')}
         </a>
       </div>
 
       <!-- Mobile Menu Button -->
-      <button
-        id="mobile-menu-btn"
-        class="md:hidden flex flex-col gap-1.5 p-2"
-        aria-label="Menu"
-        aria-expanded="false"
-      >
-        <span class="w-6 h-0.5 bg-white transition-transform origin-center" id="hamburger-top"></span>
-        <span class="w-6 h-0.5 bg-white transition-opacity" id="hamburger-mid"></span>
-        <span class="w-6 h-0.5 bg-white transition-transform origin-center" id="hamburger-bot"></span>
+      <button id="mobile-menu-btn" class="flex flex-col gap-1.5 p-2 md:hidden" aria-label="Menu" aria-expanded="false">
+        <span class="h-0.5 w-6 origin-center bg-white transition-transform" id="hamburger-top"></span>
+        <span class="h-0.5 w-6 bg-white transition-opacity" id="hamburger-mid"></span>
+        <span class="h-0.5 w-6 origin-center bg-white transition-transform" id="hamburger-bot"></span>
       </button>
     </div>
   </div>
 
   <!-- Mobile Menu -->
-  <div id="mobile-menu" class="md:hidden fixed inset-0 top-16 bg-flexen-dark/95 backdrop-blur-lg -translate-x-full transition-transform duration-300 ease-[var(--ease-default)]">
-    <div class="container py-8 flex flex-col gap-6">
-      {navItems.map((item) => (
-        <a
-          href={item.href}
-          data-close-menu
-          class:list={[
-            'text-2xl font-semibold transition-colors',
-            isActive(item.href)
-              ? 'text-white'
-              : 'text-secondary hover:text-white',
-          ]}
-          aria-current={isActive(item.href) ? 'page' : undefined}
-        >
-          {item.label}
-        </a>
-      ))}
+  <div
+    id="mobile-menu"
+    class="bg-flexen-dark/95 fixed inset-0 top-16 -translate-x-full backdrop-blur-lg transition-transform duration-300 ease-[var(--ease-default)] md:hidden"
+  >
+    <div class="container flex flex-col gap-6 py-8">
+      {
+        navItems.map((item) => (
+          <a
+            href={item.href}
+            data-close-menu
+            class:list={[
+              'text-2xl font-semibold transition-colors',
+              isActive(item.href) ? 'text-white' : 'text-secondary hover:text-white',
+            ]}
+            aria-current={isActive(item.href) ? 'page' : undefined}
+          >
+            {item.label}
+          </a>
+        ))
+      }
       <hr class="border-white/10" />
       <a
         href={`/${alt}${pathWithoutLocale}`}
         data-close-menu
-        class="text-lg text-tertiary hover:text-white transition-colors uppercase"
+        class="text-tertiary text-lg uppercase transition-colors hover:text-white"
       >
         {alt.toUpperCase()}
       </a>
-      <a href="#" data-close-menu class="mt-4 block text-center py-3 rounded-xl gradient-accent text-white font-semibold">
+      <a
+        href="#"
+        data-close-menu
+        class="gradient-accent mt-4 block rounded-xl py-3 text-center font-semibold text-white"
+      >
         {t(locale, 'nav.cta')}
       </a>
     </div>
@@ -156,15 +158,19 @@ function isActive(href: string): boolean {
 
   // Scroll: transparent -> solid
   let lastScroll = 0
-  window.addEventListener('scroll', () => {
-    const scrollY = window.scrollY
-    if (scrollY > 80) {
-      nav?.classList.add('bg-flexen-dark/90', 'backdrop-blur-lg', 'border-b', 'border-white/5')
-    } else {
-      nav?.classList.remove('bg-flexen-dark/90', 'backdrop-blur-lg', 'border-b', 'border-white/5')
-    }
-    lastScroll = scrollY
-  }, { passive: true })
+  window.addEventListener(
+    'scroll',
+    () => {
+      const scrollY = window.scrollY
+      if (scrollY > 80) {
+        nav?.classList.add('bg-flexen-dark/90', 'backdrop-blur-lg', 'border-b', 'border-white/5')
+      } else {
+        nav?.classList.remove('bg-flexen-dark/90', 'backdrop-blur-lg', 'border-b', 'border-white/5')
+      }
+      lastScroll = scrollY
+    },
+    { passive: true },
+  )
 
   // Mobile toggle
   btn?.addEventListener('click', () => {

@@ -1,0 +1,80 @@
+---
+/**
+ * Scroll Progress Indicator
+ * Thin gradient bar at the top of the viewport showing scroll progress.
+ * Uses transform: scaleX() for GPU-accelerated animation.
+ * Integrates with Lenis smooth scroll.
+ * Hidden when prefers-reduced-motion is active or page is not scrollable.
+ */
+---
+
+<div
+  id="scroll-progress"
+  class="pointer-events-none fixed top-0 left-0 z-[60] h-[3px] w-full origin-left"
+  style="transform: scaleX(0);"
+  aria-hidden="true"
+>
+  <div class="gradient-accent h-full w-full"></div>
+</div>
+
+<script>
+  import { lenisInstance } from '../../lib/smooth-scroll'
+
+  function initScrollProgress() {
+    const bar = document.getElementById('scroll-progress') as HTMLElement | null
+    if (!bar) return
+
+    // Hide for reduced-motion users
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+      bar.style.display = 'none'
+      return
+    }
+
+    function getScrollProgress(): number {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
+      if (scrollHeight <= 0) return 0
+      return Math.min(1, Math.max(0, window.scrollY / scrollHeight))
+    }
+
+    function updateProgress() {
+      const progress = getScrollProgress()
+      bar!.style.transform = `scaleX(${progress})`
+    }
+
+    // Hide if page is not scrollable
+    function checkScrollable() {
+      const scrollHeight = document.documentElement.scrollHeight - window.innerHeight
+      bar!.style.opacity = scrollHeight > 50 ? '1' : '0'
+    }
+
+    // If Lenis is active, hook into its scroll event for smoothness
+    if (lenisInstance) {
+      lenisInstance.on('scroll', () => {
+        updateProgress()
+      })
+    } else {
+      // Fallback: native scroll listener
+      window.addEventListener('scroll', updateProgress, { passive: true })
+    }
+
+    // Initial check
+    checkScrollable()
+    updateProgress()
+
+    // Re-check on resize (content might become scrollable/non-scrollable)
+    window.addEventListener(
+      'resize',
+      () => {
+        checkScrollable()
+        updateProgress()
+      },
+      { passive: true },
+    )
+  }
+
+  // Run on initial load
+  initScrollProgress()
+
+  // Re-run after Astro View Transitions navigation
+  document.addEventListener('astro:after-swap', initScrollProgress)
+</script>

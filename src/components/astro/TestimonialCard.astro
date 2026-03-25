@@ -12,19 +12,24 @@ const { name, role, text, result, class: className = '' } = Astro.props
 const initial = name.charAt(0).toUpperCase()
 ---
 
-<div class:list={['p-8 rounded-2xl gradient-card border border-white/5 card-hover flex flex-col', className]}>
-  <p class="text-secondary text-[length:var(--text-body)] mb-6 italic flex-1">&ldquo;{text}&rdquo;</p>
+<div class:list={['gradient-card card-hover flex flex-col rounded-2xl border border-white/5 p-8', className]}>
+  <p class="text-secondary mb-6 flex-1 text-[length:var(--text-body)] italic">&ldquo;{text}&rdquo;</p>
   <div class="flex items-center justify-between gap-4">
     <div class="flex items-center gap-3">
-      <div class="w-10 h-10 rounded-full bg-flexen-accent/20 border border-flexen-accent/30 flex items-center justify-center text-flexen-accent font-bold text-sm font-heading shrink-0" aria-hidden="true">
+      <div
+        class="bg-flexen-accent/20 border-flexen-accent/30 text-flexen-accent font-heading flex h-10 w-10 shrink-0 items-center justify-center rounded-full border text-sm font-bold"
+        aria-hidden="true"
+      >
         {initial}
       </div>
       <div class="min-w-0">
-        <span class="font-semibold block truncate">{name}</span>
-        <span class="text-tertiary text-[length:var(--text-small)] block truncate">{role}</span>
+        <span class="block truncate font-semibold">{name}</span>
+        <span class="text-tertiary block truncate text-[length:var(--text-small)]">{role}</span>
       </div>
     </div>
-    <span class="inline-flex items-center px-3 py-1 rounded-full bg-success/15 text-success font-semibold text-[length:var(--text-caption)] whitespace-nowrap shrink-0">
+    <span
+      class="bg-success/15 text-success inline-flex shrink-0 items-center rounded-full px-3 py-1 text-[length:var(--text-caption)] font-semibold whitespace-nowrap"
+    >
       {result}
     </span>
   </div>

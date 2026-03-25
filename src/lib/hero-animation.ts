@@ -26,7 +26,10 @@ export function initHeroAnimation(): void {
   const text = headline.textContent?.trim() || ''
   const words = text.split(/\s+/)
   headline.innerHTML = words
-    .map((word) => `<span class="hero-word" style="display:inline-block;opacity:0;transform:translateY(24px);will-change:transform,opacity;">${word}</span>`)
+    .map(
+      (word) =>
+        `<span class="hero-word" style="display:inline-block;opacity:0;transform:translateY(24px);will-change:transform,opacity;">${word}</span>`,
+    )
     .join(' ')
   headline.style.opacity = '1'
 
@@ -60,7 +63,7 @@ export function initHeroAnimation(): void {
         y: 0,
         duration: 0.6,
       },
-      '-=0.3'
+      '-=0.3',
     )
   }
 
@@ -72,7 +75,7 @@ export function initHeroAnimation(): void {
         y: 0,
         duration: 0.6,
       },
-      '-=0.3'
+      '-=0.3',
     )
   }
 }

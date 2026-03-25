@@ -21,31 +21,39 @@ const breadcrumbSchema = getBreadcrumbSchema([
   <section class="section gradient-hero pt-32 pb-12">
     <div class="container">
       <div class="content text-center">
-        <h1 class="text-[length:var(--text-h1)] font-bold mb-4 reveal">
+        <h1 class="reveal mb-4 text-[length:var(--text-h1)] font-bold">
           {de.pricing.sectionTitle}
         </h1>
-        <p class="text-secondary text-[length:var(--text-body)] mx-auto mb-12 max-w-2xl reveal">
+        <p class="text-secondary reveal mx-auto mb-12 max-w-2xl text-[length:var(--text-body)]">
           {de.pricing.sectionSubtitle}
         </p>
 
         <!-- Billing Toggle -->
-        <div class="flex items-center justify-center gap-4 mb-16 reveal" id="billing-toggle">
-          <span class="text-[length:var(--text-body)] font-medium transition-colors duration-300 text-tertiary" data-toggle-label="monthly">
+        <div class="reveal mb-16 flex items-center justify-center gap-4" id="billing-toggle">
+          <span
+            class="text-tertiary text-[length:var(--text-body)] font-medium transition-colors duration-300"
+            data-toggle-label="monthly"
+          >
             {de.pricing.toggle.monthly}
           </span>
           <button
             type="button"
-            class="relative w-16 h-8 rounded-full gradient-accent p-1 transition-all duration-300 focus:outline-none focus:ring-2 focus:ring-flexen-accent/50"
+            class="gradient-accent focus:ring-flexen-accent/50 relative h-8 w-16 rounded-full p-1 transition-all duration-300 focus:ring-2 focus:outline-none"
             id="toggle-switch"
             aria-label="Abrechnungszeitraum wechseln"
             data-active="yearly"
           >
-            <span class="block w-6 h-6 rounded-full bg-white transition-transform duration-300 translate-x-8" id="toggle-knob"></span>
+            <span
+              class="block h-6 w-6 translate-x-8 rounded-full bg-white transition-transform duration-300"
+              id="toggle-knob"></span>
           </button>
-          <span class="text-[length:var(--text-body)] font-medium transition-colors duration-300 text-white" data-toggle-label="yearly">
+          <span
+            class="text-[length:var(--text-body)] font-medium text-white transition-colors duration-300"
+            data-toggle-label="yearly"
+          >
             {de.pricing.toggle.yearly}
           </span>
-          <span class="inline-block px-3 py-1 rounded-full text-xs font-semibold gradient-accent text-white">
+          <span class="gradient-accent inline-block rounded-full px-3 py-1 text-xs font-semibold text-white">
             {de.pricing.toggle.yearlyBadge}
           </span>
         </div>
@@ -57,10 +65,10 @@ const breadcrumbSchema = getBreadcrumbSchema([
   <section class="section pt-0">
     <div class="container">
       <div class="content">
-        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto stagger-children">
+        <div class="stagger-children mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
           <!-- Free Plan -->
-          <div class="p-8 rounded-2xl gradient-card border border-white/5 card-hover text-left flex flex-col">
-            <h2 class="text-[length:var(--text-h3)] font-bold mb-1">{de.pricing.free.name}</h2>
+          <div class="gradient-card card-hover flex flex-col rounded-2xl border border-white/5 p-8 text-left">
+            <h2 class="mb-1 text-[length:var(--text-h3)] font-bold">{de.pricing.free.name}</h2>
             <p class="text-tertiary mb-6">{de.pricing.free.subtitle}</p>
             <div class="mb-6">
               <span class="text-[length:var(--text-h1)] font-bold">{de.pricing.free.price}&euro;</span>
@@ -68,26 +76,32 @@ const breadcrumbSchema = getBreadcrumbSchema([
             </div>
             <a
               href="#"
-              class="block w-full text-center py-3 rounded-xl border border-white/10 text-white font-medium hover:bg-white/5 transition-colors mb-8"
+              class="mb-8 block w-full rounded-xl border border-white/10 py-3 text-center font-medium text-white transition-colors hover:bg-white/5"
             >
               {de.pricing.free.cta}
             </a>
-            <ul class="space-y-3 flex-1">
-              {de.pricing.free.features.map((f) => (
-                <li class="flex items-start gap-3 text-secondary">
-                  <span class="text-success mt-0.5 shrink-0">&#10003;</span>
-                  <span>{f}</span>
-                </li>
-              ))}
+            <ul class="flex-1 space-y-3">
+              {
+                de.pricing.free.features.map((f) => (
+                  <li class="text-secondary flex items-start gap-3">
+                    <span class="text-success mt-0.5 shrink-0">&#10003;</span>
+                    <span>{f}</span>
+                  </li>
+                ))
+              }
             </ul>
           </div>
 
           <!-- Premium Plan -->
-          <div class="p-8 rounded-2xl border-2 border-flexen-accent relative gradient-card card-hover text-left flex flex-col">
-            <span class="absolute -top-3 left-1/2 -translate-x-1/2 px-4 py-1 rounded-full text-xs font-semibold gradient-accent text-white">
+          <div
+            class="border-flexen-accent gradient-card card-hover relative flex flex-col rounded-2xl border-2 p-8 text-left"
+          >
+            <span
+              class="gradient-accent absolute -top-3 left-1/2 -translate-x-1/2 rounded-full px-4 py-1 text-xs font-semibold text-white"
+            >
               {de.pricing.premium.popular}
             </span>
-            <h2 class="text-[length:var(--text-h3)] font-bold mb-1">{de.pricing.premium.name}</h2>
+            <h2 class="mb-1 text-[length:var(--text-h3)] font-bold">{de.pricing.premium.name}</h2>
             <p class="text-tertiary mb-6">{de.pricing.premium.subtitle}</p>
             <div class="mb-6">
               <span
@@ -95,7 +109,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
                 id="premium-price"
                 data-price-monthly={de.pricing.premium.priceMonthly}
                 data-price-yearly={de.pricing.premium.priceYearly}
-                data-currency="&euro;"
+                data-currency="€"
               >
                 {de.pricing.premium.priceYearly}&euro;
               </span>
@@ -108,25 +122,37 @@ const breadcrumbSchema = getBreadcrumbSchema([
             </div>
             <a
               href="#"
-              class="btn-glow block w-full text-center py-3 rounded-xl gradient-accent text-white font-semibold hover:scale-[1.02] active:scale-[0.97] transition-transform mb-8"
+              class="btn-glow gradient-accent mb-8 block w-full rounded-xl py-3 text-center font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
             >
               {de.pricing.premium.cta}
             </a>
-            <ul class="space-y-3 flex-1">
-              {de.pricing.premium.features.map((f) => (
-                <li class="flex items-start gap-3 text-secondary">
-                  <span class="text-success mt-0.5 shrink-0">&#10003;</span>
-                  <span>{f}</span>
-                </li>
-              ))}
+            <ul class="flex-1 space-y-3">
+              {
+                de.pricing.premium.features.map((f) => (
+                  <li class="text-secondary flex items-start gap-3">
+                    <span class="text-success mt-0.5 shrink-0">&#10003;</span>
+                    <span>{f}</span>
+                  </li>
+                ))
+              }
             </ul>
           </div>
         </div>
 
         <!-- Guarantee -->
-        <p class="text-center text-tertiary mt-8 reveal">
-          <svg class="inline-block w-5 h-5 mr-2 text-success align-text-bottom" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+        <p class="text-tertiary reveal mt-8 text-center">
+          <svg
+            class="text-success mr-2 inline-block h-5 w-5 align-text-bottom"
+            fill="none"
+            viewBox="0 0 24 24"
+            stroke="currentColor"
+            stroke-width="2"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"
+            ></path>
           </svg>
           {de.pricing.guarantee}
         </p>
@@ -137,22 +163,24 @@ const breadcrumbSchema = getBreadcrumbSchema([
   <!-- FAQ -->
   <section class="section" id="faq">
     <div class="container">
-      <div class="content max-w-3xl mx-auto">
-        <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-16 reveal">
+      <div class="content mx-auto max-w-3xl">
+        <h2 class="reveal mb-16 text-center text-[length:var(--text-h2)] font-bold">
           {de.faq.sectionTitle}
         </h2>
-        <div class="space-y-4 stagger-children">
-          {de.faq.items.map((item) => (
-            <details class="group p-6 rounded-2xl gradient-card border border-white/5 cursor-pointer">
-              <summary class="flex items-center justify-between font-semibold text-[length:var(--text-body)] list-none">
-                {item.question}
-                <span class="text-flexen-accent transition-transform group-open:rotate-45 text-xl">+</span>
-              </summary>
-              <p class="text-secondary text-[length:var(--text-body)] mt-4 pt-4 border-t border-white/5">
-                {item.answer}
-              </p>
-            </details>
-          ))}
+        <div class="stagger-children space-y-4">
+          {
+            de.faq.items.map((item) => (
+              <details class="group gradient-card cursor-pointer rounded-2xl border border-white/5 p-6">
+                <summary class="flex list-none items-center justify-between text-[length:var(--text-body)] font-semibold">
+                  {item.question}
+                  <span class="text-flexen-accent text-xl transition-transform group-open:rotate-45">+</span>
+                </summary>
+                <p class="text-secondary mt-4 border-t border-white/5 pt-4 text-[length:var(--text-body)]">
+                  {item.answer}
+                </p>
+              </details>
+            ))
+          }
         </div>
       </div>
     </div>
@@ -162,15 +190,15 @@ const breadcrumbSchema = getBreadcrumbSchema([
   <section class="section gradient-hero">
     <div class="container">
       <div class="content text-center">
-        <h2 class="text-[length:var(--text-h1)] font-bold mb-6 reveal">
+        <h2 class="reveal mb-6 text-[length:var(--text-h1)] font-bold">
           {de.finalCta.headline}
         </h2>
-        <p class="text-secondary text-[length:var(--text-body)] mx-auto mb-8 reveal">
+        <p class="text-secondary reveal mx-auto mb-8 text-[length:var(--text-body)]">
           {de.finalCta.subline}
         </p>
         <a
           href="#"
-          class="btn-glow inline-flex items-center justify-center px-10 py-4 rounded-xl gradient-accent text-white font-semibold text-lg transition-transform hover:scale-[1.02] active:scale-[0.97] reveal"
+          class="btn-glow gradient-accent reveal inline-flex items-center justify-center rounded-xl px-10 py-4 text-lg font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
         >
           {de.finalCta.cta}
         </a>

@@ -7,19 +7,16 @@ interface Props {
   [key: string]: unknown
 }
 
-const {
-  variant = 'primary',
-  size = 'md',
-  href,
-  class: className = '',
-  ...rest
-} = Astro.props
+const { variant = 'primary', size = 'md', href, class: className = '', ...rest } = Astro.props
 
-const baseClasses = 'inline-flex items-center justify-center font-semibold rounded-xl transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-flexen-accent'
+const baseClasses =
+  'inline-flex items-center justify-center font-semibold rounded-xl transition-all focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-flexen-accent'
 
 const variants = {
-  primary: 'btn-glow gradient-accent text-white hover:scale-[1.02] active:scale-[0.97] shadow-lg shadow-flexen-accent/20 hover:shadow-flexen-accent/40',
-  secondary: 'border border-white/10 text-white/80 hover:border-white/25 hover:bg-white/5 hover:text-white active:scale-[0.98]',
+  primary:
+    'btn-glow gradient-accent text-white hover:scale-[1.02] active:scale-[0.97] shadow-lg shadow-flexen-accent/20 hover:shadow-flexen-accent/40',
+  secondary:
+    'border border-white/10 text-white/80 hover:border-white/25 hover:bg-white/5 hover:text-white active:scale-[0.98]',
   ghost: 'text-secondary hover:text-white active:scale-[0.98]',
 }
 
@@ -32,12 +29,14 @@ const sizes = {
 const classes = [baseClasses, variants[variant], sizes[size], className].join(' ')
 ---
 
-{href ? (
-  <a href={href} class={classes} {...rest}>
-    <slot />
-  </a>
-) : (
-  <button class={classes} {...rest}>
-    <slot />
-  </button>
-)}
+{
+  href ? (
+    <a href={href} class={classes} {...rest}>
+      <slot />
+    </a>
+  ) : (
+    <button class={classes} {...rest}>
+      <slot />
+    </button>
+  )
+}

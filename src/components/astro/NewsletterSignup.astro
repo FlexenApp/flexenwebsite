@@ -1,0 +1,82 @@
+---
+// NewsletterSignup.astro — Newsletter signup component
+// Props: locale ('de' | 'en'), variant ('inline' | 'card')
+
+interface Props {
+  locale: 'de' | 'en'
+  variant: 'inline' | 'card'
+}
+
+const { locale, variant } = Astro.props
+const isEn = locale === 'en'
+
+const headline = isEn ? 'Stay in the loop' : 'Bleib auf dem Laufenden'
+const subline = isEn
+  ? 'The best tips on fitness, nutrition and AI straight to your inbox.'
+  : 'Die besten Tipps zu Fitness, Ern\u00e4hrung und KI direkt in dein Postfach.'
+const placeholder = isEn ? 'Your email address' : 'Deine E-Mail-Adresse'
+const buttonText = isEn ? 'Subscribe' : 'Abonnieren'
+const microcopy = isEn ? 'No spam. Unsubscribe anytime.' : 'Kein Spam. Jederzeit abmelden.'
+
+const isCard = variant === 'card'
+---
+
+{
+  isCard ? (
+    <section class="section" id="newsletter">
+      <div class="container">
+        <div class="content mx-auto max-w-3xl">
+          <div class="gradient-card reveal rounded-2xl border border-white/5 p-8 text-center sm:p-12">
+            <h2 class="mb-3 text-[length:var(--text-h3)] font-bold">{headline}</h2>
+            <p class="text-secondary mx-auto mb-8 max-w-lg text-[length:var(--text-body)]">{subline}</p>
+            <form action="#" method="POST" class="mx-auto flex max-w-md flex-col gap-3 sm:flex-row">
+              <label for="newsletter-email-card" class="sr-only">
+                {placeholder}
+              </label>
+              <input
+                id="newsletter-email-card"
+                type="email"
+                name="email"
+                required
+                placeholder={placeholder}
+                class="focus:border-flexen-accent focus:ring-flexen-accent flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-[length:var(--text-body)] text-white transition-colors placeholder:text-white/40 focus:ring-1 focus:outline-none"
+              />
+              <button
+                type="submit"
+                class="gradient-accent shrink-0 rounded-xl px-6 py-3 font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
+              >
+                {buttonText}
+              </button>
+            </form>
+            <p class="text-tertiary mt-4 text-[length:var(--text-small)]">{microcopy}</p>
+          </div>
+        </div>
+      </div>
+    </section>
+  ) : (
+    <div class="gradient-card rounded-2xl border border-white/5 p-6">
+      <h3 class="mb-2 text-[length:var(--text-h4)] font-bold">{headline}</h3>
+      <p class="text-secondary mb-4 text-[length:var(--text-small)]">{subline}</p>
+      <form action="#" method="POST" class="space-y-3">
+        <label for="newsletter-email-inline" class="sr-only">
+          {placeholder}
+        </label>
+        <input
+          id="newsletter-email-inline"
+          type="email"
+          name="email"
+          required
+          placeholder={placeholder}
+          class="focus:border-flexen-accent focus:ring-flexen-accent w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-[length:var(--text-body)] text-white transition-colors placeholder:text-white/40 focus:ring-1 focus:outline-none"
+        />
+        <button
+          type="submit"
+          class="gradient-accent w-full rounded-xl px-6 py-3 font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
+        >
+          {buttonText}
+        </button>
+      </form>
+      <p class="text-tertiary mt-3 text-[length:var(--text-small)]">{microcopy}</p>
+    </div>
+  )
+}

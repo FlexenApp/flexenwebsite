@@ -1,10 +1,14 @@
 ---
+import { ViewTransitions } from 'astro:transitions'
 import '../styles/global.css'
 import '../styles/animations.css'
 import { getAppSchema, getOrganizationSchema } from '../lib/seo'
 import Navigation from '../components/astro/Navigation.astro'
 import Footer from '../components/astro/Footer.astro'
 import CustomCursor from '../components/astro/CustomCursor.astro'
+import CookieConsent from '../components/astro/CookieConsent.astro'
+import ScrollProgress from '../components/astro/ScrollProgress.astro'
+import BackToTop from '../components/astro/BackToTop.astro'
 
 interface Props {
   title: string
@@ -75,21 +79,45 @@ const pathWithoutLocale = canonicalPath.replace(/^\/(de|en)/, '')
     <link rel="preload" href="/fonts/SpaceGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin />
     <link rel="preload" href="/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin />
 
+    <!-- Plausible Analytics (cookieless, DSGVO-konform) -->
+    {
+      import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN && (
+        <script
+          is:inline
+          defer
+          data-domain={import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN}
+          src={import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT || 'https://plausible.io/js/script.js'}
+        />
+      )
+    }
+
     <!-- Structured Data -->
     <script type="application/ld+json" set:html={JSON.stringify(getOrganizationSchema())} />
     <script type="application/ld+json" set:html={JSON.stringify(getAppSchema())} />
-    {schema && !Array.isArray(schema) && (
-      <script type="application/ld+json" set:html={JSON.stringify(schema)} />
-    )}
-    {Array.isArray(schema) && schema.map((s) => (
-      <script type="application/ld+json" set:html={JSON.stringify(s)} />
-    ))}
+    {schema && !Array.isArray(schema) && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
+    {Array.isArray(schema) && schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+
+    <!-- View Transitions for smooth page navigation -->
+    <ViewTransitions />
   </head>
   <body>
+    <!-- Skip to content (a11y) -->
+    <a
+      href="#main-content"
+      class="focus:gradient-accent sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-lg focus:px-4 focus:py-2 focus:font-semibold focus:text-white"
+    >
+      {locale === 'de' ? 'Zum Inhalt springen' : 'Skip to content'}
+    </a>
+
+    <ScrollProgress />
     {!hideNav && <Navigation locale={locale} currentPath={canonicalPath} />}
-    <slot />
+    <main id="main-content" transition:animate="fade">
+      <slot />
+    </main>
     {!hideFooter && <Footer locale={locale} />}
 
+    <BackToTop />
+    <CookieConsent />
     <CustomCursor />
 
     <script>

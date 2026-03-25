@@ -18,11 +18,13 @@ const breadcrumbSchema = getBreadcrumbSchema([
   <section class="section min-h-screen">
     <div class="container">
       <div class="content max-w-3xl">
-        <h1 class="text-[length:var(--text-h1)] font-bold mb-12 font-heading">Imprint</h1>
+        <h1 class="font-heading mb-12 text-[length:var(--text-h1)] font-bold">Imprint</h1>
 
-        <div class="prose prose-invert space-y-8 text-secondary text-[length:var(--text-body)]">
+        <div class="prose prose-invert text-secondary space-y-8 text-[length:var(--text-body)]">
           <div>
-            <h2 class="text-[length:var(--text-h3)] font-bold text-white mb-4 font-heading">Information according to &sect; 5 DDG</h2>
+            <h2 class="font-heading mb-4 text-[length:var(--text-h3)] font-bold text-white">
+              Information according to &sect; 5 DDG
+            </h2>
             <p>
               <strong class="text-white">[Company Name]</strong><br />
               [Street + Number]<br />
@@ -32,15 +34,17 @@ const breadcrumbSchema = getBreadcrumbSchema([
           </div>
 
           <div>
-            <h2 class="text-[length:var(--text-h3)] font-bold text-white mb-4 font-heading">Contact</h2>
+            <h2 class="font-heading mb-4 text-[length:var(--text-h3)] font-bold text-white">Contact</h2>
             <p>
-              Email: <a href="mailto:kontakt@flexen.app" class="text-flexen-accent hover:underline">kontakt@flexen.app</a><br />
+              Email: <a href="mailto:kontakt@flexen.app" class="text-flexen-accent hover:underline"
+                >kontakt@flexen.app</a
+              ><br />
               Phone: [+49 XXX XXXXXXX]
             </p>
           </div>
 
           <div>
-            <h2 class="text-[length:var(--text-h3)] font-bold text-white mb-4 font-heading">Commercial Register</h2>
+            <h2 class="font-heading mb-4 text-[length:var(--text-h3)] font-bold text-white">Commercial Register</h2>
             <p>
               Register Court: [Local Court]<br />
               Register Number: [HRB XXXXX]<br />
@@ -49,7 +53,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
           </div>
 
           <div>
-            <h2 class="text-[length:var(--text-h3)] font-bold text-white mb-4 font-heading">VAT ID</h2>
+            <h2 class="font-heading mb-4 text-[length:var(--text-h3)] font-bold text-white">VAT ID</h2>
             <p>
               VAT identification number according to &sect; 27a UStG:<br />
               DE XXXXXXXXX
@@ -57,13 +61,19 @@ const breadcrumbSchema = getBreadcrumbSchema([
           </div>
 
           <div>
-            <h2 class="text-[length:var(--text-h3)] font-bold text-white mb-4 font-heading">Dispute Resolution</h2>
+            <h2 class="font-heading mb-4 text-[length:var(--text-h3)] font-bold text-white">Dispute Resolution</h2>
             <p>
               The European Commission provides a platform for online dispute resolution (ODR):
-              <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener" class="text-flexen-accent hover:underline">https://ec.europa.eu/consumers/odr/</a>.
+              <a
+                href="https://ec.europa.eu/consumers/odr/"
+                target="_blank"
+                rel="noopener"
+                class="text-flexen-accent hover:underline">https://ec.europa.eu/consumers/odr/</a
+              >.
             </p>
             <p>
-              We are not willing or obliged to participate in dispute resolution proceedings before a consumer arbitration board.
+              We are not willing or obliged to participate in dispute resolution proceedings before a consumer
+              arbitration board.
             </p>
           </div>
         </div>

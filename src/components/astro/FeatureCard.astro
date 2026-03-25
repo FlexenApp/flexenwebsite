@@ -8,14 +8,7 @@ interface Props {
   class?: string
 }
 
-const {
-  title,
-  description,
-  badge,
-  badgeColor = 'accent',
-  colSpan = 1,
-  class: className = '',
-} = Astro.props
+const { title, description, badge, badgeColor = 'accent', colSpan = 1, class: className = '' } = Astro.props
 
 const badgeColors = {
   accent: 'gradient-accent text-white',
@@ -26,13 +19,21 @@ const badgeColors = {
 const spanClass = colSpan === 2 ? 'md:col-span-2 lg:col-span-2' : ''
 ---
 
-<div class:list={['group relative p-8 rounded-2xl gradient-card border border-white/5 card-hover gradient-border', spanClass, className]}>
-  {badge && (
-    <span class:list={['inline-block px-3 py-1 rounded-full text-xs font-medium mb-4', badgeColors[badgeColor]]}>
-      {badge}
-    </span>
-  )}
-  <h3 class="text-[length:var(--text-h3)] font-bold mb-3 font-heading">{title}</h3>
+<div
+  class:list={[
+    'group gradient-card card-hover gradient-border relative rounded-2xl border border-white/5 p-8',
+    spanClass,
+    className,
+  ]}
+>
+  {
+    badge && (
+      <span class:list={['mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium', badgeColors[badgeColor]]}>
+        {badge}
+      </span>
+    )
+  }
+  <h3 class="font-heading mb-3 text-[length:var(--text-h3)] font-bold">{title}</h3>
   <p class="text-secondary text-[length:var(--text-body)]">{description}</p>
   <slot />
 </div>
