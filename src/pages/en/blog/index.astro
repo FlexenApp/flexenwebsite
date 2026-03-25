@@ -8,11 +8,13 @@ const breadcrumbSchema = getBreadcrumbSchema([
   { name: 'Blog', url: 'https://flexen.app/en/blog' },
 ])
 
-const posts = (await getCollection('blog'))
+const allPosts = (await getCollection('blog'))
   .filter((post) => post.data.locale === 'en' && !post.data.draft)
   .sort((a, b) => b.data.date.getTime() - a.data.date.getTime())
 
-const categoryLabels = {
+const [featured, ...posts] = allPosts
+
+const categoryLabels: Record<string, string> = {
   ernaehrung: 'Nutrition',
   training: 'Training',
   'ki-tech': 'AI & Tech',
@@ -33,35 +35,55 @@ const categoryLabels = {
         <h1 class="font-heading reveal mb-4 text-h1 font-bold">Blog</h1>
         <p class="text-secondary reveal text-body mb-16">Tips, guides and insights on fitness, nutrition and AI.</p>
 
-        {
-          posts.length > 0 ? (
-            <div class="stagger-children grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {posts.map((post) => (
-                <a
-                  href={`/en/blog/${post.id}/`}
-                  class="group gradient-card card-hover gradient-border block rounded-2xl border border-white/5 p-6"
-                >
-                  <div class="mb-4 flex items-center gap-3">
-                    <span class="bg-flexen-accent/15 text-flexen-accent inline-block rounded-full px-2.5 py-0.5 text-xs font-medium">
-                      {categoryLabels[post.data.category] || post.data.category}
-                    </span>
-                    <time class="text-tertiary text-xs" datetime={post.data.date.toISOString()}>
-                      {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
-                    </time>
-                  </div>
-                  <h2 class="font-heading group-hover:text-flexen-accent mb-2 text-lg font-bold transition-colors">
-                    {post.data.title}
-                  </h2>
-                  <p class="text-secondary line-clamp-3 text-sm">{post.data.description}</p>
-                </a>
-              ))}
-            </div>
-          ) : (
-            <div class="gradient-card rounded-2xl border border-white/5 p-8 text-center">
-              <p class="text-tertiary">Our first articles are coming soon.</p>
-            </div>
-          )
-        }
+        {featured ? (
+          <>
+            <a
+              href={`/en/blog/${featured.id}/`}
+              class="group gradient-card card-hover gradient-border reveal mb-12 block rounded-2xl border border-white/5 p-8 md:p-12"
+            >
+              <div class="mb-4 flex items-center gap-3">
+                <span class="bg-flexen-accent/15 text-flexen-accent inline-block rounded-full px-3 py-1 text-xs font-medium">
+                  {categoryLabels[featured.data.category] || featured.data.category}
+                </span>
+                <time class="text-tertiary text-sm" datetime={featured.data.date.toISOString()}>
+                  {featured.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+                </time>
+              </div>
+              <h2 class="font-heading group-hover:text-flexen-accent mb-4 text-h3 font-bold transition-colors">
+                {featured.data.title}
+              </h2>
+              <p class="text-secondary text-body">{featured.data.description}</p>
+            </a>
+
+            {posts.length > 0 && (
+              <div class="stagger-children grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {posts.map((post) => (
+                  <a
+                    href={`/en/blog/${post.id}/`}
+                    class="group gradient-card card-hover gradient-border block rounded-2xl border border-white/5 p-6"
+                  >
+                    <div class="mb-4 flex items-center gap-3">
+                      <span class="bg-flexen-accent/15 text-flexen-accent inline-block rounded-full px-2.5 py-0.5 text-xs font-medium">
+                        {categoryLabels[post.data.category] || post.data.category}
+                      </span>
+                      <time class="text-tertiary text-xs" datetime={post.data.date.toISOString()}>
+                        {post.data.date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' })}
+                      </time>
+                    </div>
+                    <h2 class="font-heading group-hover:text-flexen-accent mb-2 text-lg font-bold transition-colors">
+                      {post.data.title}
+                    </h2>
+                    <p class="text-secondary line-clamp-3 text-sm">{post.data.description}</p>
+                  </a>
+                ))}
+              </div>
+            )}
+          </>
+        ) : (
+          <div class="gradient-card rounded-2xl border border-white/5 p-8 text-center">
+            <p class="text-tertiary">Our first articles are coming soon.</p>
+          </div>
+        )}
       </div>
     </div>
   </section>
