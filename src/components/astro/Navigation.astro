@@ -187,17 +187,14 @@ function isActive(href: string): boolean {
   })
 
   // Scroll: transparent -> solid
-  let lastScroll = 0
   window.addEventListener(
     'scroll',
     () => {
-      const scrollY = window.scrollY
-      if (scrollY > 80) {
+      if (window.scrollY > 80) {
         nav?.classList.add('bg-flexen-dark/90', 'backdrop-blur-lg', 'border-b', 'border-white/5')
       } else {
         nav?.classList.remove('bg-flexen-dark/90', 'backdrop-blur-lg', 'border-b', 'border-white/5')
       }
-      lastScroll = scrollY
     },
     { passive: true },
   )

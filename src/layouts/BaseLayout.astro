@@ -1,5 +1,5 @@
 ---
-import { ViewTransitions } from 'astro:transitions'
+import { ClientRouter } from 'astro:transitions'
 import '../styles/global.css'
 import '../styles/animations.css'
 import { getOrganizationSchema } from '../lib/seo'
@@ -34,7 +34,6 @@ const {
 
 const siteUrl = 'https://flexen.app'
 const canonical = `${siteUrl}${canonicalPath}`
-const altLocale = locale === 'de' ? 'en' : 'de'
 const pathWithoutLocale = canonicalPath.replace(/^\/(de|en)/, '')
 
 // Map locale-specific slugs to their counterpart
@@ -110,12 +109,12 @@ const altPath = pathMap[pathWithoutLocale] ?? pathWithoutLocale
     }
 
     <!-- Structured Data -->
-    <script type="application/ld+json" set:html={JSON.stringify(getOrganizationSchema())} />
-    {schema && !Array.isArray(schema) && <script type="application/ld+json" set:html={JSON.stringify(schema)} />}
-    {Array.isArray(schema) && schema.map((s) => <script type="application/ld+json" set:html={JSON.stringify(s)} />)}
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(getOrganizationSchema())} />
+    {schema && !Array.isArray(schema) && <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />}
+    {Array.isArray(schema) && schema.map((s) => <script is:inline type="application/ld+json" set:html={JSON.stringify(s)} />)}
 
-    <!-- View Transitions for smooth page navigation -->
-    <ViewTransitions />
+    <!-- Client Router for smooth page navigation -->
+    <ClientRouter />
   </head>
   <body>
     <!-- Skip to content (a11y) -->
