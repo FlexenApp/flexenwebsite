@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import { getAppSchema, getFAQSchema } from '../../lib/seo'
 import de from '../../i18n/de.json'
 import NewsletterSignup from '../../components/astro/NewsletterSignup.astro'
+import AppStoreBadges from '../../components/astro/AppStoreBadges.astro'
 
 const schema = getAppSchema()
 const faqSchema = getFAQSchema(de.faq.items)
@@ -16,10 +17,10 @@ const faqSchema = getFAQSchema(de.faq.items)
   schema={[schema, faqSchema]}
 >
   <!-- Hero Section -->
-  <section class="section gradient-hero flex min-h-screen items-center">
+  <section class="section gradient-hero flex min-h-screen items-center" aria-label="Hero">
     <div class="container">
       <div class="content text-center">
-        <h1 class="mb-6 text-[length:var(--text-hero)] font-bold" data-hero-headline style="opacity:0;">
+        <h1 class="font-heading mb-6 text-[length:var(--text-hero)] font-bold" data-hero-headline style="opacity:0;">
           {de.hero.headline}
         </h1>
         <p class="text-secondary mx-auto mb-8 text-[length:var(--text-body)]" data-hero-subline>
@@ -27,7 +28,7 @@ const faqSchema = getFAQSchema(de.faq.items)
         </p>
         <div class="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row" data-hero-ctas>
           <a
-            href="#"
+            href="#pricing"
             class="btn-glow gradient-accent inline-flex items-center justify-center rounded-xl px-8 py-4 text-lg font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
             data-magnetic
           >
@@ -46,15 +47,18 @@ const faqSchema = getFAQSchema(de.faq.items)
         <p class="text-secondary reveal mt-4 text-[length:var(--text-small)]">
           {de.hero.socialProof}
         </p>
+        <div class="reveal mt-8 flex justify-center">
+          <AppStoreBadges locale="de" campaign="hero" />
+        </div>
       </div>
     </div>
   </section>
 
   <!-- Day Story Section -->
-  <section class="section" id="day-story">
+  <section class="section" id="day-story" aria-labelledby="day-story-title">
     <div class="container">
       <div class="content">
-        <h2 class="reveal mb-16 text-center text-[length:var(--text-h2)] font-bold">
+        <h2 id="day-story-title" class="font-heading reveal mb-16 text-center text-[length:var(--text-h2)] font-bold">
           {de.dayStory.sectionTitle}
         </h2>
         <div class="space-y-24">
@@ -73,10 +77,10 @@ const faqSchema = getFAQSchema(de.faq.items)
                   <span class="day-time text-flexen-accent mb-2 block font-mono text-[length:var(--text-small)]">
                     {scene.time}
                   </span>
-                  <h3 class="day-title mb-4 text-[length:var(--text-h3)] font-bold">{scene.title}</h3>
+                  <h3 class="font-heading day-title mb-4 text-[length:var(--text-h3)] font-bold">{scene.title}</h3>
                   <p class="day-description text-secondary text-[length:var(--text-body)]">{scene.description}</p>
                 </div>
-                <div class="day-mockup bg-flexen-dark-mid aspect-[9/16] max-w-[300px] flex-1 rounded-3xl border border-white/5"></div>
+                <div class="day-mockup bg-flexen-dark-mid aspect-[9/16] max-w-[300px] flex-1 rounded-3xl border border-white/5" role="img" aria-label={`App-Screenshot: ${scene.title}`}></div>
               </div>
             ))
           }
@@ -284,6 +288,9 @@ const faqSchema = getFAQSchema(de.faq.items)
           class="btn-glow gradient-accent reveal inline-flex items-center justify-center rounded-xl px-10 py-4 text-lg font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
           >{de.finalCta.cta}</a
         >
+        <div class="reveal mt-8 flex justify-center">
+          <AppStoreBadges locale="de" campaign="final_cta" />
+        </div>
       </div>
     </div>
   </section>

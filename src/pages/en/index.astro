@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
 import { getAppSchema, getFAQSchema } from '../../lib/seo'
 import en from '../../i18n/en.json'
 import NewsletterSignup from '../../components/astro/NewsletterSignup.astro'
+import AppStoreBadges from '../../components/astro/AppStoreBadges.astro'
 
 const schema = getAppSchema()
 const faqSchema = getFAQSchema(en.faq.items)
@@ -36,6 +37,9 @@ const faqSchema = getFAQSchema(en.faq.items)
         </div>
         <p class="text-tertiary reveal text-[length:var(--text-small)]">{en.hero.microcopy}</p>
         <p class="text-secondary reveal mt-4 text-[length:var(--text-small)]">{en.hero.socialProof}</p>
+        <div class="reveal mt-8 flex justify-center">
+          <AppStoreBadges locale="en" campaign="hero" />
+        </div>
       </div>
     </div>
   </section>
@@ -272,6 +276,9 @@ const faqSchema = getFAQSchema(en.faq.items)
           class="btn-glow gradient-accent reveal inline-flex items-center justify-center rounded-xl px-10 py-4 text-lg font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
           >{en.finalCta.cta}</a
         >
+        <div class="reveal mt-8 flex justify-center">
+          <AppStoreBadges locale="en" campaign="final_cta" />
+        </div>
       </div>
     </div>
   </section>

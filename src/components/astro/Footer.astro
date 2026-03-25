@@ -1,5 +1,6 @@
 ---
 import { t, localePath, altLocale } from '../../lib/i18n'
+import AppStoreBadges from './AppStoreBadges.astro'
 import de from '../../i18n/de.json'
 import en from '../../i18n/en.json'
 
@@ -17,7 +18,7 @@ const content = locale === 'de' ? de : en
       <!-- Flexen Logo Text -->
       <div class="mb-12">
         <a href={localePath(locale, '/')} class="font-heading text-2xl font-bold tracking-tight">
-          <span class="text-accent">F</span><span class="text-white">lexen</span>
+          <span class="text-flexen-accent">F</span><span class="text-white">lexen</span>
         </a>
       </div>
 
@@ -75,8 +76,8 @@ const content = locale === 'de' ? de : en
 
         <!-- Download -->
         <div>
-          <h4 class="font-heading mb-4 font-semibold">{content.footer.social.title}</h4>
-          <!-- App Store Badges & Social links placeholder -->
+          <h4 class="font-heading mb-4 font-semibold">{locale === 'de' ? 'App laden' : 'Download'}</h4>
+          <AppStoreBadges locale={locale} size="sm" campaign="footer" />
         </div>
       </div>
 
