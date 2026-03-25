@@ -1,0 +1,195 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getBreadcrumbSchema } from '../../lib/seo'
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: 'https://flexen.app/en/' },
+  { name: 'Terms of Service', url: 'https://flexen.app/en/terms' },
+])
+---
+
+<BaseLayout
+  title="Terms of Service — Flexen"
+  description="Terms of Service for the Flexen fitness app. Usage terms for the app and premium subscriptions."
+  locale="en"
+  canonicalPath="/en/terms"
+  schema={breadcrumbSchema}
+>
+  <section class="section min-h-screen">
+    <div class="container">
+      <div class="content max-w-3xl">
+        <h1 class="font-heading mb-12 text-h1 font-bold">Terms of Service</h1>
+
+        <div class="prose prose-invert text-secondary text-body space-y-8">
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">1. Scope</h2>
+            <p>
+              These Terms of Service govern the use of the mobile application &ldquo;Flexen&rdquo; (hereinafter
+              &ldquo;App&rdquo;) and the associated website flexen.app, provided by:
+            </p>
+            <p class="mt-4">
+              <strong class="text-white">[Company Name]</strong><br />
+              [Street + Number]<br />
+              [Postal Code + City]<br />
+              Email: <a href="mailto:contact@flexen.app" class="text-flexen-accent hover:underline"
+                >contact@flexen.app</a
+              >
+            </p>
+            <p class="mt-4">
+              By registering for or using the App, you accept these Terms. Deviating terms of the user are not
+              recognised unless we expressly agree to their validity in writing.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">2. Service Description</h2>
+            <p>
+              Flexen is a fitness app that offers personalised training plans, workout tracking and progress analytics.
+              The App is available in a free basic version and a paid premium version.
+            </p>
+            <p class="mt-4">
+              The basic version includes fundamental features. The premium version offers enhanced features such as
+              individualised training plans, detailed analytics and additional exclusive content.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">3. Registration and User Account</h2>
+            <p>
+              Registration is required to use the App. You are obligated to provide truthful and complete information
+              and to keep it up to date.
+            </p>
+            <p class="mt-4">
+              Your account is personal and non-transferable. You are responsible for keeping your login credentials
+              confidential and are liable for any use that occurs under your account.
+            </p>
+            <p class="mt-4">
+              We reserve the right to suspend or delete accounts in case of a violation of these Terms.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">4. Premium Subscription</h2>
+            <p>
+              The premium subscription is offered as a monthly or annual plan. The contract is concluded upon
+              completing the purchase through the Apple App Store or Google Play Store.
+            </p>
+            <p class="mt-4">
+              The subscription renews automatically for the respective term unless cancelled at least 24 hours before
+              the end of the current period. Cancellation is managed through the subscription settings of the
+              respective App Store.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">5. Pricing and Payment</h2>
+            <p>
+              Current prices are displayed in the App and on the website. All prices include applicable VAT where
+              required.
+            </p>
+            <p class="mt-4">
+              Billing is handled through the respective App Store (Apple App Store or Google Play Store). The payment
+              methods and payment terms configured there apply.
+            </p>
+            <p class="mt-4">
+              Price changes will be communicated to you in advance. In the event of a price increase, you have the
+              right to cancel your subscription at the end of the current billing period.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">6. Right of Withdrawal</h2>
+            <p>
+              As a consumer in the EU, you have the right to withdraw from the contract within 14 days without giving
+              any reason. The withdrawal period is 14 days from the date of the conclusion of the contract.
+            </p>
+            <p class="mt-4">
+              To exercise your right of withdrawal, you can contact us at: <a
+                href="mailto:contact@flexen.app"
+                class="text-flexen-accent hover:underline">contact@flexen.app</a
+              >
+            </p>
+            <p class="mt-4">
+              <strong class="text-white">Note:</strong> For subscriptions purchased through the App Store, the refund and
+              withdrawal policies of Apple or Google apply. Please contact the respective provider directly in these cases.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">7. Liability</h2>
+            <p>
+              The training plans and fitness content provided in the App are for general informational purposes only
+              and do not replace professional medical advice. Use is at your own risk.
+            </p>
+            <p class="mt-4">
+              We are fully liable for damages resulting from injury to life, body or health, as well as for damages
+              caused intentionally or through gross negligence. Otherwise, liability is limited to foreseeable damages
+              typical of the contract.
+            </p>
+            <p class="mt-4">
+              We do not guarantee the continuous and uninterrupted availability of the App. Maintenance work and
+              technical issues may lead to temporary restrictions.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">8. Privacy</h2>
+            <p>
+              The protection of your personal data is important to us. Detailed information about data processing can
+              be found in our <a
+                href="/en/privacy"
+                class="text-flexen-accent hover:underline">Privacy Policy</a
+              >.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">9. Changes to These Terms</h2>
+            <p>
+              We reserve the right to amend these Terms at any time. You will be notified of material changes in
+              advance, e.g. by email or in-app notification. Continued use of the App after the changes take effect
+              constitutes acceptance.
+            </p>
+            <p class="mt-4">
+              If you do not agree to the amended Terms, you may delete your account at any time and cancel an existing
+              subscription at the end of the billing period.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">10. Final Provisions</h2>
+            <p>
+              The laws of the Federal Republic of Germany apply, excluding the UN Convention on Contracts for the
+              International Sale of Goods. If the user is a consumer, mandatory consumer protection regulations of the
+              country in which the user has their habitual residence remain unaffected.
+            </p>
+            <p class="mt-4">
+              Should individual provisions of these Terms be or become invalid, the validity of the remaining
+              provisions shall not be affected.
+            </p>
+            <p class="mt-4">
+              The European Commission provides a platform for online dispute resolution (ODR): <a
+                href="https://ec.europa.eu/consumers/odr/"
+                target="_blank"
+                rel="noopener"
+                class="text-flexen-accent hover:underline">ec.europa.eu/consumers/odr</a
+              >. We are neither obliged nor willing to participate in dispute resolution proceedings before a consumer
+              arbitration board.
+            </p>
+            <p class="mt-4">
+              Last updated: March 2026
+            </p>
+          </div>
+
+          <div class="gradient-card mt-12 rounded-2xl border border-white/5 p-6">
+            <p class="mb-2 font-semibold text-white">Notice</p>
+            <p class="text-sm">
+              These Terms of Service are a draft and must be reviewed by a lawyer or a specialised legal service before
+              launch.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
