@@ -70,7 +70,11 @@ const content = locale === 'de' ? de : en
                 href={localePath(locale, locale === 'de' ? '/datenschutz' : '/privacy')}
                 class="transition-colors hover:text-white">{content.footer.legal.privacy}</a>
             </li>
-            <li><a href="#" class="transition-colors hover:text-white">{content.footer.legal.terms}</a></li>
+            <li>
+              <a
+                href={localePath(locale, locale === 'de' ? '/agb' : '/terms')}
+                class="transition-colors hover:text-white">{content.footer.legal.terms}</a>
+            </li>
           </ul>
         </div>
 
