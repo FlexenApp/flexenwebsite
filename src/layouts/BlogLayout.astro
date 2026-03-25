@@ -1,5 +1,6 @@
 ---
 import BaseLayout from './BaseLayout.astro'
+import NewsletterSignup from '../components/astro/NewsletterSignup.astro'
 import { getArticleSchema } from '../lib/seo'
 
 interface Props {
@@ -79,4 +80,6 @@ const categoryLabels: Record<string, string> = {
       </div>
     </div>
   </article>
+
+  <NewsletterSignup locale={locale} variant="card" />
 </BaseLayout>
