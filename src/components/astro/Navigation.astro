@@ -67,7 +67,7 @@ function isActive(href: string): boolean {
 
         <!-- CTA -->
         <a
-          href="#"
+          href={localePath(locale, '/#pricing')}
           class="gradient-accent rounded-lg px-5 py-2.5 text-sm font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
         >
           {t(locale, 'nav.cta')}
@@ -114,7 +114,7 @@ function isActive(href: string): boolean {
         {alt.toUpperCase()}
       </a>
       <a
-        href="#"
+        href={localePath(locale, '/#pricing')}
         data-close-menu
         class="gradient-accent mt-4 block rounded-xl py-3 text-center font-semibold text-white"
       >

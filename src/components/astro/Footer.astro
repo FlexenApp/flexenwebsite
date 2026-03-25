@@ -52,7 +52,11 @@ const content = locale === 'de' ? de : en
                 href={localePath(locale, locale === 'de' ? '/ueber-uns' : '/about')}
                 class="transition-colors hover:text-white">{content.footer.company.about}</a>
             </li>
-            <li><a href="#" class="transition-colors hover:text-white">{content.footer.company.careers}</a></li>
+            <li>
+              <a
+                href={`mailto:karriere@flexen.app`}
+                class="transition-colors hover:text-white">{content.footer.company.careers}</a>
+            </li>
           </ul>
         </div>
 
