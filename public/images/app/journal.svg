@@ -1,0 +1,229 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 812" width="375" height="812">
+  <defs>
+    <clipPath id="phoneClip-journal">
+      <rect width="375" height="812" rx="44" ry="44"/>
+    </clipPath>
+  </defs>
+
+  <!-- Phone Frame -->
+  <rect width="375" height="812" rx="44" ry="44" fill="#001622"/>
+  <rect width="375" height="812" rx="44" ry="44" fill="none" stroke="#1a3a52" stroke-width="1"/>
+
+  <g clip-path="url(#phoneClip-journal)">
+    <!-- Status Bar -->
+    <text x="32" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#ffffff">9:41</text>
+    <g transform="translate(280, 18)">
+      <rect x="0" y="6" width="3" height="4" rx="1" fill="#fff"/>
+      <rect x="5" y="4" width="3" height="6" rx="1" fill="#fff"/>
+      <rect x="10" y="2" width="3" height="8" rx="1" fill="#fff"/>
+      <rect x="15" y="0" width="3" height="10" rx="1" fill="#fff"/>
+    </g>
+    <g transform="translate(310, 18)">
+      <path d="M0 8 Q6 0 12 8" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M2 6 Q6 2 10 6" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="6" cy="9" r="1.5" fill="#fff"/>
+    </g>
+    <rect x="335" y="18" width="22" height="11" rx="3" fill="none" stroke="#fff" stroke-width="1.2"/>
+    <rect x="357" y="22" width="2" height="4" rx="1" fill="#fff" opacity="0.5"/>
+    <rect x="337" y="20" width="16" height="7" rx="1.5" fill="#fff"/>
+
+    <!-- ===== CONTENT STARTS y=54 ===== -->
+
+    <!-- Title + Date -->
+    <text x="24" y="84" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#ffffff">Journal</text>
+    <text x="24" y="106" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6688aa">25. März 2026</text>
+
+    <!-- ===== Mood Selector Row ===== -->
+    <text x="24" y="140" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#757575">Wie fühlst du dich?</text>
+
+    <!-- 5 mood circles -->
+    <g transform="translate(0, 160)">
+      <!-- Very Happy (selected) -->
+      <g transform="translate(48, 0)">
+        <circle cx="0" cy="0" r="26" fill="#66BB6A" opacity="0.15" stroke="#66BB6A" stroke-width="2"/>
+        <circle cx="0" cy="0" r="22" fill="#0a2a3f"/>
+        <!-- Happy face -->
+        <circle cx="-6" cy="-5" r="2" fill="#66BB6A"/>
+        <circle cx="6" cy="-5" r="2" fill="#66BB6A"/>
+        <path d="M-8 3 Q0 12 8 3" fill="none" stroke="#66BB6A" stroke-width="1.8" stroke-linecap="round"/>
+        <text x="0" y="36" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#66BB6A" text-anchor="middle" font-weight="600">Super</text>
+      </g>
+
+      <!-- Happy -->
+      <g transform="translate(120, 0)">
+        <circle cx="0" cy="0" r="22" fill="#0d3350"/>
+        <circle cx="-6" cy="-4" r="2" fill="#81C784"/>
+        <circle cx="6" cy="-4" r="2" fill="#81C784"/>
+        <path d="M-6 4 Q0 9 6 4" fill="none" stroke="#81C784" stroke-width="1.5" stroke-linecap="round"/>
+        <text x="0" y="36" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6688aa" text-anchor="middle">Gut</text>
+      </g>
+
+      <!-- Neutral -->
+      <g transform="translate(192, 0)">
+        <circle cx="0" cy="0" r="22" fill="#0d3350"/>
+        <circle cx="-6" cy="-4" r="2" fill="#FFF176"/>
+        <circle cx="6" cy="-4" r="2" fill="#FFF176"/>
+        <line x1="-6" y1="4" x2="6" y2="4" stroke="#FFF176" stroke-width="1.5" stroke-linecap="round"/>
+        <text x="0" y="36" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6688aa" text-anchor="middle">OK</text>
+      </g>
+
+      <!-- Sad -->
+      <g transform="translate(264, 0)">
+        <circle cx="0" cy="0" r="22" fill="#0d3350"/>
+        <circle cx="-6" cy="-4" r="2" fill="#FFB74D"/>
+        <circle cx="6" cy="-4" r="2" fill="#FFB74D"/>
+        <path d="M-6 6 Q0 2 6 6" fill="none" stroke="#FFB74D" stroke-width="1.5" stroke-linecap="round"/>
+        <text x="0" y="36" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6688aa" text-anchor="middle">Mäßig</text>
+      </g>
+
+      <!-- Very Sad -->
+      <g transform="translate(336, 0)">
+        <circle cx="0" cy="0" r="22" fill="#0d3350"/>
+        <circle cx="-6" cy="-4" r="2" fill="#E57373"/>
+        <circle cx="6" cy="-4" r="2" fill="#E57373"/>
+        <path d="M-7 7 Q0 2 7 7" fill="none" stroke="#E57373" stroke-width="1.5" stroke-linecap="round"/>
+        <text x="0" y="36" font-family="system-ui, -apple-system, sans-serif" font-size="9" fill="#6688aa" text-anchor="middle">Schlecht</text>
+      </g>
+    </g>
+
+    <!-- ===== Journal Entry Card ===== -->
+    <rect x="20" y="216" width="335" height="196" rx="14" fill="#0a2a3f"/>
+
+    <text x="40" y="248" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#ffffff" opacity="0.95">Heute war ein guter Tag. Das Training</text>
+    <text x="40" y="270" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#ffffff" opacity="0.95">lief super und ich hab mich danach</text>
+    <text x="40" y="292" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#ffffff" opacity="0.95">richtig energetisiert gefühlt. Muss</text>
+    <text x="40" y="314" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#ffffff" opacity="0.95">nur aufpassen, dass ich abends nicht</text>
+    <text x="40" y="336" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#ffffff" opacity="0.95">zu spät esse — das hat letzte Woche</text>
+    <text x="40" y="358" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#ffffff" opacity="0.95">meinen Schlaf gestört.</text>
+
+    <!-- Cursor -->
+    <rect x="180" y="344" width="2" height="18" rx="1" fill="#4A7DFF"/>
+
+    <!-- Timestamp -->
+    <text x="336" y="398" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575" text-anchor="end">20:34</text>
+
+    <!-- ===== Voice Input Section ===== -->
+    <rect x="20" y="428" width="335" height="88" rx="14" fill="#0a2a3f"/>
+
+    <!-- Waveform bars -->
+    <g transform="translate(40, 452)">
+      <rect x="0" y="16" width="3" height="8" rx="1.5" fill="#4A7DFF" opacity="0.3"/>
+      <rect x="7" y="12" width="3" height="16" rx="1.5" fill="#4A7DFF" opacity="0.4"/>
+      <rect x="14" y="6" width="3" height="28" rx="1.5" fill="#4A7DFF" opacity="0.5"/>
+      <rect x="21" y="10" width="3" height="20" rx="1.5" fill="#4A7DFF" opacity="0.6"/>
+      <rect x="28" y="4" width="3" height="32" rx="1.5" fill="#4A7DFF" opacity="0.7"/>
+      <rect x="35" y="8" width="3" height="24" rx="1.5" fill="#4A7DFF" opacity="0.8"/>
+      <rect x="42" y="14" width="3" height="12" rx="1.5" fill="#4A7DFF" opacity="0.5"/>
+      <rect x="49" y="6" width="3" height="28" rx="1.5" fill="#4A7DFF" opacity="0.7"/>
+      <rect x="56" y="2" width="3" height="36" rx="1.5" fill="#4A7DFF" opacity="0.9"/>
+      <rect x="63" y="10" width="3" height="20" rx="1.5" fill="#4A7DFF" opacity="0.6"/>
+      <rect x="70" y="4" width="3" height="32" rx="1.5" fill="#4A7DFF" opacity="0.8"/>
+      <rect x="77" y="12" width="3" height="16" rx="1.5" fill="#4A7DFF" opacity="0.5"/>
+      <rect x="84" y="8" width="3" height="24" rx="1.5" fill="#4A7DFF" opacity="0.7"/>
+      <rect x="91" y="14" width="3" height="12" rx="1.5" fill="#4A7DFF" opacity="0.4"/>
+      <rect x="98" y="6" width="3" height="28" rx="1.5" fill="#4A7DFF" opacity="0.6"/>
+      <rect x="105" y="10" width="3" height="20" rx="1.5" fill="#4A7DFF" opacity="0.5"/>
+      <!-- Inactive future bars -->
+      <rect x="115" y="16" width="3" height="8" rx="1.5" fill="#1a3a52"/>
+      <rect x="122" y="14" width="3" height="12" rx="1.5" fill="#1a3a52"/>
+      <rect x="129" y="16" width="3" height="8" rx="1.5" fill="#1a3a52"/>
+      <rect x="136" y="14" width="3" height="12" rx="1.5" fill="#1a3a52"/>
+      <rect x="143" y="16" width="3" height="8" rx="1.5" fill="#1a3a52"/>
+      <rect x="150" y="14" width="3" height="12" rx="1.5" fill="#1a3a52"/>
+      <rect x="157" y="16" width="3" height="8" rx="1.5" fill="#1a3a52"/>
+      <rect x="164" y="14" width="3" height="12" rx="1.5" fill="#1a3a52"/>
+    </g>
+
+    <!-- Mic button -->
+    <circle cx="320" cy="472" r="20" fill="#4A7DFF"/>
+    <!-- Microphone icon -->
+    <g transform="translate(312, 460)">
+      <rect x="4" y="0" width="8" height="14" rx="4" fill="#ffffff"/>
+      <path d="M0 10 C0 16 4 19 8 19 C12 19 16 16 16 10" fill="none" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"/>
+      <line x1="8" y1="19" x2="8" y2="23" stroke="#ffffff" stroke-width="1.6" stroke-linecap="round"/>
+    </g>
+
+    <text x="40" y="504" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#6688aa">Spracheingabe starten</text>
+
+    <!-- ===== Writing Prompt Card ===== -->
+    <rect x="20" y="530" width="335" height="82" rx="14" fill="#0a2a3f"/>
+    <rect x="20" y="530" width="335" height="82" rx="14" fill="none" stroke="#A832A8" stroke-width="0.6" opacity="0.4"/>
+
+    <!-- Sparkle icon -->
+    <g transform="translate(38, 548)">
+      <path d="M6 0 L7 4 L11 5 L7 6 L6 10 L5 6 L1 5 L5 4Z" fill="#A832A8" opacity="0.7"/>
+    </g>
+
+    <text x="56" y="558" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#A832A8" font-weight="600" letter-spacing="0.5">SCHREIBIMPULS</text>
+
+    <text x="40" y="586" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#ffffff">Was hat dich heute am meisten</text>
+    <text x="40" y="604" font-family="system-ui, -apple-system, sans-serif" font-size="15" fill="#ffffff">überrascht?</text>
+
+    <!-- ===== Tags row ===== -->
+    <g transform="translate(20, 630)">
+      <rect x="0" y="0" width="70" height="28" rx="14" fill="#66BB6A" opacity="0.12"/>
+      <text x="35" y="18" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#66BB6A" text-anchor="middle">#Energie</text>
+
+      <rect x="80" y="0" width="80" height="28" rx="14" fill="#4A7DFF" opacity="0.12"/>
+      <text x="120" y="18" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#4A7DFF" text-anchor="middle">#Training</text>
+
+      <rect x="170" y="0" width="86" height="28" rx="14" fill="#FFB74D" opacity="0.12"/>
+      <text x="213" y="18" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#FFB74D" text-anchor="middle">#Ernährung</text>
+
+      <rect x="266" y="0" width="86" height="28" rx="14" fill="#AB47BC" opacity="0.12"/>
+      <text x="309" y="18" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#AB47BC" text-anchor="middle">#Reflexion</text>
+    </g>
+
+    <!-- ===== Streak indicator ===== -->
+    <rect x="20" y="674" width="335" height="40" rx="10" fill="#0a2a3f"/>
+    <text x="40" y="700" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6688aa">Eintrags-Streak:</text>
+    <text x="336" y="700" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="700" fill="#FF7324" text-anchor="end">12 Tage</text>
+    <!-- Fire icon (simplified) -->
+    <g transform="translate(296, 687)">
+      <path d="M6 12 C6 8 2 6 4 0 C6 4 10 4 10 8 C12 6 12 4 12 4 C14 8 14 12 10 14 C8 16 4 14 6 12Z" fill="#FF7324" opacity="0.8"/>
+    </g>
+
+    <!-- ===== Bottom Navigation Bar ===== -->
+    <rect x="0" y="720" width="375" height="92" fill="#001622"/>
+    <line x1="0" y1="720" x2="375" y2="720" stroke="#1a3a52" stroke-width="0.5"/>
+
+    <!-- Home -->
+    <g transform="translate(40, 738)">
+      <path d="M10 12 L10 18 H6 V10 L0 10 L10 2 L20 10 H14 V18 H10Z" fill="none" stroke="#4a6a7a" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+      <text x="10" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a" text-anchor="middle">Home</text>
+    </g>
+
+    <!-- Training -->
+    <g transform="translate(112, 738)">
+      <rect x="2" y="2" width="16" height="4" rx="2" fill="none" stroke="#4a6a7a" stroke-width="1.5"/>
+      <rect x="0" y="8" width="20" height="12" rx="3" fill="none" stroke="#4a6a7a" stroke-width="1.5"/>
+      <circle cx="10" cy="14" r="2" fill="none" stroke="#4a6a7a" stroke-width="1.2"/>
+      <text x="10" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a" text-anchor="middle">Training</text>
+    </g>
+
+    <!-- Nutrition -->
+    <g transform="translate(184, 738)">
+      <circle cx="10" cy="10" r="8" fill="none" stroke="#4a6a7a" stroke-width="1.5"/>
+      <path d="M10 6 L10 14 M6 10 L14 10" fill="none" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/>
+      <text x="10" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a" text-anchor="middle">Ernährung</text>
+    </g>
+
+    <!-- Sleep -->
+    <g transform="translate(256, 738)">
+      <path d="M16 10 C16 5.6 12.4 2 8 2 C7.2 2 6.4 2.1 5.6 2.4 C9 3.8 11.4 7 11.4 10.8 C11.4 14.6 9 17.8 5.6 19.2 C6.4 19.5 7.2 19.6 8 19.6 C12.4 19.6 16 16 16 10Z" fill="none" stroke="#4a6a7a" stroke-width="1.5"/>
+      <text x="10" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a" text-anchor="middle">Schlaf</text>
+    </g>
+
+    <!-- Journal (active) -->
+    <g transform="translate(318, 738)">
+      <rect x="2" y="2" width="16" height="18" rx="3" fill="none" stroke="#4A7DFF" stroke-width="1.5"/>
+      <line x1="6" y1="7" x2="14" y2="7" stroke="#4A7DFF" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="6" y1="11" x2="14" y2="11" stroke="#4A7DFF" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="6" y1="15" x2="11" y2="15" stroke="#4A7DFF" stroke-width="1.2" stroke-linecap="round"/>
+      <text x="10" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4A7DFF" text-anchor="middle" font-weight="600">Journal</text>
+    </g>
+
+    <!-- Bottom Home Indicator -->
+    <rect x="120" y="790" width="134" height="5" rx="2.5" fill="#ffffff" opacity="0.3"/>
+  </g>
+</svg>

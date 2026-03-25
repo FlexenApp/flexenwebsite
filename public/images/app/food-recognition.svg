@@ -1,0 +1,185 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 812" width="375" height="812">
+  <defs>
+    <clipPath id="phoneClip-food">
+      <rect width="375" height="812" rx="44" ry="44"/>
+    </clipPath>
+    <linearGradient id="foodImgGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#0a2a3f" stop-opacity="0"/>
+      <stop offset="80%" stop-color="#0a2a3f" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#0a2a3f"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Phone Frame -->
+  <rect width="375" height="812" rx="44" ry="44" fill="#001622"/>
+  <rect width="375" height="812" rx="44" ry="44" fill="none" stroke="#1a3a52" stroke-width="1"/>
+
+  <g clip-path="url(#phoneClip-food)">
+    <!-- Status Bar -->
+    <text x="32" y="36" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#ffffff">9:41</text>
+    <g transform="translate(280, 24)">
+      <rect x="0" y="6" width="3" height="4" rx="1" fill="#fff"/>
+      <rect x="5" y="4" width="3" height="6" rx="1" fill="#fff"/>
+      <rect x="10" y="2" width="3" height="8" rx="1" fill="#fff"/>
+      <rect x="15" y="0" width="3" height="10" rx="1" fill="#fff"/>
+    </g>
+    <!-- WiFi -->
+    <g transform="translate(305, 22)">
+      <path d="M4 12 L8 6 L12 12" stroke="#fff" stroke-width="1.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+      <circle cx="8" cy="12" r="1.5" fill="#fff"/>
+    </g>
+    <!-- Battery -->
+    <rect x="330" y="23" width="24" height="11" rx="3" fill="none" stroke="#fff" stroke-width="1.2"/>
+    <rect x="354" y="27" width="2" height="4" rx="1" fill="#fff" opacity="0.5"/>
+    <rect x="332" y="25" width="18" height="7" rx="1.5" fill="#fff"/>
+
+    <!-- ============================================ -->
+    <!-- Top Bar -->
+    <!-- ============================================ -->
+    <!-- Back arrow -->
+    <path d="M30 76 L20 76" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round"/>
+    <path d="M24 70 L18 76 L24 82" fill="none" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="48" y="81" font-family="'Space Grotesk', system-ui, -apple-system, sans-serif" font-size="18" font-weight="600" fill="#ffffff">Essenserkennung</text>
+
+    <!-- ============================================ -->
+    <!-- Food Image Placeholder -->
+    <!-- ============================================ -->
+    <rect x="24" y="102" width="327" height="240" rx="20" fill="#0a2a3f"/>
+    <rect x="24" y="102" width="327" height="240" rx="20" fill="none" stroke="#1a3a52" stroke-width="0.5"/>
+
+    <!-- Plate/food illustration -->
+    <ellipse cx="187" cy="210" rx="100" ry="70" fill="#152838"/>
+    <ellipse cx="187" cy="208" rx="96" ry="66" fill="#1e3848"/>
+    <!-- Pasta shapes -->
+    <ellipse cx="170" cy="195" rx="45" ry="30" fill="#5a3828" opacity="0.7"/>
+    <ellipse cx="170" cy="193" rx="42" ry="27" fill="#7a4828" opacity="0.6"/>
+    <!-- Sauce -->
+    <ellipse cx="180" cy="200" rx="35" ry="22" fill="#8B2500" opacity="0.5"/>
+    <ellipse cx="175" cy="198" rx="28" ry="18" fill="#A03000" opacity="0.45"/>
+    <!-- Some garnish/herbs -->
+    <circle cx="200" cy="188" r="3" fill="#2a6a2a" opacity="0.6"/>
+    <circle cx="195" cy="182" r="2.5" fill="#3a7a3a" opacity="0.5"/>
+    <circle cx="207" cy="192" r="2" fill="#2a6a2a" opacity="0.5"/>
+    <!-- Cheese sprinkle dots -->
+    <circle cx="165" cy="190" r="1.5" fill="#FFE4B5" opacity="0.4"/>
+    <circle cx="178" cy="196" r="1" fill="#FFE4B5" opacity="0.4"/>
+    <circle cx="172" cy="202" r="1.2" fill="#FFE4B5" opacity="0.35"/>
+
+    <!-- AI detection overlay -->
+    <rect x="80" y="152" width="214" height="124" rx="8" fill="none" stroke="#006DDB" stroke-width="1.5" stroke-dasharray="6 4" opacity="0.5"/>
+    <!-- Detection checkmark badge -->
+    <circle cx="290" cy="156" r="12" fill="#006DDB"/>
+    <path d="M284 156 L288 160 L296 152" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+
+    <!-- Fade at bottom of image area -->
+    <rect x="24" y="282" width="327" height="60" rx="0" fill="url(#foodImgGrad)"/>
+
+    <!-- ============================================ -->
+    <!-- Detected Food Card -->
+    <!-- ============================================ -->
+    <rect x="24" y="358" width="327" height="148" rx="16" fill="#0a2a3f"/>
+    <rect x="24" y="358" width="327" height="148" rx="16" fill="none" stroke="#1a3a52" stroke-width="0.5"/>
+
+    <!-- Food name and portion -->
+    <text x="44" y="392" font-family="'Space Grotesk', system-ui, -apple-system, sans-serif" font-size="20" font-weight="700" fill="#ffffff">Pasta Bolognese</text>
+    <text x="44" y="414" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="13" fill="#6688aa">Portion: ~350g</text>
+
+    <!-- Nutrition row -->
+    <g transform="translate(44, 432)">
+      <!-- Calories -->
+      <g>
+        <text x="0" y="16" font-family="'Space Grotesk', system-ui, -apple-system, sans-serif" font-size="18" font-weight="700" fill="#006DDB">487</text>
+        <text x="0" y="32" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="11" fill="#6688aa">kcal</text>
+      </g>
+      <!-- Divider -->
+      <rect x="68" y="4" width="1" height="32" rx="0.5" fill="#1a3a52"/>
+      <!-- Protein -->
+      <g>
+        <text x="84" y="16" font-family="'Space Grotesk', system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#4FC3F7">32g</text>
+        <text x="84" y="32" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="11" fill="#6688aa">Protein</text>
+      </g>
+      <!-- Divider -->
+      <rect x="146" y="4" width="1" height="32" rx="0.5" fill="#1a3a52"/>
+      <!-- Carbs -->
+      <g>
+        <text x="162" y="16" font-family="'Space Grotesk', system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#FFB74D">58g</text>
+        <text x="162" y="32" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="11" fill="#6688aa">Carbs</text>
+      </g>
+      <!-- Divider -->
+      <rect x="220" y="4" width="1" height="32" rx="0.5" fill="#1a3a52"/>
+      <!-- Fat -->
+      <g>
+        <text x="236" y="16" font-family="'Space Grotesk', system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#E57373">14g</text>
+        <text x="236" y="32" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="11" fill="#6688aa">Fett</text>
+      </g>
+    </g>
+
+    <!-- ============================================ -->
+    <!-- Meal Period Selector Pills -->
+    <!-- ============================================ -->
+    <g transform="translate(24, 526)">
+      <!-- Fr&#252;hst&#252;ck -->
+      <rect x="0" y="0" width="82" height="36" rx="18" fill="#0a2a3f" stroke="#1a3a52" stroke-width="1"/>
+      <text x="41" y="23" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="12" fill="#6688aa" text-anchor="middle">Fr&#252;hst&#252;ck</text>
+      <!-- Mittagessen (selected/highlighted) -->
+      <rect x="90" y="0" width="92" height="36" rx="18" fill="#006DDB"/>
+      <text x="136" y="23" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="12" font-weight="600" fill="#ffffff" text-anchor="middle">Mittagessen</text>
+      <!-- Abendessen -->
+      <rect x="190" y="0" width="88" height="36" rx="18" fill="#0a2a3f" stroke="#1a3a52" stroke-width="1"/>
+      <text x="234" y="23" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="12" fill="#6688aa" text-anchor="middle">Abendessen</text>
+      <!-- Snacks -->
+      <rect x="286" y="0" width="65" height="36" rx="18" fill="#0a2a3f" stroke="#1a3a52" stroke-width="1"/>
+      <text x="318" y="23" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="12" fill="#6688aa" text-anchor="middle">Snacks</text>
+    </g>
+
+    <!-- ============================================ -->
+    <!-- Hinzuf&#252;gen Button -->
+    <!-- ============================================ -->
+    <rect x="24" y="586" width="327" height="52" rx="26" fill="#006DDB"/>
+    <text x="187" y="618" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="16" font-weight="600" fill="#ffffff" text-anchor="middle">Hinzuf&#252;gen</text>
+
+    <!-- ============================================ -->
+    <!-- Bottom Navigation Bar -->
+    <!-- ============================================ -->
+    <rect x="0" y="740" width="375" height="72" fill="#0a1e2e"/>
+    <line x1="0" y1="740" x2="375" y2="740" stroke="#1a3a52" stroke-width="0.5"/>
+
+    <!-- Home -->
+    <g transform="translate(18, 752)">
+      <path d="M18 10 L3 20 L3 32 L12 32 L12 24 L24 24 L24 32 L33 32 L33 20 Z" fill="none" stroke="#556677" stroke-width="1.5" transform="scale(0.6)"/>
+      <text x="10" y="30" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="9" fill="#556677" text-anchor="middle">Home</text>
+    </g>
+
+    <!-- Ern&#228;hrung (active, green) -->
+    <g transform="translate(85, 752)">
+      <circle cx="12" cy="8" r="7" fill="none" stroke="#66BB6A" stroke-width="1.5"/>
+      <path d="M8 6 L8 14 M12 4 L12 14 M16 6 L16 14" stroke="#66BB6A" stroke-width="1.2" stroke-linecap="round"/>
+      <text x="12" y="30" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="9" font-weight="600" fill="#66BB6A" text-anchor="middle">Ern&#228;hrung</text>
+      <circle cx="12" cy="35" r="2" fill="#66BB6A"/>
+    </g>
+
+    <!-- Sport -->
+    <g transform="translate(160, 752)">
+      <path d="M4 10 L8 10 M16 10 L20 10 M8 5 L8 15 M16 5 L16 15 M8 7 L16 7 M8 13 L16 13" stroke="#556677" stroke-width="1.5" stroke-linecap="round"/>
+      <text x="12" y="30" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="9" fill="#556677" text-anchor="middle">Sport</text>
+    </g>
+
+    <!-- Mind -->
+    <g transform="translate(240, 752)">
+      <circle cx="12" cy="8" r="7" fill="none" stroke="#556677" stroke-width="1.5"/>
+      <path d="M9 8 Q12 3 15 8" fill="none" stroke="#556677" stroke-width="1.3" stroke-linecap="round"/>
+      <circle cx="12" cy="10" r="1.5" fill="#556677"/>
+      <text x="12" y="30" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="9" fill="#556677" text-anchor="middle">Mind</text>
+    </g>
+
+    <!-- Julio -->
+    <g transform="translate(310, 752)">
+      <circle cx="12" cy="8" r="7" fill="none" stroke="#556677" stroke-width="1.5"/>
+      <text x="12" y="12" font-family="'Space Grotesk', system-ui, -apple-system, sans-serif" font-size="10" font-weight="700" fill="#556677" text-anchor="middle">J</text>
+      <text x="12" y="30" font-family="'DM Sans', system-ui, -apple-system, sans-serif" font-size="9" fill="#556677" text-anchor="middle">Julio</text>
+    </g>
+
+    <!-- Home Indicator -->
+    <rect x="120" y="800" width="134" height="5" rx="2.5" fill="#ffffff" opacity="0.3"/>
+  </g>
+</svg>

@@ -1,0 +1,193 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 375 812" width="375" height="812">
+  <defs>
+    <clipPath id="phoneClip-sleep">
+      <rect width="375" height="812" rx="44" ry="44"/>
+    </clipPath>
+    <linearGradient id="sleepScoreGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#42A5F5"/>
+      <stop offset="100%" stop-color="#64B5F6"/>
+    </linearGradient>
+    <linearGradient id="deepFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#42A5F5" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#42A5F5" stop-opacity="0.05"/>
+    </linearGradient>
+    <linearGradient id="remFill" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#AB47BC" stop-opacity="0.5"/>
+      <stop offset="100%" stop-color="#AB47BC" stop-opacity="0.05"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Phone Frame -->
+  <rect width="375" height="812" rx="44" ry="44" fill="#001622"/>
+  <rect width="375" height="812" rx="44" ry="44" fill="none" stroke="#1a3a52" stroke-width="1"/>
+
+  <g clip-path="url(#phoneClip-sleep)">
+    <!-- Status Bar -->
+    <text x="32" y="32" font-family="system-ui, -apple-system, sans-serif" font-size="15" font-weight="600" fill="#ffffff">9:41</text>
+    <g transform="translate(280, 18)">
+      <rect x="0" y="6" width="3" height="4" rx="1" fill="#fff"/>
+      <rect x="5" y="4" width="3" height="6" rx="1" fill="#fff"/>
+      <rect x="10" y="2" width="3" height="8" rx="1" fill="#fff"/>
+      <rect x="15" y="0" width="3" height="10" rx="1" fill="#fff"/>
+    </g>
+    <g transform="translate(310, 18)">
+      <path d="M0 8 Q6 0 12 8" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+      <path d="M2 6 Q6 2 10 6" fill="none" stroke="#fff" stroke-width="1.2" stroke-linecap="round"/>
+      <circle cx="6" cy="9" r="1.5" fill="#fff"/>
+    </g>
+    <rect x="335" y="18" width="22" height="11" rx="3" fill="none" stroke="#fff" stroke-width="1.2"/>
+    <rect x="357" y="22" width="2" height="4" rx="1" fill="#fff" opacity="0.5"/>
+    <rect x="337" y="20" width="16" height="7" rx="1.5" fill="#fff"/>
+
+    <!-- ===== CONTENT STARTS y=54 ===== -->
+
+    <!-- Title -->
+    <text x="24" y="84" font-family="system-ui, -apple-system, sans-serif" font-size="28" font-weight="700" fill="#ffffff">Schlaf</text>
+    <text x="24" y="106" font-family="system-ui, -apple-system, sans-serif" font-size="13" fill="#6688aa">Letzte Nacht</text>
+
+    <!-- ===== Sleep Score Circle (large, centered) ===== -->
+    <!-- Background ring -->
+    <circle cx="187" cy="196" r="68" fill="none" stroke="#0d3350" stroke-width="8"/>
+    <!-- Score ring ~85% filled: circumference = 2*pi*68 = 427.26, 85% = 363.17, offset = 427.26-363.17 = 64.09 -->
+    <circle cx="187" cy="196" r="68" fill="none" stroke="#42A5F5" stroke-width="8" stroke-linecap="round"
+      stroke-dasharray="427.26" stroke-dashoffset="64.09" transform="rotate(-90, 187, 196)"/>
+    <!-- Score number -->
+    <text x="187" y="190" font-family="system-ui, -apple-system, sans-serif" font-size="48" font-weight="700" fill="#ffffff" text-anchor="middle">87</text>
+    <text x="187" y="214" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#6688aa" text-anchor="middle">Schlaf-Score</text>
+
+    <!-- Duration -->
+    <text x="187" y="298" font-family="system-ui, -apple-system, sans-serif" font-size="22" font-weight="600" fill="#ffffff" text-anchor="middle">7h 42min</text>
+    <!-- Time range -->
+    <text x="187" y="320" font-family="system-ui, -apple-system, sans-serif" font-size="14" fill="#757575" text-anchor="middle">23:14 — 06:56</text>
+
+    <!-- ===== Sleep Curve Graph ===== -->
+    <rect x="20" y="344" width="335" height="240" rx="16" fill="#0a2a3f"/>
+
+    <!-- Y-axis labels -->
+    <text x="38" y="382" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a">Wach</text>
+    <text x="38" y="412" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a">Leicht</text>
+    <text x="38" y="442" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a">Tief</text>
+    <text x="38" y="472" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a">REM</text>
+
+    <!-- Grid lines -->
+    <line x1="75" y1="378" x2="340" y2="378" stroke="#1a3a52" stroke-width="0.5" stroke-dasharray="3,3"/>
+    <line x1="75" y1="408" x2="340" y2="408" stroke="#1a3a52" stroke-width="0.5" stroke-dasharray="3,3"/>
+    <line x1="75" y1="438" x2="340" y2="438" stroke="#1a3a52" stroke-width="0.5" stroke-dasharray="3,3"/>
+    <line x1="75" y1="468" x2="340" y2="468" stroke="#1a3a52" stroke-width="0.5" stroke-dasharray="3,3"/>
+
+    <!-- Sleep phase area visualization -->
+    <!-- This represents a realistic night: light sleep -> deep sleep -> light -> REM -> light -> deep -> light -> REM -> light -> awake -->
+
+    <!-- Deep sleep blocks (blue) around 00:00-02:00 -->
+    <rect x="108" y="428" width="56" height="20" rx="4" fill="#42A5F5" opacity="0.5"/>
+    <rect x="205" y="428" width="30" height="20" rx="4" fill="#42A5F5" opacity="0.35"/>
+
+    <!-- Light sleep blocks (green) scattered -->
+    <rect x="75" y="398" width="33" height="20" rx="4" fill="#66BB6A" opacity="0.4"/>
+    <rect x="164" y="398" width="41" height="20" rx="4" fill="#66BB6A" opacity="0.4"/>
+    <rect x="235" y="398" width="42" height="20" rx="4" fill="#66BB6A" opacity="0.4"/>
+    <rect x="310" y="398" width="30" height="20" rx="4" fill="#66BB6A" opacity="0.4"/>
+
+    <!-- REM blocks (purple) around 03:00-05:00 -->
+    <rect x="245" y="458" width="48" height="20" rx="4" fill="#AB47BC" opacity="0.5"/>
+    <rect x="310" y="458" width="30" height="20" rx="4" fill="#AB47BC" opacity="0.35"/>
+
+    <!-- Awake (orange) thin blocks at top, brief -->
+    <rect x="178" y="370" width="12" height="14" rx="3" fill="#FFA726" opacity="0.5"/>
+    <rect x="300" y="370" width="8" height="14" rx="3" fill="#FFA726" opacity="0.35"/>
+
+    <!-- Sleep stage curve line connecting the phases -->
+    <path d="M75 408 L88 408 L95 438 L108 438 L120 438 L142 438 L155 438 L164 408 L178 408 L182 378 L190 378 L190 408 L205 438 L220 438 L235 408 L250 468 L270 468 L280 408 L300 408 L304 378 L308 408 L315 468 L330 468 L340 408"
+      fill="none" stroke="#ffffff" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" opacity="0.7"/>
+
+    <!-- X-axis time labels -->
+    <text x="75" y="502" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a" text-anchor="start">23:00</text>
+    <text x="141" y="502" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a" text-anchor="middle">01:00</text>
+    <text x="207" y="502" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a" text-anchor="middle">03:00</text>
+    <text x="273" y="502" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a" text-anchor="middle">05:00</text>
+    <text x="340" y="502" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a" text-anchor="end">07:00</text>
+
+    <!-- Legend row inside the graph card -->
+    <g transform="translate(42, 524)">
+      <circle cx="0" cy="0" r="4" fill="#42A5F5"/>
+      <text x="10" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#6688aa">Tief</text>
+
+      <circle cx="55" cy="0" r="4" fill="#66BB6A"/>
+      <text x="65" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#6688aa">Leicht</text>
+
+      <circle cx="125" cy="0" r="4" fill="#AB47BC"/>
+      <text x="135" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#6688aa">REM</text>
+
+      <circle cx="180" cy="0" r="4" fill="#FFA726"/>
+      <text x="190" y="4" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#6688aa">Wach</text>
+    </g>
+
+    <!-- ===== Sleep Phase Legend (bottom section) ===== -->
+    <rect x="20" y="600" width="335" height="112" rx="16" fill="#0a2a3f"/>
+
+    <text x="40" y="626" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#ffffff">Phasenverteilung</text>
+
+    <!-- Tiefschlaf -->
+    <circle cx="44" cy="650" r="5" fill="#42A5F5"/>
+    <text x="58" y="654" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#ffffff">Tiefschlaf</text>
+    <text x="338" y="654" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="end">1h 32m</text>
+
+    <!-- Leichtschlaf -->
+    <circle cx="44" cy="672" r="5" fill="#66BB6A"/>
+    <text x="58" y="676" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#ffffff">Leichtschlaf</text>
+    <text x="338" y="676" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="end">3h 18m</text>
+
+    <!-- REM -->
+    <circle cx="44" cy="694" r="5" fill="#AB47BC"/>
+    <text x="58" y="698" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#ffffff">REM</text>
+    <text x="338" y="698" font-family="system-ui, -apple-system, sans-serif" font-size="13" font-weight="600" fill="#ffffff" text-anchor="end">2h 42m</text>
+
+    <!-- Wach -->
+    <circle cx="200" cy="650" r="5" fill="#FFA726"/>
+    <text x="214" y="654" font-family="system-ui, -apple-system, sans-serif" font-size="12" fill="#ffffff">Wach</text>
+    <text x="214" y="676" font-family="system-ui, -apple-system, sans-serif" font-size="11" fill="#757575">10 min</text>
+
+    <!-- ===== Bottom Navigation Bar ===== -->
+    <rect x="0" y="720" width="375" height="92" fill="#001622"/>
+    <line x1="0" y1="720" x2="375" y2="720" stroke="#1a3a52" stroke-width="0.5"/>
+
+    <!-- Home -->
+    <g transform="translate(40, 738)">
+      <path d="M10 12 L10 18 H6 V10 L0 10 L10 2 L20 10 H14 V18 H10Z" fill="none" stroke="#4a6a7a" stroke-width="1.5" stroke-linejoin="round" stroke-linecap="round"/>
+      <text x="10" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a" text-anchor="middle">Home</text>
+    </g>
+
+    <!-- Training -->
+    <g transform="translate(112, 738)">
+      <rect x="2" y="2" width="16" height="4" rx="2" fill="none" stroke="#4a6a7a" stroke-width="1.5"/>
+      <rect x="0" y="8" width="20" height="12" rx="3" fill="none" stroke="#4a6a7a" stroke-width="1.5"/>
+      <circle cx="10" cy="14" r="2" fill="none" stroke="#4a6a7a" stroke-width="1.2"/>
+      <text x="10" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a" text-anchor="middle">Training</text>
+    </g>
+
+    <!-- Nutrition -->
+    <g transform="translate(184, 738)">
+      <circle cx="10" cy="10" r="8" fill="none" stroke="#4a6a7a" stroke-width="1.5"/>
+      <path d="M10 6 L10 14 M6 10 L14 10" fill="none" stroke="#4a6a7a" stroke-width="1.5" stroke-linecap="round"/>
+      <text x="10" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a" text-anchor="middle">Ernährung</text>
+    </g>
+
+    <!-- Sleep (active) -->
+    <g transform="translate(256, 738)">
+      <path d="M16 10 C16 5.6 12.4 2 8 2 C7.2 2 6.4 2.1 5.6 2.4 C9 3.8 11.4 7 11.4 10.8 C11.4 14.6 9 17.8 5.6 19.2 C6.4 19.5 7.2 19.6 8 19.6 C12.4 19.6 16 16 16 10Z" fill="none" stroke="#42A5F5" stroke-width="1.5"/>
+      <text x="10" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#42A5F5" text-anchor="middle" font-weight="600">Schlaf</text>
+    </g>
+
+    <!-- Journal -->
+    <g transform="translate(318, 738)">
+      <rect x="2" y="2" width="16" height="18" rx="3" fill="none" stroke="#4a6a7a" stroke-width="1.5"/>
+      <line x1="6" y1="7" x2="14" y2="7" stroke="#4a6a7a" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="6" y1="11" x2="14" y2="11" stroke="#4a6a7a" stroke-width="1.2" stroke-linecap="round"/>
+      <line x1="6" y1="15" x2="11" y2="15" stroke="#4a6a7a" stroke-width="1.2" stroke-linecap="round"/>
+      <text x="10" y="30" font-family="system-ui, -apple-system, sans-serif" font-size="10" fill="#4a6a7a" text-anchor="middle">Journal</text>
+    </g>
+
+    <!-- Bottom Home Indicator -->
+    <rect x="120" y="790" width="134" height="5" rx="2.5" fill="#ffffff" opacity="0.3"/>
+  </g>
+</svg>
