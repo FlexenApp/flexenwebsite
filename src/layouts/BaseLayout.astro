@@ -85,6 +85,9 @@ const altPath = pathMap[pathWithoutLocale] ?? pathWithoutLocale
     <meta name="twitter:description" content={description} />
     <meta name="twitter:image" content={ogImage} />
 
+    <!-- RSS Feed -->
+    <link rel="alternate" type="application/rss+xml" title="Flexen Blog" href={locale === 'de' ? '/de/blog/rss.xml' : '/en/blog/rss.xml'} />
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
