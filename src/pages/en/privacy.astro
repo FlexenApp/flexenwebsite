@@ -1,5 +1,11 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getBreadcrumbSchema } from '../../lib/seo'
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: 'https://flexen.app/en/' },
+  { name: 'Privacy Policy', url: 'https://flexen.app/en/privacy' },
+])
 ---
 
 <BaseLayout
@@ -7,6 +13,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro'
   description="Privacy policy for the Flexen App website. Information about how we handle your data."
   locale="en"
   canonicalPath="/en/privacy"
+  schema={breadcrumbSchema}
 >
   <section class="section min-h-screen">
     <div class="container">

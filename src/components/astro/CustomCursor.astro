@@ -1,0 +1,46 @@
+<!--
+  Custom cursor element.
+  - Fixed positioned, pointer-events-none
+  - Small circle with accent color border
+  - mix-blend-mode: difference for visibility on any background
+  - Hidden on touch devices via media query
+  - Hidden by default, shown by custom-cursor.ts
+-->
+<div
+  id="custom-cursor"
+  class="custom-cursor"
+  aria-hidden="true"
+></div>
+
+<style>
+  .custom-cursor {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 12px;
+    height: 12px;
+    border: 1.5px solid #4A7DFF;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    mix-blend-mode: difference;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    will-change: transform, width, height, opacity;
+  }
+
+  /* Hide on touch devices */
+  @media (pointer: coarse) {
+    .custom-cursor {
+      display: none !important;
+    }
+  }
+
+  /* Respect reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    .custom-cursor {
+      display: none !important;
+    }
+  }
+</style>

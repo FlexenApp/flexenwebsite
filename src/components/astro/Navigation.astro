@@ -14,7 +14,20 @@ const navItems = [
   { label: t(locale, 'nav.features'), href: localePath(locale, '/features') },
   { label: t(locale, 'nav.pricing'), href: localePath(locale, locale === 'de' ? '/preise' : '/pricing') },
   { label: t(locale, 'nav.blog'), href: localePath(locale, '/blog') },
+  { label: t(locale, 'nav.about'), href: localePath(locale, locale === 'de' ? '/ueber-uns' : '/about') },
 ]
+
+/**
+ * Check if a nav item matches the current path for active state highlighting.
+ * Matches exact path or any sub-path (e.g. /de/blog matches /de/blog/post-slug).
+ */
+function isActive(href: string): boolean {
+  if (!currentPath) return false
+  // Normalize: remove trailing slashes for comparison
+  const normalizedCurrent = currentPath.replace(/\/$/, '')
+  const normalizedHref = href.replace(/\/$/, '')
+  return normalizedCurrent === normalizedHref || normalizedCurrent.startsWith(normalizedHref + '/')
+}
 ---
 
 <nav id="main-nav" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
@@ -31,7 +44,13 @@ const navItems = [
         {navItems.map((item) => (
           <a
             href={item.href}
-            class="text-secondary hover:text-white transition-colors text-sm font-medium"
+            class:list={[
+              'transition-colors text-sm font-medium',
+              isActive(item.href)
+                ? 'text-white'
+                : 'text-secondary hover:text-white',
+            ]}
+            aria-current={isActive(item.href) ? 'page' : undefined}
           >
             {item.label}
           </a>
@@ -72,18 +91,29 @@ const navItems = [
   <div id="mobile-menu" class="md:hidden fixed inset-0 top-16 bg-flexen-dark/95 backdrop-blur-lg -translate-x-full transition-transform duration-300 ease-[var(--ease-default)]">
     <div class="container py-8 flex flex-col gap-6">
       {navItems.map((item) => (
-        <a href={item.href} class="text-2xl font-semibold text-secondary hover:text-white transition-colors">
+        <a
+          href={item.href}
+          data-close-menu
+          class:list={[
+            'text-2xl font-semibold transition-colors',
+            isActive(item.href)
+              ? 'text-white'
+              : 'text-secondary hover:text-white',
+          ]}
+          aria-current={isActive(item.href) ? 'page' : undefined}
+        >
           {item.label}
         </a>
       ))}
       <hr class="border-white/10" />
       <a
         href={`/${alt}${pathWithoutLocale}`}
+        data-close-menu
         class="text-lg text-tertiary hover:text-white transition-colors uppercase"
       >
         {alt.toUpperCase()}
       </a>
-      <a href="#" class="mt-4 block text-center py-3 rounded-xl gradient-accent text-white font-semibold">
+      <a href="#" data-close-menu class="mt-4 block text-center py-3 rounded-xl gradient-accent text-white font-semibold">
         {t(locale, 'nav.cta')}
       </a>
     </div>
@@ -101,6 +131,29 @@ const navItems = [
 
   let isOpen = false
 
+  function closeMenu() {
+    if (!isOpen) return
+    isOpen = false
+    menu?.classList.add('-translate-x-full')
+    menu?.classList.remove('translate-x-0')
+    top?.classList.remove('rotate-45', 'translate-y-[4px]')
+    mid?.classList.remove('opacity-0')
+    bot?.classList.remove('-rotate-45', '-translate-y-[4px]')
+    btn?.setAttribute('aria-expanded', 'false')
+    document.body.style.overflow = ''
+  }
+
+  function openMenu() {
+    isOpen = true
+    menu?.classList.remove('-translate-x-full')
+    menu?.classList.add('translate-x-0')
+    top?.classList.add('rotate-45', 'translate-y-[4px]')
+    mid?.classList.add('opacity-0')
+    bot?.classList.add('-rotate-45', '-translate-y-[4px]')
+    btn?.setAttribute('aria-expanded', 'true')
+    document.body.style.overflow = 'hidden'
+  }
+
   // Scroll: transparent -> solid
   let lastScroll = 0
   window.addEventListener('scroll', () => {
@@ -115,24 +168,18 @@ const navItems = [
 
   // Mobile toggle
   btn?.addEventListener('click', () => {
-    isOpen = !isOpen
     if (isOpen) {
-      menu?.classList.remove('-translate-x-full')
-      menu?.classList.add('translate-x-0')
-      top?.classList.add('rotate-45', 'translate-y-[4px]')
-      mid?.classList.add('opacity-0')
-      bot?.classList.add('-rotate-45', '-translate-y-[4px]')
-      btn?.setAttribute('aria-expanded', 'true')
-      document.body.style.overflow = 'hidden'
+      closeMenu()
     } else {
-      menu?.classList.add('-translate-x-full')
-      menu?.classList.remove('translate-x-0')
-      top?.classList.remove('rotate-45', 'translate-y-[4px]')
-      mid?.classList.remove('opacity-0')
-      bot?.classList.remove('-rotate-45', '-translate-y-[4px]')
-      btn?.setAttribute('aria-expanded', 'false')
-      document.body.style.overflow = ''
+      openMenu()
     }
+  })
+
+  // Close menu when any link with data-close-menu is clicked
+  document.querySelectorAll('[data-close-menu]').forEach((link) => {
+    link.addEventListener('click', () => {
+      closeMenu()
+    })
   })
 </script>
 

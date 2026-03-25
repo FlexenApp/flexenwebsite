@@ -1,9 +1,15 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
+import { getBreadcrumbSchema } from '../../lib/seo'
 import de from '../../i18n/de.json'
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Startseite', url: 'https://flexen.app/de/' },
+  { name: 'Features', url: 'https://flexen.app/de/features' },
+])
 ---
 
-<BaseLayout title="Features — Flexen" description="Entdecke Flexens KI-Coach Julio, automatische Essenserkennung, personalisierte Trainingspläne und Schlaf-Tracking." locale="de" canonicalPath="/de/features">
+<BaseLayout title="Features — Flexen" description="Entdecke Flexens KI-Coach Julio, automatische Essenserkennung, personalisierte Trainingspläne und Schlaf-Tracking." locale="de" canonicalPath="/de/features" schema={breadcrumbSchema}>
 
   <!-- Hero Section -->
   <section class="section gradient-hero min-h-[70vh] flex items-center pt-32">

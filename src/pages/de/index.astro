@@ -1,9 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import { getAppSchema } from '../../lib/seo'
+import { getAppSchema, getFAQSchema } from '../../lib/seo'
 import de from '../../i18n/de.json'
 
 const schema = getAppSchema()
+const faqSchema = getFAQSchema(de.faq.items)
 ---
 
 <BaseLayout
@@ -11,7 +12,7 @@ const schema = getAppSchema()
   description={de.meta.description}
   locale="de"
   canonicalPath="/de/"
-  schema={schema}
+  schema={[schema, faqSchema]}
 >
   <!-- Hero Section -->
   <section class="section gradient-hero min-h-screen flex items-center">
@@ -27,6 +28,7 @@ const schema = getAppSchema()
           <a
             href="#"
             class="btn-glow inline-flex items-center justify-center px-8 py-4 rounded-xl gradient-accent text-white font-semibold text-lg transition-transform hover:scale-[1.02] active:scale-[0.97]"
+            data-magnetic
           >
             {de.hero.cta}
           </a>

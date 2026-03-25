@@ -1,18 +1,19 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro'
-import { getAppSchema } from '../../lib/seo'
+import { getAppSchema, getFAQSchema } from '../../lib/seo'
 import en from '../../i18n/en.json'
 
 const schema = getAppSchema()
+const faqSchema = getFAQSchema(en.faq.items)
 ---
 
-<BaseLayout title={en.meta.title} description={en.meta.description} locale="en" canonicalPath="/en/" schema={schema}>
+<BaseLayout title={en.meta.title} description={en.meta.description} locale="en" canonicalPath="/en/" schema={[schema, faqSchema]}>
   <section class="section gradient-hero min-h-screen flex items-center">
     <div class="container"><div class="content text-center">
-      <h1 class="text-[length:var(--text-hero)] font-bold mb-6 reveal">{en.hero.headline}</h1>
-      <p class="text-secondary text-[length:var(--text-body)] mx-auto mb-8 reveal">{en.hero.subline}</p>
-      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6 reveal">
-        <a href="#" class="btn-glow inline-flex items-center justify-center px-8 py-4 rounded-xl gradient-accent text-white font-semibold text-lg transition-transform hover:scale-[1.02] active:scale-[0.97]">{en.hero.cta}</a>
+      <h1 class="text-[length:var(--text-hero)] font-bold mb-6" data-hero-headline style="opacity:0;">{en.hero.headline}</h1>
+      <p class="text-secondary text-[length:var(--text-body)] mx-auto mb-8" data-hero-subline>{en.hero.subline}</p>
+      <div class="flex flex-col sm:flex-row gap-4 justify-center items-center mb-6" data-hero-ctas>
+        <a href="#" class="btn-glow inline-flex items-center justify-center px-8 py-4 rounded-xl gradient-accent text-white font-semibold text-lg transition-transform hover:scale-[1.02] active:scale-[0.97]" data-magnetic>{en.hero.cta}</a>
         <a href="/en/features" class="inline-flex items-center justify-center px-8 py-4 rounded-xl border border-white/10 text-white/80 font-medium hover:bg-white/5 transition-colors">{en.hero.ctaSecondary}</a>
       </div>
       <p class="text-tertiary text-[length:var(--text-small)] reveal">{en.hero.microcopy}</p>
@@ -26,13 +27,13 @@ const schema = getAppSchema()
       <h2 class="text-[length:var(--text-h2)] font-bold text-center mb-16 reveal">{en.dayStory.sectionTitle}</h2>
       <div class="space-y-24">
         {[en.dayStory.morning, en.dayStory.breakfast, en.dayStory.training, en.dayStory.evening, en.dayStory.night].map((scene, i) => (
-          <div class={`flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center reveal`}>
+          <div class={`day-scene flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} gap-12 items-center`}>
             <div class="flex-1">
-              <span class="text-flexen-accent font-mono text-[length:var(--text-small)] mb-2 block">{scene.time}</span>
-              <h3 class="text-[length:var(--text-h3)] font-bold mb-4">{scene.title}</h3>
-              <p class="text-secondary text-[length:var(--text-body)]">{scene.description}</p>
+              <span class="day-time text-flexen-accent font-mono text-[length:var(--text-small)] mb-2 block">{scene.time}</span>
+              <h3 class="day-title text-[length:var(--text-h3)] font-bold mb-4">{scene.title}</h3>
+              <p class="day-description text-secondary text-[length:var(--text-body)]">{scene.description}</p>
             </div>
-            <div class="flex-1 aspect-[9/16] max-w-[300px] rounded-3xl bg-flexen-dark-mid border border-white/5"></div>
+            <div class="day-mockup flex-1 aspect-[9/16] max-w-[300px] rounded-3xl bg-flexen-dark-mid border border-white/5"></div>
           </div>
         ))}
       </div>
