@@ -23,7 +23,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
         <h1 class="reveal mb-6 text-[length:var(--text-hero)] font-bold">
           {en.features.sectionTitle}
         </h1>
-        <p class="text-secondary reveal mx-auto mb-8 max-w-2xl text-[length:var(--text-body)]">
+        <p class="text-secondary reveal text-body mx-auto mb-8 max-w-2xl">
           {en.features.sectionSubtitle}
         </p>
         <div class="reveal flex flex-col items-center justify-center gap-4 sm:flex-row">
@@ -54,7 +54,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
               >{en.features.julio.badge}</span
             >
             <h2 class="mb-4 text-[length:var(--text-h2)] font-bold">{en.features.julio.title}</h2>
-            <p class="text-secondary mb-8 text-[length:var(--text-body)]">{en.features.julio.description}</p>
+            <p class="text-secondary text-body mb-8">{en.features.julio.description}</p>
             <ul class="stagger-children space-y-4">
               <li class="text-secondary flex items-start gap-3">
                 <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
@@ -115,7 +115,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
               >{en.features.foodAI.badge}</span
             >
             <h2 class="mb-4 text-[length:var(--text-h2)] font-bold">{en.features.foodAI.title}</h2>
-            <p class="text-secondary mb-8 text-[length:var(--text-body)]">{en.features.foodAI.description}</p>
+            <p class="text-secondary text-body mb-8">{en.features.foodAI.description}</p>
             <ul class="stagger-children space-y-4">
               <li class="text-secondary flex items-start gap-3">
                 <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
@@ -177,7 +177,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
               >{en.features.training.badge}</span
             >
             <h2 class="mb-4 text-[length:var(--text-h2)] font-bold">{en.features.training.title}</h2>
-            <p class="text-secondary mb-8 text-[length:var(--text-body)]">{en.features.training.description}</p>
+            <p class="text-secondary text-body mb-8">{en.features.training.description}</p>
             <ul class="stagger-children space-y-4">
               <li class="text-secondary flex items-start gap-3">
                 <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
@@ -235,7 +235,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
         <div class="flex flex-col items-center gap-16 md:flex-row-reverse">
           <div class="reveal flex-1">
             <h2 class="mb-4 text-[length:var(--text-h2)] font-bold">{en.features.sleep.title}</h2>
-            <p class="text-secondary mb-8 text-[length:var(--text-body)]">{en.features.sleep.description}</p>
+            <p class="text-secondary text-body mb-8">{en.features.sleep.description}</p>
             <ul class="stagger-children space-y-4">
               <li class="text-secondary flex items-start gap-3">
                 <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
@@ -284,7 +284,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
         <div class="flex flex-col items-center gap-16 md:flex-row">
           <div class="reveal flex-1">
             <h2 class="mb-4 text-[length:var(--text-h2)] font-bold">{en.features.journal.title}</h2>
-            <p class="text-secondary mb-8 text-[length:var(--text-body)]">{en.features.journal.description}</p>
+            <p class="text-secondary text-body mb-8">{en.features.journal.description}</p>
             <ul class="stagger-children space-y-4">
               <li class="text-secondary flex items-start gap-3">
                 <span class="text-flexen-accent mt-0.5 shrink-0">&#10148;</span>
@@ -341,9 +341,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
     <div class="container">
       <div class="content">
         <h2 class="reveal mb-4 text-center text-[length:var(--text-h2)] font-bold">Everything at a glance</h2>
-        <p class="text-secondary reveal mb-16 text-center text-[length:var(--text-body)]">
-          What's included in Free and Premium.
-        </p>
+        <p class="text-secondary reveal text-body mb-16 text-center">What's included in Free and Premium.</p>
         <div class="stagger-children grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-6">
             <div
@@ -427,7 +425,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
     <div class="container">
       <div class="content text-center">
         <h2 class="reveal mb-6 text-[length:var(--text-h1)] font-bold">{en.finalCta.headline}</h2>
-        <p class="text-secondary reveal mx-auto mb-8 text-[length:var(--text-body)]">{en.finalCta.subline}</p>
+        <p class="text-secondary reveal text-body mx-auto mb-8">{en.finalCta.subline}</p>
         <a
           href="#"
           class="btn-glow gradient-accent reveal inline-flex items-center justify-center rounded-xl px-10 py-4 text-lg font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"

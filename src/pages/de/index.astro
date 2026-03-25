@@ -23,7 +23,7 @@ const faqSchema = getFAQSchema(de.faq.items)
         <h1 class="font-heading mb-6 text-[length:var(--text-hero)] font-bold" data-hero-headline style="opacity:0;">
           {de.hero.headline}
         </h1>
-        <p class="text-secondary mx-auto mb-8 text-[length:var(--text-body)]" data-hero-subline>
+        <p class="text-secondary text-body mx-auto mb-8" data-hero-subline>
           {de.hero.subline}
         </p>
         <div class="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row" data-hero-ctas>
@@ -78,9 +78,13 @@ const faqSchema = getFAQSchema(de.faq.items)
                     {scene.time}
                   </span>
                   <h3 class="font-heading day-title mb-4 text-[length:var(--text-h3)] font-bold">{scene.title}</h3>
-                  <p class="day-description text-secondary text-[length:var(--text-body)]">{scene.description}</p>
+                  <p class="day-description text-secondary text-body">{scene.description}</p>
                 </div>
-                <div class="day-mockup bg-flexen-dark-mid aspect-[9/16] max-w-[300px] flex-1 rounded-3xl border border-white/5" role="img" aria-label={`App-Screenshot: ${scene.title}`}></div>
+                <div
+                  class="day-mockup bg-flexen-dark-mid aspect-[9/16] max-w-[300px] flex-1 rounded-3xl border border-white/5"
+                  role="img"
+                  aria-label={`App-Screenshot: ${scene.title}`}
+                />
               </div>
             ))
           }
@@ -96,7 +100,7 @@ const faqSchema = getFAQSchema(de.faq.items)
         <h2 id="features-title" class="font-heading reveal mb-4 text-center text-[length:var(--text-h2)] font-bold">
           {de.features.sectionTitle}
         </h2>
-        <p class="text-secondary reveal mb-16 text-center text-[length:var(--text-body)]">
+        <p class="text-secondary reveal text-body mb-16 text-center">
           {de.features.sectionSubtitle}
         </p>
         <div class="stagger-children grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -107,14 +111,14 @@ const faqSchema = getFAQSchema(de.faq.items)
               >{de.features.julio.badge}</span
             >
             <h3 class="font-heading mb-3 text-[length:var(--text-h3)] font-bold">{de.features.julio.title}</h3>
-            <p class="text-secondary text-[length:var(--text-body)]">{de.features.julio.description}</p>
+            <p class="text-secondary text-body">{de.features.julio.description}</p>
           </div>
           <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
             <span class="bg-success/20 text-success mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium"
               >{de.features.foodAI.badge}</span
             >
             <h3 class="font-heading mb-3 text-[length:var(--text-h3)] font-bold">{de.features.foodAI.title}</h3>
-            <p class="text-secondary text-[length:var(--text-body)]">{de.features.foodAI.description}</p>
+            <p class="text-secondary text-body">{de.features.foodAI.description}</p>
           </div>
           <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
             <span
@@ -122,15 +126,15 @@ const faqSchema = getFAQSchema(de.faq.items)
               >{de.features.training.badge}</span
             >
             <h3 class="font-heading mb-3 text-[length:var(--text-h3)] font-bold">{de.features.training.title}</h3>
-            <p class="text-secondary text-[length:var(--text-body)]">{de.features.training.description}</p>
+            <p class="text-secondary text-body">{de.features.training.description}</p>
           </div>
           <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
             <h3 class="font-heading mb-3 text-[length:var(--text-h3)] font-bold">{de.features.sleep.title}</h3>
-            <p class="text-secondary text-[length:var(--text-body)]">{de.features.sleep.description}</p>
+            <p class="text-secondary text-body">{de.features.sleep.description}</p>
           </div>
           <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
             <h3 class="font-heading mb-3 text-[length:var(--text-h3)] font-bold">{de.features.journal.title}</h3>
-            <p class="text-secondary text-[length:var(--text-body)]">{de.features.journal.description}</p>
+            <p class="text-secondary text-body">{de.features.journal.description}</p>
           </div>
         </div>
       </div>
@@ -141,7 +145,10 @@ const faqSchema = getFAQSchema(de.faq.items)
   <section class="section" id="social-proof" aria-labelledby="social-proof-title">
     <div class="container">
       <div class="content">
-        <h2 id="social-proof-title" class="font-heading reveal mb-16 text-center text-[length:var(--text-h2)] font-bold">
+        <h2
+          id="social-proof-title"
+          class="font-heading reveal mb-16 text-center text-[length:var(--text-h2)] font-bold"
+        >
           {de.socialProof.sectionTitle}
         </h2>
         <div class="stagger-children mb-20 grid grid-cols-1 gap-8 md:grid-cols-3">
@@ -156,7 +163,7 @@ const faqSchema = getFAQSchema(de.faq.items)
                   {stat.value}
                   {stat.suffix}
                 </span>
-                <span class="text-secondary text-[length:var(--text-body)]">{stat.label}</span>
+                <span class="text-secondary text-body">{stat.label}</span>
               </div>
             ))
           }
@@ -165,7 +172,7 @@ const faqSchema = getFAQSchema(de.faq.items)
           {
             de.socialProof.testimonials.map((t) => (
               <div class="gradient-card card-hover rounded-2xl border border-white/5 p-8">
-                <p class="text-secondary mb-6 text-[length:var(--text-body)] italic">&ldquo;{t.text}&rdquo;</p>
+                <p class="text-secondary text-body mb-6 italic">&ldquo;{t.text}&rdquo;</p>
                 <div class="flex items-center justify-between">
                   <div>
                     <span class="block font-semibold">{t.name}</span>
@@ -185,8 +192,10 @@ const faqSchema = getFAQSchema(de.faq.items)
   <section class="section" id="pricing" aria-labelledby="pricing-title">
     <div class="container">
       <div class="content">
-        <h2 id="pricing-title" class="font-heading reveal mb-4 text-center text-[length:var(--text-h2)] font-bold">{de.pricing.sectionTitle}</h2>
-        <p class="text-secondary reveal mb-16 text-center text-[length:var(--text-body)]">
+        <h2 id="pricing-title" class="font-heading reveal mb-4 text-center text-[length:var(--text-h2)] font-bold">
+          {de.pricing.sectionTitle}
+        </h2>
+        <p class="text-secondary reveal text-body mb-16 text-center">
           {de.pricing.sectionSubtitle}
         </p>
         <div class="stagger-children mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
@@ -254,18 +263,18 @@ const faqSchema = getFAQSchema(de.faq.items)
   <section class="section" id="faq" aria-labelledby="faq-title">
     <div class="container">
       <div class="content mx-auto max-w-3xl">
-        <h2 id="faq-title" class="font-heading reveal mb-16 text-center text-[length:var(--text-h2)] font-bold">{de.faq.sectionTitle}</h2>
+        <h2 id="faq-title" class="font-heading reveal mb-16 text-center text-[length:var(--text-h2)] font-bold">
+          {de.faq.sectionTitle}
+        </h2>
         <div class="stagger-children space-y-4">
           {
             de.faq.items.map((item) => (
               <details class="group gradient-card cursor-pointer rounded-2xl border border-white/5 p-6">
-                <summary class="flex list-none items-center justify-between text-[length:var(--text-body)] font-semibold">
+                <summary class="text-body flex list-none items-center justify-between font-semibold">
                   {item.question}
                   <span class="text-flexen-accent text-xl transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p class="text-secondary mt-4 border-t border-white/5 pt-4 text-[length:var(--text-body)]">
-                  {item.answer}
-                </p>
+                <p class="text-secondary text-body mt-4 border-t border-white/5 pt-4">{item.answer}</p>
               </details>
             ))
           }
@@ -282,7 +291,7 @@ const faqSchema = getFAQSchema(de.faq.items)
     <div class="container">
       <div class="content text-center">
         <h2 class="font-heading reveal mb-6 text-[length:var(--text-h1)] font-bold">{de.finalCta.headline}</h2>
-        <p class="text-secondary reveal mx-auto mb-8 text-[length:var(--text-body)]">{de.finalCta.subline}</p>
+        <p class="text-secondary reveal text-body mx-auto mb-8">{de.finalCta.subline}</p>
         <a
           href="#pricing"
           class="btn-glow gradient-accent reveal inline-flex items-center justify-center rounded-xl px-10 py-4 text-lg font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"

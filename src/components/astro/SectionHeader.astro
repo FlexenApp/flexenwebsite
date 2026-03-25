@@ -14,9 +14,5 @@ const subtitleMargin = align === 'center' ? 'mx-auto' : ''
 
 <div class:list={['mb-16', alignClasses, className]}>
   <h2 class="reveal font-heading mb-4 text-[length:var(--text-h2)] font-bold">{title}</h2>
-  {
-    subtitle && (
-      <p class:list={['text-secondary reveal max-w-2xl text-[length:var(--text-body)]', subtitleMargin]}>{subtitle}</p>
-    )
-  }
+  {subtitle && <p class:list={['text-secondary reveal text-body max-w-2xl', subtitleMargin]}>{subtitle}</p>}
 </div>

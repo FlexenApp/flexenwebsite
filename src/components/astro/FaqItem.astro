@@ -8,11 +8,11 @@ const { question, answer } = Astro.props
 ---
 
 <details class="group gradient-card cursor-pointer rounded-2xl border border-white/5 p-6">
-  <summary class="flex list-none items-center justify-between text-[length:var(--text-body)] font-semibold">
+  <summary class="text-body flex list-none items-center justify-between font-semibold">
     {question}
     <span class="text-flexen-accent ml-4 flex-shrink-0 text-xl transition-transform group-open:rotate-45">+</span>
   </summary>
-  <p class="text-secondary mt-4 border-t border-white/5 pt-4 text-[length:var(--text-body)]">
+  <p class="text-secondary text-body mt-4 border-t border-white/5 pt-4">
     {answer}
   </p>
 </details>

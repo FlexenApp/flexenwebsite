@@ -22,7 +22,7 @@ const faqSchema = getFAQSchema(en.faq.items)
         <h1 class="mb-6 text-[length:var(--text-hero)] font-bold" data-hero-headline style="opacity:0;">
           {en.hero.headline}
         </h1>
-        <p class="text-secondary mx-auto mb-8 text-[length:var(--text-body)]" data-hero-subline>{en.hero.subline}</p>
+        <p class="text-secondary text-body mx-auto mb-8" data-hero-subline>{en.hero.subline}</p>
         <div class="mb-6 flex flex-col items-center justify-center gap-4 sm:flex-row" data-hero-ctas>
           <a
             href="#"
@@ -66,7 +66,7 @@ const faqSchema = getFAQSchema(en.faq.items)
                     {scene.time}
                   </span>
                   <h3 class="day-title mb-4 text-[length:var(--text-h3)] font-bold">{scene.title}</h3>
-                  <p class="day-description text-secondary text-[length:var(--text-body)]">{scene.description}</p>
+                  <p class="day-description text-secondary text-body">{scene.description}</p>
                 </div>
                 <div class="day-mockup bg-flexen-dark-mid aspect-[9/16] max-w-[300px] flex-1 rounded-3xl border border-white/5" />
               </div>
@@ -82,7 +82,7 @@ const faqSchema = getFAQSchema(en.faq.items)
     <div class="container">
       <div class="content">
         <h2 class="reveal mb-4 text-center text-[length:var(--text-h2)] font-bold">{en.features.sectionTitle}</h2>
-        <p class="text-secondary reveal mb-16 text-center text-[length:var(--text-body)]">
+        <p class="text-secondary reveal text-body mb-16 text-center">
           {en.features.sectionSubtitle}
         </p>
         <div class="stagger-children grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
@@ -93,14 +93,14 @@ const faqSchema = getFAQSchema(en.faq.items)
               >{en.features.julio.badge}</span
             >
             <h3 class="mb-3 text-[length:var(--text-h3)] font-bold">{en.features.julio.title}</h3>
-            <p class="text-secondary text-[length:var(--text-body)]">{en.features.julio.description}</p>
+            <p class="text-secondary text-body">{en.features.julio.description}</p>
           </div>
           <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
             <span class="bg-success/20 text-success mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium"
               >{en.features.foodAI.badge}</span
             >
             <h3 class="mb-3 text-[length:var(--text-h3)] font-bold">{en.features.foodAI.title}</h3>
-            <p class="text-secondary text-[length:var(--text-body)]">{en.features.foodAI.description}</p>
+            <p class="text-secondary text-body">{en.features.foodAI.description}</p>
           </div>
           <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
             <span
@@ -108,15 +108,15 @@ const faqSchema = getFAQSchema(en.faq.items)
               >{en.features.training.badge}</span
             >
             <h3 class="mb-3 text-[length:var(--text-h3)] font-bold">{en.features.training.title}</h3>
-            <p class="text-secondary text-[length:var(--text-body)]">{en.features.training.description}</p>
+            <p class="text-secondary text-body">{en.features.training.description}</p>
           </div>
           <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
             <h3 class="mb-3 text-[length:var(--text-h3)] font-bold">{en.features.sleep.title}</h3>
-            <p class="text-secondary text-[length:var(--text-body)]">{en.features.sleep.description}</p>
+            <p class="text-secondary text-body">{en.features.sleep.description}</p>
           </div>
           <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
             <h3 class="mb-3 text-[length:var(--text-h3)] font-bold">{en.features.journal.title}</h3>
-            <p class="text-secondary text-[length:var(--text-body)]">{en.features.journal.description}</p>
+            <p class="text-secondary text-body">{en.features.journal.description}</p>
           </div>
         </div>
       </div>
@@ -140,7 +140,7 @@ const faqSchema = getFAQSchema(en.faq.items)
                   {stat.value}
                   {stat.suffix}
                 </span>
-                <span class="text-secondary text-[length:var(--text-body)]">{stat.label}</span>
+                <span class="text-secondary text-body">{stat.label}</span>
               </div>
             ))
           }
@@ -149,9 +149,7 @@ const faqSchema = getFAQSchema(en.faq.items)
           {
             en.socialProof.testimonials.map((testimonial) => (
               <div class="gradient-card card-hover rounded-2xl border border-white/5 p-8">
-                <p class="text-secondary mb-6 text-[length:var(--text-body)] italic">
-                  &ldquo;{testimonial.text}&rdquo;
-                </p>
+                <p class="text-secondary text-body mb-6 italic">&ldquo;{testimonial.text}&rdquo;</p>
                 <div class="flex items-center justify-between">
                   <div>
                     <span class="block font-semibold">{testimonial.name}</span>
@@ -174,7 +172,7 @@ const faqSchema = getFAQSchema(en.faq.items)
     <div class="container">
       <div class="content">
         <h2 class="reveal mb-4 text-center text-[length:var(--text-h2)] font-bold">{en.pricing.sectionTitle}</h2>
-        <p class="text-secondary reveal mb-16 text-center text-[length:var(--text-body)]">
+        <p class="text-secondary reveal text-body mb-16 text-center">
           {en.pricing.sectionSubtitle}
         </p>
         <div class="stagger-children mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
@@ -247,13 +245,11 @@ const faqSchema = getFAQSchema(en.faq.items)
           {
             en.faq.items.map((item) => (
               <details class="group gradient-card cursor-pointer rounded-2xl border border-white/5 p-6">
-                <summary class="flex list-none items-center justify-between text-[length:var(--text-body)] font-semibold">
+                <summary class="text-body flex list-none items-center justify-between font-semibold">
                   {item.question}
                   <span class="text-flexen-accent text-xl transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p class="text-secondary mt-4 border-t border-white/5 pt-4 text-[length:var(--text-body)]">
-                  {item.answer}
-                </p>
+                <p class="text-secondary text-body mt-4 border-t border-white/5 pt-4">{item.answer}</p>
               </details>
             ))
           }
@@ -270,7 +266,7 @@ const faqSchema = getFAQSchema(en.faq.items)
     <div class="container">
       <div class="content text-center">
         <h2 class="reveal mb-6 text-[length:var(--text-h1)] font-bold">{en.finalCta.headline}</h2>
-        <p class="text-secondary reveal mx-auto mb-8 text-[length:var(--text-body)]">{en.finalCta.subline}</p>
+        <p class="text-secondary reveal text-body mx-auto mb-8">{en.finalCta.subline}</p>
         <a
           href="#"
           class="btn-glow gradient-accent reveal inline-flex items-center justify-center rounded-xl px-10 py-4 text-lg font-semibold text-white transition-transform hover:scale-[1.02] active:scale-[0.97]"
