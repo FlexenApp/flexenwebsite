@@ -36,6 +36,19 @@ const siteUrl = 'https://flexen.app'
 const canonical = `${siteUrl}${canonicalPath}`
 const altLocale = locale === 'de' ? 'en' : 'de'
 const pathWithoutLocale = canonicalPath.replace(/^\/(de|en)/, '')
+
+// Map locale-specific slugs to their counterpart
+const pathMap: Record<string, string> = {
+  '/preise': '/pricing',
+  '/pricing': '/preise',
+  '/ueber-uns': '/about',
+  '/about': '/ueber-uns',
+  '/datenschutz': '/privacy',
+  '/privacy': '/datenschutz',
+  '/impressum': '/imprint',
+  '/imprint': '/impressum',
+}
+const altPath = pathMap[pathWithoutLocale] ?? pathWithoutLocale
 ---
 
 <!doctype html>
@@ -51,9 +64,9 @@ const pathWithoutLocale = canonicalPath.replace(/^\/(de|en)/, '')
     <link rel="canonical" href={canonical} />
 
     <!-- hreflang -->
-    <link rel="alternate" hreflang="de" href={`${siteUrl}/de${pathWithoutLocale}`} />
-    <link rel="alternate" hreflang="en" href={`${siteUrl}/en${pathWithoutLocale}`} />
-    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/de${pathWithoutLocale}`} />
+    <link rel="alternate" hreflang="de" href={`${siteUrl}/de${locale === 'de' ? pathWithoutLocale : altPath}`} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}/en${locale === 'en' ? pathWithoutLocale : altPath}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/de${locale === 'de' ? pathWithoutLocale : altPath}`} />
 
     <!-- Open Graph -->
     <meta property="og:title" content={title} />
