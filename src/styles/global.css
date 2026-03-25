@@ -5,16 +5,42 @@
    ============================================ */
 
 @theme {
-  /* --- Colors --- */
+  /* --- Light Theme Colors (based on Flexen App palette) --- */
+
+  /* Backgrounds */
+  --color-bg: #ffffff;
+  --color-bg-soft: #f8fafc;
+  --color-bg-muted: #f1f5f9;
+
+  /* Text */
+  --color-text: #001622;
+  --color-text-secondary: #475569;
+  --color-text-tertiary: #94a3b8;
+  --color-text-quaternary: #cbd5e1;
+
+  /* Borders */
+  --color-border: #e2e8f0;
+  --color-border-light: #f1f5f9;
+
+  /* Accent (Flexen App Primary Blue #006DDB) */
+  --color-flexen-accent: #006ddb;
+  --color-flexen-accent-light: #52bae3;
+  --color-flexen-accent-glow: rgba(0, 109, 219, 0.12);
+
+  /* Dark surfaces (for Hero, Footer, CTA contrast sections) */
   --color-flexen-dark: #001622;
   --color-flexen-dark-mid: #0a2a3f;
   --color-flexen-dark-light: #143d5a;
-  --color-flexen-accent: #4a7dff;
-  --color-flexen-accent-light: #6b97ff;
-  --color-flexen-accent-glow: rgba(74, 125, 255, 0.3);
 
-  --color-success: #34d399;
-  --color-warning: #fbbf24;
+  /* Feature category colors (Light variants from App) */
+  --color-nutrition: #a8e051;
+  --color-sport: #ffce51;
+  --color-mind: #ff9fff;
+  --color-ai: #67e8f9;
+
+  /* Semantic */
+  --color-success: #22c55e;
+  --color-warning: #f59e0b;
   --color-error: #ef4444;
 
   /* --- Typography Scale (Fluid) --- */
@@ -152,25 +178,34 @@ html {
 
 body {
   font-family: var(--font-body);
-  background-color: var(--color-flexen-dark);
-  color: rgba(255, 255, 255, 0.95);
+  background-color: var(--color-bg);
+  color: var(--color-text);
   line-height: 1.6;
   margin: 0;
   overflow-x: hidden;
 }
 
-.text-primary {
+/* --- Semantic text colors (light theme) --- */
+.text-primary { color: var(--color-text); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-tertiary { color: var(--color-text-tertiary); }
+.text-quaternary { color: var(--color-text-quaternary); }
+
+/* --- Dark section overrides (Hero, Footer, CTA) --- */
+.dark-section,
+.gradient-hero {
   color: rgba(255, 255, 255, 0.95);
 }
-.text-secondary {
-  color: rgba(255, 255, 255, 0.7);
-}
-.text-tertiary {
-  color: rgba(255, 255, 255, 0.45);
-}
-.text-quaternary {
-  color: rgba(255, 255, 255, 0.25);
-}
+.dark-section { background-color: var(--color-flexen-dark); }
+
+.dark-section .text-primary,
+.gradient-hero .text-primary { color: rgba(255, 255, 255, 0.95); }
+
+.dark-section .text-secondary,
+.gradient-hero .text-secondary { color: rgba(255, 255, 255, 0.7); }
+
+.dark-section .text-tertiary,
+.gradient-hero .text-tertiary { color: rgba(255, 255, 255, 0.45); }
 
 h1,
 h2,
@@ -212,16 +247,25 @@ p {
   }
 }
 
+/* --- Dark section gradient (Hero, Footer, CTA) --- */
 .gradient-hero {
   background: linear-gradient(135deg, #001622 0%, #0a2a3f 50%, #001622 100%);
+  color: rgba(255, 255, 255, 0.95);
 }
 
 .gradient-accent {
-  background: linear-gradient(135deg, #4a7dff 0%, #7b61ff 100%);
+  background: linear-gradient(135deg, #006ddb 0%, #4a7dff 100%);
 }
 
+/* --- Light card surface --- */
 .gradient-card {
-  background: linear-gradient(180deg, rgba(255, 255, 255, 0.05) 0%, rgba(255, 255, 255, 0.02) 100%);
+  background-color: var(--color-bg);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.04), 0 1px 2px rgba(0, 0, 0, 0.06);
+}
+
+/* --- Soft section background --- */
+.bg-soft {
+  background-color: var(--color-bg-soft);
 }
 
 .gradient-glow {

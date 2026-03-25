@@ -61,7 +61,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
       <div class="content">
         <div class="stagger-children mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
           <!-- Free Plan -->
-          <div class="gradient-card card-hover flex flex-col rounded-2xl border border-white/5 p-8 text-left">
+          <div class="gradient-card card-hover flex flex-col rounded-2xl border border-border p-8 text-left">
             <h2 class="mb-1 text-h3 font-bold">{de.pricing.free.name}</h2>
             <p class="text-tertiary mb-6">{de.pricing.free.subtitle}</p>
             <div class="mb-6">
@@ -70,7 +70,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
             </div>
             <a
               href="#"
-              class="mb-8 block w-full rounded-xl border border-white/10 py-3 text-center font-medium text-white transition-colors hover:bg-white/5"
+              class="mb-8 block w-full rounded-xl border border-border py-3 text-center font-medium text-text-secondary transition-colors hover:bg-bg-soft"
             >
               {de.pricing.free.cta}
             </a>
@@ -164,12 +164,12 @@ const breadcrumbSchema = getBreadcrumbSchema([
         <div class="stagger-children space-y-4">
           {
             de.faq.items.map((item) => (
-              <details class="group gradient-card cursor-pointer rounded-2xl border border-white/5 p-6">
+              <details class="group gradient-card cursor-pointer rounded-2xl border border-border p-6">
                 <summary class="text-body flex list-none items-center justify-between font-semibold">
                   {item.question}
                   <span class="text-flexen-accent text-xl transition-transform group-open:rotate-45">+</span>
                 </summary>
-                <p class="text-secondary text-body mt-4 border-t border-white/5 pt-4">{item.answer}</p>
+                <p class="text-secondary text-body mt-4 border-t border-border pt-4">{item.answer}</p>
               </details>
             ))
           }

@@ -12,7 +12,7 @@ const { name, role, text, result, class: className = '' } = Astro.props
 const initial = name.charAt(0).toUpperCase()
 ---
 
-<div class:list={['gradient-card card-hover flex flex-col rounded-2xl border border-white/5 p-8', className]}>
+<div class:list={['card-hover flex flex-col rounded-2xl border border-border bg-bg p-8 shadow-sm', className]}>
   <p class="text-secondary text-body mb-6 flex-1 italic">&ldquo;{text}&rdquo;</p>
   <div class="flex items-center justify-between gap-4">
     <div class="flex items-center gap-3">

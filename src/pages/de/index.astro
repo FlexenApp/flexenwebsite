@@ -36,7 +36,7 @@ const faqSchema = getFAQSchema(de.faq.items)
           </a>
           <a
             href="/de/features"
-            class="inline-flex items-center justify-center rounded-xl border border-white/10 px-8 py-4 font-medium text-white/80 transition-colors hover:bg-white/5"
+            class="inline-flex items-center justify-center rounded-xl border border-border px-8 py-4 font-medium text-white/80 transition-colors hover:bg-white/5"
           >
             {de.hero.ctaSecondary}
           </a>
@@ -81,7 +81,7 @@ const faqSchema = getFAQSchema(de.faq.items)
                   <p class="day-description text-secondary text-body">{scene.description}</p>
                 </div>
                 <div
-                  class="day-mockup bg-flexen-dark-mid aspect-[9/16] max-w-[300px] flex-1 rounded-3xl border border-white/5"
+                  class="day-mockup bg-flexen-dark-mid aspect-[9/16] max-w-[300px] flex-1 rounded-3xl border border-border"
                   role="img"
                   aria-label={`App-Screenshot: ${scene.title}`}
                 />
@@ -105,7 +105,7 @@ const faqSchema = getFAQSchema(de.faq.items)
         </p>
         <div class="stagger-children grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
           <div
-            class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8 md:col-span-2 lg:col-span-2"
+            class="gradient-card card-hover gradient-border rounded-2xl border border-border p-8 md:col-span-2 lg:col-span-2"
           >
             <span class="gradient-accent mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium text-white"
               >{de.features.julio.badge}</span
@@ -113,14 +113,14 @@ const faqSchema = getFAQSchema(de.faq.items)
             <h3 class="font-heading mb-3 text-h3 font-bold">{de.features.julio.title}</h3>
             <p class="text-secondary text-body">{de.features.julio.description}</p>
           </div>
-          <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
+          <div class="gradient-card card-hover gradient-border rounded-2xl border border-border p-8">
             <span class="bg-success/20 text-success mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium"
               >{de.features.foodAI.badge}</span
             >
             <h3 class="font-heading mb-3 text-h3 font-bold">{de.features.foodAI.title}</h3>
             <p class="text-secondary text-body">{de.features.foodAI.description}</p>
           </div>
-          <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
+          <div class="gradient-card card-hover gradient-border rounded-2xl border border-border p-8">
             <span
               class="bg-flexen-accent/20 text-flexen-accent mb-4 inline-block rounded-full px-3 py-1 text-xs font-medium"
               >{de.features.training.badge}</span
@@ -128,11 +128,11 @@ const faqSchema = getFAQSchema(de.faq.items)
             <h3 class="font-heading mb-3 text-h3 font-bold">{de.features.training.title}</h3>
             <p class="text-secondary text-body">{de.features.training.description}</p>
           </div>
-          <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
+          <div class="gradient-card card-hover gradient-border rounded-2xl border border-border p-8">
             <h3 class="font-heading mb-3 text-h3 font-bold">{de.features.sleep.title}</h3>
             <p class="text-secondary text-body">{de.features.sleep.description}</p>
           </div>
-          <div class="gradient-card card-hover gradient-border rounded-2xl border border-white/5 p-8">
+          <div class="gradient-card card-hover gradient-border rounded-2xl border border-border p-8">
             <h3 class="font-heading mb-3 text-h3 font-bold">{de.features.journal.title}</h3>
             <p class="text-secondary text-body">{de.features.journal.description}</p>
           </div>
@@ -171,7 +171,7 @@ const faqSchema = getFAQSchema(de.faq.items)
         <div class="stagger-children grid grid-cols-1 gap-6 md:grid-cols-3">
           {
             de.socialProof.testimonials.map((t) => (
-              <div class="gradient-card card-hover rounded-2xl border border-white/5 p-8">
+              <div class="gradient-card card-hover rounded-2xl border border-border p-8">
                 <p class="text-secondary text-body mb-6 italic">&ldquo;{t.text}&rdquo;</p>
                 <div class="flex items-center justify-between">
                   <div>
@@ -199,7 +199,7 @@ const faqSchema = getFAQSchema(de.faq.items)
           {de.pricing.sectionSubtitle}
         </p>
         <div class="stagger-children mx-auto grid max-w-4xl grid-cols-1 gap-8 md:grid-cols-2">
-          <div class="gradient-card rounded-2xl border border-white/5 p-8">
+          <div class="gradient-card rounded-2xl border border-border p-8">
             <h3 class="font-heading mb-1 text-h3 font-bold">{de.pricing.free.name}</h3>
             <p class="text-tertiary mb-6">{de.pricing.free.subtitle}</p>
             <div class="mb-6">
@@ -208,7 +208,7 @@ const faqSchema = getFAQSchema(de.faq.items)
             </div>
             <a
               href="#newsletter"
-              class="mb-8 block w-full rounded-xl border border-white/10 py-3 text-center font-medium text-white transition-colors hover:bg-white/5"
+              class="mb-8 block w-full rounded-xl border border-border py-3 text-center font-medium text-text-secondary transition-colors hover:bg-bg-soft"
               >{de.pricing.free.cta}</a
             >
             <ul class="space-y-3">
@@ -269,12 +269,12 @@ const faqSchema = getFAQSchema(de.faq.items)
         <div class="stagger-children space-y-4">
           {
             de.faq.items.map((item) => (
-              <details class="group gradient-card cursor-pointer rounded-2xl border border-white/5 p-6">
+              <details class="group gradient-card cursor-pointer rounded-2xl border border-border p-6">
                 <summary class="text-body flex list-none items-center justify-between font-semibold">
                   {item.question}
                   <span class="text-flexen-accent text-xl transition-transform group-open:rotate-45" aria-hidden="true">+</span>
                 </summary>
-                <p class="text-secondary text-body mt-4 border-t border-white/5 pt-4">{item.answer}</p>
+                <p class="text-secondary text-body mt-4 border-t border-border pt-4">{item.answer}</p>
               </details>
             ))
           }

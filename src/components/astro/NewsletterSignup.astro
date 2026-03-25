@@ -26,7 +26,7 @@ const isCard = variant === 'card'
     <section class="section" id="newsletter" aria-labelledby="newsletter-title">
       <div class="container">
         <div class="content mx-auto max-w-3xl">
-          <div class="gradient-card reveal rounded-2xl border border-white/5 p-8 text-center sm:p-12">
+          <div class="reveal rounded-2xl border border-border bg-bg-soft p-8 text-center shadow-sm sm:p-12">
             <h2 id="newsletter-title" class="font-heading mb-3 text-h3 font-bold">{headline}</h2>
             <p class="text-secondary text-body mx-auto mb-8 max-w-lg">{subline}</p>
             <form action="#" method="POST" class="mx-auto flex max-w-md flex-col gap-3 sm:flex-row">
@@ -40,7 +40,7 @@ const isCard = variant === 'card'
                 required
                 autocomplete="email"
                 placeholder={placeholder}
-                class="focus:border-flexen-accent focus:ring-flexen-accent text-body flex-1 rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white transition-colors placeholder:text-white/40 focus:ring-1 focus:outline-none"
+                class="focus:border-flexen-accent focus:ring-flexen-accent text-body flex-1 rounded-xl border border-border bg-white px-4 py-3 text-text transition-colors placeholder:text-slate-400 focus:ring-1 focus:outline-none"
               />
               <button
                 type="submit"
@@ -55,7 +55,7 @@ const isCard = variant === 'card'
       </div>
     </section>
   ) : (
-    <div class="gradient-card rounded-2xl border border-white/5 p-6">
+    <div class="rounded-2xl border border-border bg-bg-soft p-6 shadow-sm">
       <h3 class="mb-2 text-h3 font-bold">{headline}</h3>
       <p class="text-secondary mb-4 text-small">{subline}</p>
       <form action="#" method="POST" class="space-y-3">
@@ -69,7 +69,7 @@ const isCard = variant === 'card'
           required
           autocomplete="email"
           placeholder={placeholder}
-          class="focus:border-flexen-accent focus:ring-flexen-accent text-body w-full rounded-xl border border-white/10 bg-white/5 px-4 py-3 text-white transition-colors placeholder:text-white/40 focus:ring-1 focus:outline-none"
+          class="focus:border-flexen-accent focus:ring-flexen-accent text-body w-full rounded-xl border border-border bg-white px-4 py-3 text-text transition-colors placeholder:text-slate-400 focus:ring-1 focus:outline-none"
         />
         <button
           type="submit"

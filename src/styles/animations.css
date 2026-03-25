@@ -117,6 +117,12 @@
 
 .card-hover:hover {
   transform: translateY(-4px);
+  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.08);
+}
+
+/* Dark section card hover (stronger shadow) */
+.dark-section .card-hover:hover,
+.gradient-hero .card-hover:hover {
   box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
 }
 
@@ -131,7 +137,7 @@
   inset: 0;
   border-radius: inherit;
   padding: 1px;
-  background: linear-gradient(135deg, var(--color-flexen-accent), #7b61ff);
+  background: linear-gradient(135deg, var(--color-flexen-accent), #4a7dff);
   mask:
     linear-gradient(#fff 0 0) content-box,
     linear-gradient(#fff 0 0);

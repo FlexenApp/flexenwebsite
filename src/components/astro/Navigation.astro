@@ -34,7 +34,7 @@ function isActive(href: string): boolean {
   <div class="container">
     <div class="flex h-16 items-center justify-between md:h-20">
       <!-- Logo -->
-      <a href={localePath(locale, '/')} class="font-heading flex items-center gap-2 text-xl font-bold">
+      <a href={localePath(locale, '/')} class="font-heading flex items-center gap-2 text-xl font-bold text-text">
         <span class="text-flexen-accent">F</span>
         <span>lexen</span>
       </a>
@@ -47,7 +47,7 @@ function isActive(href: string): boolean {
               href={item.href}
               class:list={[
                 'text-sm font-medium transition-colors',
-                isActive(item.href) ? 'text-white' : 'text-secondary hover:text-white',
+                isActive(item.href) ? 'text-flexen-accent' : 'text-text-secondary hover:text-text',
               ]}
               aria-current={isActive(item.href) ? 'page' : undefined}
             >
@@ -59,7 +59,7 @@ function isActive(href: string): boolean {
         <!-- Language Switch -->
         <a
           href={`/${alt}${pathWithoutLocale}`}
-          class="text-tertiary text-sm font-medium uppercase transition-colors hover:text-white"
+          class="text-text-tertiary text-sm font-medium uppercase transition-colors hover:text-text"
           aria-label={locale === 'de' ? `Sprache wechseln zu Englisch` : `Switch language to German`}
         >
           {alt.toUpperCase()}
@@ -76,9 +76,9 @@ function isActive(href: string): boolean {
 
       <!-- Mobile Menu Button -->
       <button id="mobile-menu-btn" class="flex flex-col gap-1.5 p-2 md:hidden" aria-label={locale === 'de' ? 'Menü öffnen' : 'Open menu'} aria-expanded="false" aria-controls="mobile-menu">
-        <span class="h-0.5 w-6 origin-center bg-white transition-transform" id="hamburger-top"></span>
-        <span class="h-0.5 w-6 bg-white transition-opacity" id="hamburger-mid"></span>
-        <span class="h-0.5 w-6 origin-center bg-white transition-transform" id="hamburger-bot"></span>
+        <span class="h-0.5 w-6 origin-center bg-flexen-dark transition-transform" id="hamburger-top"></span>
+        <span class="h-0.5 w-6 bg-flexen-dark transition-opacity" id="hamburger-mid"></span>
+        <span class="h-0.5 w-6 origin-center bg-flexen-dark transition-transform" id="hamburger-bot"></span>
       </button>
     </div>
   </div>
@@ -86,7 +86,7 @@ function isActive(href: string): boolean {
   <!-- Mobile Menu -->
   <div
     id="mobile-menu"
-    class="bg-flexen-dark/95 fixed inset-0 top-16 -translate-x-full backdrop-blur-lg transition-transform duration-300 ease-[var(--ease-default)] md:hidden"
+    class="bg-white/95 fixed inset-0 top-16 -translate-x-full backdrop-blur-lg transition-transform duration-300 ease-[var(--ease-default)] md:hidden"
   >
     <div class="container flex flex-col gap-6 py-8">
       {
@@ -96,7 +96,7 @@ function isActive(href: string): boolean {
             data-close-menu
             class:list={[
               'text-2xl font-semibold transition-colors',
-              isActive(item.href) ? 'text-white' : 'text-secondary hover:text-white',
+              isActive(item.href) ? 'text-flexen-accent' : 'text-text-secondary hover:text-text',
             ]}
             aria-current={isActive(item.href) ? 'page' : undefined}
           >
@@ -104,11 +104,11 @@ function isActive(href: string): boolean {
           </a>
         ))
       }
-      <hr class="border-white/10" />
+      <hr class="border-border" />
       <a
         href={`/${alt}${pathWithoutLocale}`}
         data-close-menu
-        class="text-tertiary text-lg uppercase transition-colors hover:text-white"
+        class="text-text-tertiary text-lg uppercase transition-colors hover:text-text"
         aria-label={locale === 'de' ? `Sprache wechseln zu Englisch` : `Switch language to German`}
       >
         {alt.toUpperCase()}
@@ -186,14 +186,14 @@ function isActive(href: string): boolean {
     }
   })
 
-  // Scroll: transparent -> solid
+  // Scroll: transparent -> white with shadow
   window.addEventListener(
     'scroll',
     () => {
       if (window.scrollY > 80) {
-        nav?.classList.add('bg-flexen-dark/90', 'backdrop-blur-lg', 'border-b', 'border-white/5')
+        nav?.classList.add('bg-white/95', 'backdrop-blur-lg', 'shadow-sm', 'border-b', 'border-border')
       } else {
-        nav?.classList.remove('bg-flexen-dark/90', 'backdrop-blur-lg', 'border-b', 'border-white/5')
+        nav?.classList.remove('bg-white/95', 'backdrop-blur-lg', 'shadow-sm', 'border-b', 'border-border')
       }
     },
     { passive: true },
