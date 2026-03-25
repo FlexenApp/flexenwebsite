@@ -15,10 +15,10 @@ const content = locale === 'de' ? de : en
 <footer class="dark-section bg-flexen-dark text-white border-t border-white/5 py-16">
   <div class="container">
     <div class="content">
-      <!-- Flexen Logo Text -->
+      <!-- Flexen Logo -->
       <div class="mb-12">
-        <a href={localePath(locale, '/')} class="font-heading text-2xl font-bold tracking-tight" aria-label={locale === 'de' ? 'Flexen — Zur Startseite' : 'Flexen — Back to homepage'}>
-          <span class="text-flexen-accent">F</span><span class="text-white">lexen</span>
+        <a href={localePath(locale, '/')} aria-label={locale === 'de' ? 'Flexen — Zur Startseite' : 'Flexen — Back to homepage'}>
+          <img src="/images/logo/logo-white.png" alt="Flexen" class="h-8 w-auto" />
         </a>
       </div>
 

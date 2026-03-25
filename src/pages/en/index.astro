@@ -64,11 +64,11 @@ const faqSchema = getFAQSchema(en.faq.items)
         <div class="space-y-24">
           {
             [
-              en.dayStory.morning,
-              en.dayStory.breakfast,
-              en.dayStory.training,
-              en.dayStory.evening,
-              en.dayStory.night,
+              { ...en.dayStory.morning, img: '/images/app/sleep.svg' },
+              { ...en.dayStory.breakfast, img: '/images/app/food-recognition.svg' },
+              { ...en.dayStory.training, img: '/images/app/training.svg' },
+              { ...en.dayStory.evening, img: '/images/app/journal.svg' },
+              { ...en.dayStory.night, img: '/images/app/dashboard.svg' },
             ].map((scene, i) => (
               <div
                 class={`day-scene flex flex-col ${i % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'} items-center gap-12`}
@@ -80,11 +80,14 @@ const faqSchema = getFAQSchema(en.faq.items)
                   <h3 class="font-heading day-title mb-4 text-h3 font-bold">{scene.title}</h3>
                   <p class="day-description text-secondary text-body">{scene.description}</p>
                 </div>
-                <div
-                  class="day-mockup bg-flexen-dark-mid aspect-[9/16] max-w-[300px] flex-1 rounded-3xl border border-border"
-                  role="img"
-                  aria-label={`App screenshot: ${scene.title}`}
-                />
+                <div class="day-mockup max-w-[300px] flex-1 overflow-hidden rounded-[2.5rem] shadow-2xl">
+                  <img
+                    src={scene.img}
+                    alt={`Flexen App: ${scene.title}`}
+                    class="h-auto w-full"
+                    loading="lazy"
+                  />
+                </div>
               </div>
             ))
           }
