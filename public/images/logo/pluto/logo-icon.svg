@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none">
+  <!--
+    Project Pluto — Icon-Only (App-Icon Square)
+    Direction: D2 Warm-Companion (final)
+    Icon: Option C — Moon-Crescent
+    ViewBox: 256x256 (square, App-Icon-friendly)
+    Color: currentColor
+    Minimum render size: 32px
+    Usage: App icon, favicon source, avatar, chat context mark
+
+    Mark anatomy:
+    Single asymmetric solid-fill crescent. Top-heavy — thick body at top-left,
+    tapering to a slim tip at bottom. Opening faces right. Tilt ~12deg
+    (rotate-12 around center 128,128) for movement and warmth.
+    Solid fill — no stroke. Legible at 32px.
+
+    Metaphor: cupped-ear / listening posture. Pluto is present and attentive.
+    NOT Disney moon. NOT wellness-pastell crescent. NOT space-y. Warm-organic.
+
+    Construction (mathematical two-circle intersection):
+    Outer circle: center (106,128), r=92
+    Inner circle: center (148,118), r=72  [offset right+up = top-heavy asymmetry]
+    Intersection points (computed):
+      P_bottom ≈ (148, 182)
+      P_top    ≈ (180, 46)
+    Crescent path:
+      From P_bottom: outer arc (large, CCW/left-side) to P_top
+      From P_top:    inner arc (small, CW/right-side) back to P_bottom
+    SVG arc flags: outer = large-arc=1, sweep=0 (CCW); inner = large-arc=0, sweep=1 (CW)
+    Then apply rotate(-12, 128, 128) for the tilt.
+  -->
+  <g transform="rotate(-12, 128, 128)">
+    <path
+      d="M 148 182
+         A 92 92 0 1 0 180 46
+         A 72 72 0 0 1 148 182 Z"
+      fill="currentColor"
+    />
+  </g>
+</svg>

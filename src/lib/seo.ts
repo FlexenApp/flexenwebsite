@@ -49,8 +49,8 @@ export function getOrganizationSchema() {
     '@context': 'https://schema.org',
     '@type': 'Organization',
     name: 'Flexen',
-    url: 'https://flexen.app',
-    logo: 'https://flexen.app/images/logo.svg',
+    url: 'https://flexen.co',
+    logo: 'https://flexen.co/images/logo.svg',
     sameAs: [],
   }
 }
@@ -95,7 +95,7 @@ export function getArticleSchema(article: {
     publisher: {
       '@type': 'Organization',
       name: 'Flexen',
-      logo: { '@type': 'ImageObject', url: 'https://flexen.app/images/logo.svg' },
+      logo: { '@type': 'ImageObject', url: 'https://flexen.co/images/logo.svg' },
     },
   }
 }

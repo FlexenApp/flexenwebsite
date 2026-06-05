@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://flexen.app/sitemap-index.xml
+Sitemap: https://flexen.co/sitemap-index.xml

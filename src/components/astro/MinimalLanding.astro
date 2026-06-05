@@ -1,0 +1,397 @@
+---
+import { localePath } from '../../lib/i18n'
+
+interface Props {
+  locale: 'de' | 'en'
+}
+
+const { locale } = Astro.props
+const isEn = locale === 'en'
+
+const CONTACT_EMAIL = 'info@flexen.co'
+
+const copy = isEn
+  ? {
+      eyebrow: 'Flexen UG. A small German software company.',
+      headline: 'Two small things.',
+      headlineEmph: 'Both in the works.',
+      subline:
+        'We build focused AI tools — currently two of them. Both are in active development. Get in touch if you would like to know more.',
+      products: {
+        flexen: {
+          name: 'Flexen',
+          tagline: 'AI coach for fitness, nutrition & wellbeing',
+          description:
+            'Photograph your meal, let Julio plan your workout, sleep better. All in one app.',
+          status: 'In development',
+        },
+        pluto: {
+          name: 'Project Pluto',
+          tagline: 'Personal AI assistant with memory',
+          description:
+            'Talks. Remembers. Researches. Builds you pages on the fly. The companion you actually keep.',
+          status: 'In development',
+        },
+      },
+      contactLabel: 'Get in touch',
+      contactSubline: 'Questions, press, partnerships — we read every email.',
+      contactButton: `Write us at ${CONTACT_EMAIL}`,
+      legalImprint: 'Imprint',
+      legalPrivacy: 'Privacy',
+      legalTerms: 'Terms',
+      copyright: `© ${new Date().getFullYear()} Flexen UG (haftungsbeschränkt) — All rights reserved`,
+      languageLabel: 'DE',
+      altLang: 'Sprache wechseln zu Deutsch',
+      logoAlt: 'Flexen UG',
+    }
+  : {
+      eyebrow: 'Flexen UG. Eine kleine deutsche Software-Firma.',
+      headline: 'Zwei kleine Tools.',
+      headlineEmph: 'Beide in Arbeit.',
+      subline:
+        'Wir bauen fokussierte AI-Tools — aktuell zwei davon. Beide sind in aktiver Entwicklung. Schreib uns, wenn du mehr wissen willst.',
+      products: {
+        flexen: {
+          name: 'Flexen',
+          tagline: 'KI-Coach für Fitness, Ernährung & Wohlbefinden',
+          description:
+            'Fotografiere dein Essen, lass Julio deinen Trainingsplan bauen, schlaf besser. Alles in einer App.',
+          status: 'In Entwicklung',
+        },
+        pluto: {
+          name: 'Project Pluto',
+          tagline: 'Dein persönlicher KI-Assistent mit Memory',
+          description:
+            'Spricht. Erinnert sich. Recherchiert. Baut dir Pages on the fly. Der Companion, den du wirklich behältst.',
+          status: 'In Entwicklung',
+        },
+      },
+      contactLabel: 'Kontakt',
+      contactSubline: 'Fragen, Presse, Kooperationen — wir lesen jede E-Mail.',
+      contactButton: `Schreib uns an ${CONTACT_EMAIL}`,
+      legalImprint: 'Impressum',
+      legalPrivacy: 'Datenschutz',
+      legalTerms: 'AGB',
+      copyright: `© ${new Date().getFullYear()} Flexen UG (haftungsbeschränkt) — Alle Rechte vorbehalten`,
+      languageLabel: 'EN',
+      altLang: 'Switch language to English',
+      logoAlt: 'Flexen UG',
+    }
+
+const altLocaleHref = isEn ? '/de/' : '/en/'
+const privacyHref = localePath(locale, isEn ? '/privacy' : '/datenschutz')
+const imprintHref = localePath(locale, isEn ? '/imprint' : '/impressum')
+const termsHref = localePath(locale, isEn ? '/terms' : '/agb')
+---
+
+<div class="gradient-hero relative flex min-h-screen flex-col">
+  <!-- Grain overlay (handcrafted texture, ~1 KB inline SVG) -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Conic orb — single asymmetric hero light source -->
+  <div class="hero-orb" aria-hidden="true" data-hero-orb></div>
+
+  <!-- Top Bar: Logo + Language Switch -->
+  <header class="relative z-10">
+    <div class="container">
+      <div class="flex items-center justify-between py-6 md:py-8">
+        <a
+          href={localePath(locale, '/')}
+          class="flex items-center gap-3"
+          aria-label={copy.logoAlt}
+          data-hero-elem="logo"
+        >
+          <img src="/images/logo/logo-white.png" alt="Flexen UG" class="h-7 w-auto md:h-8" />
+        </a>
+        <a
+          href={altLocaleHref}
+          class="text-sm font-medium uppercase tracking-wide text-white/55 transition-colors hover:text-white"
+          aria-label={copy.altLang}
+          data-hero-elem="lang"
+        >
+          {copy.languageLabel}
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero + Products + Contact -->
+  <main class="relative z-10 flex flex-1 flex-col justify-center py-12 md:py-20">
+    <div class="container">
+      <div class="content mx-auto max-w-4xl">
+        <!-- Hero -->
+        <div class="mb-16 text-center md:mb-20">
+          <p
+            class="font-body mx-auto mb-6 max-w-md text-center text-small text-white/55"
+            data-hero-elem="eyebrow"
+          >
+            {copy.eyebrow}
+          </p>
+          <h1
+            class="font-heading text-balance text-h1 font-bold text-white md:text-hero"
+            style="line-height: 1.05;"
+            data-hero-elem="headline"
+          >
+            <span class="block" data-hero-line="1">{copy.headline}</span>
+            <span class="block text-white/70" data-hero-line="2">{copy.headlineEmph}</span>
+          </h1>
+          <p
+            class="mx-auto mt-6 max-w-xl font-body text-body text-white/65 md:mt-8"
+            data-hero-elem="subline"
+          >
+            {copy.subline}
+          </p>
+        </div>
+
+        <!-- Product Cards -->
+        <div
+          class="mb-16 grid grid-cols-1 gap-5 md:grid-cols-2 md:gap-6"
+          data-hero-elem="cards"
+        >
+          <!-- Flexen Card -->
+          <article
+            class="card-hover group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur-sm transition-colors hover:border-white/20 md:p-8"
+            data-product-card="flexen"
+            data-card-glow="0,109,219"
+            data-card-glow-alpha="0.14"
+            data-card-tilt-max="3"
+            data-card-tilt-duration="0.2"
+            data-card-tilt-ease="power3.out"
+          >
+            <div
+              class="card-inner-glow"
+              aria-hidden="true"
+              style="background: radial-gradient(circle, #006DDB 0%, transparent 70%);"
+            >
+            </div>
+            <div class="relative">
+              <div class="mb-5 flex items-start justify-between gap-3">
+                <h2 class="font-heading text-h3 font-bold text-white">
+                  {copy.products.flexen.name}
+                </h2>
+                <span
+                  class="shrink-0 rounded-full border border-flexen-accent/30 bg-flexen-accent/10 px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-flexen-accent-light"
+                >
+                  <span class="status-dot status-dot--pulse" aria-hidden="true"></span>
+                  {copy.products.flexen.status}
+                </span>
+              </div>
+              <p class="mb-3 text-small font-medium uppercase tracking-wide text-flexen-accent-light">
+                {copy.products.flexen.tagline}
+              </p>
+              <p class="font-body text-body leading-relaxed text-white/70">
+                {copy.products.flexen.description}
+              </p>
+            </div>
+          </article>
+
+          <!-- Pluto Card -->
+          <article
+            class="card-hover group relative overflow-hidden rounded-2xl border border-white/10 bg-white/[0.03] p-7 backdrop-blur-sm transition-colors hover:border-white/20 md:p-8"
+            data-product-card="pluto"
+            data-card-glow="103,232,249"
+            data-card-glow-alpha="0.10"
+            data-card-tilt-max="2.5"
+            data-card-tilt-duration="0.5"
+            data-card-tilt-ease="power2.out"
+          >
+            <div
+              class="card-inner-glow pluto-glow"
+              aria-hidden="true"
+              style="background: radial-gradient(circle, #67E8F9 0%, transparent 70%);"
+            >
+            </div>
+            <div class="card-warm-undertone" aria-hidden="true"></div>
+            <div class="relative">
+              <div class="mb-5 flex items-start justify-between gap-3">
+                <h2 class="font-heading text-h3 font-bold text-white">
+                  {copy.products.pluto.name}
+                </h2>
+                <span
+                  class="shrink-0 rounded-full border border-cyan-300/30 bg-cyan-300/10 px-3 py-1 text-[11px] font-medium uppercase tracking-wider text-cyan-200"
+                >
+                  <span class="status-dot" aria-hidden="true"></span>
+                  {copy.products.pluto.status}
+                </span>
+              </div>
+              <p class="mb-3 text-small font-medium uppercase tracking-wide text-cyan-200">
+                {copy.products.pluto.tagline}
+              </p>
+              <p class="font-body text-body leading-relaxed text-white/70">
+                {copy.products.pluto.description}
+              </p>
+            </div>
+          </article>
+        </div>
+
+        <!-- Contact CTA -->
+        <div class="mx-auto max-w-xl text-center" data-hero-elem="contact">
+          <p class="font-body text-small font-medium uppercase tracking-wider text-white/60">
+            {copy.contactLabel}
+          </p>
+          <p class="mx-auto mt-3 max-w-md font-body text-body text-white/65">
+            {copy.contactSubline}
+          </p>
+          <a
+            href={`mailto:${CONTACT_EMAIL}`}
+            data-magnetic
+            class="gradient-accent mt-6 inline-flex items-center gap-2 rounded-xl px-6 py-3 font-semibold text-white transition-transform active:translate-y-[1px]"
+          >
+            <span>{copy.contactButton}</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer: minimal legal links -->
+  <footer class="relative z-10 border-t border-white/5">
+    <div class="container">
+      <div
+        class="flex flex-col items-center justify-between gap-4 py-8 font-body text-small text-white/50 md:flex-row"
+      >
+        <p class="text-caption md:text-small">{copy.copyright}</p>
+        <nav aria-label={isEn ? 'Legal' : 'Rechtliches'}>
+          <ul class="flex items-center gap-6">
+            <li>
+              <a href={imprintHref} class="transition-colors hover:text-white"
+                >{copy.legalImprint}</a
+              >
+            </li>
+            <li>
+              <a href={privacyHref} class="transition-colors hover:text-white"
+                >{copy.legalPrivacy}</a
+              >
+            </li>
+            <li>
+              <a href={termsHref} class="transition-colors hover:text-white">{copy.legalTerms}</a>
+            </li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </footer>
+</div>
+
+<script>
+  import { gsap } from 'gsap'
+  import { prefersReducedMotion } from '../../lib/animations'
+
+  const reduced = prefersReducedMotion()
+
+  // ---------- Hero load sequence ----------
+  function runLoadSequence() {
+    const orb = document.querySelector('[data-hero-orb]') as HTMLElement | null
+    const eyebrow = document.querySelector('[data-hero-elem="eyebrow"]') as HTMLElement | null
+    const line1 = document.querySelector('[data-hero-line="1"]') as HTMLElement | null
+    const line2 = document.querySelector('[data-hero-line="2"]') as HTMLElement | null
+    const subline = document.querySelector('[data-hero-elem="subline"]') as HTMLElement | null
+    const cards = document.querySelector('[data-hero-elem="cards"]') as HTMLElement | null
+    const contact = document.querySelector('[data-hero-elem="contact"]') as HTMLElement | null
+
+    if (reduced) {
+      if (orb) orb.style.opacity = '0.35'
+      ;[eyebrow, line1, line2, subline, cards, contact].forEach((el) => {
+        if (el) {
+          el.style.opacity = '1'
+          el.style.transform = 'none'
+        }
+      })
+      return
+    }
+
+    if (line1) line1.style.clipPath = 'inset(0 100% 0 0)'
+    if (line2) line2.style.clipPath = 'inset(0 100% 0 0)'
+
+    const tl = gsap.timeline()
+    if (orb) tl.to(orb, { opacity: 0.35, duration: 0.6, ease: 'power2.out' }, 0.1)
+    if (eyebrow)
+      tl.fromTo(
+        eyebrow,
+        { opacity: 0, y: 8 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'expo.out' },
+        0.2,
+      )
+    if (line1)
+      tl.to(line1, { clipPath: 'inset(0 0% 0 0)', duration: 0.9, ease: 'expo.out' }, 0.4)
+    if (line2)
+      tl.to(line2, { clipPath: 'inset(0 0% 0 0)', duration: 0.9, ease: 'expo.out' }, 0.55)
+    if (subline)
+      tl.fromTo(
+        subline,
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'expo.out' },
+        0.9,
+      )
+    if (cards)
+      tl.fromTo(
+        cards.children,
+        { opacity: 0, y: 20 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.12,
+          ease: 'expo.out',
+        },
+        1.1,
+      )
+    if (contact)
+      tl.fromTo(
+        contact,
+        { opacity: 0, y: 12 },
+        { opacity: 1, y: 0, duration: 0.5, ease: 'expo.out' },
+        1.4,
+      )
+
+    if (orb) {
+      gsap.to(orb, {
+        rotation: 360,
+        duration: 60,
+        repeat: -1,
+        ease: 'none',
+      })
+    }
+
+    const plutoGlow = document.querySelector('.pluto-glow') as HTMLElement | null
+    if (plutoGlow) {
+      gsap.to(plutoGlow, {
+        x: 12,
+        y: -8,
+        duration: 9,
+        yoyo: true,
+        repeat: -1,
+        ease: 'sine.inOut',
+      })
+    }
+  }
+
+  function preHide() {
+    if (reduced) return
+    const elems = document.querySelectorAll<HTMLElement>(
+      '[data-hero-elem="eyebrow"], [data-hero-elem="subline"], [data-hero-elem="contact"]',
+    )
+    elems.forEach((el) => {
+      el.style.opacity = '0'
+    })
+    const cards = document.querySelector<HTMLElement>('[data-hero-elem="cards"]')
+    if (cards) {
+      Array.from(cards.children).forEach((c) => {
+        ;(c as HTMLElement).style.opacity = '0'
+      })
+    }
+  }
+
+  preHide()
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', runLoadSequence)
+  } else {
+    runLoadSequence()
+  }
+
+  // ---------- Card tilt + magnetic button (lazy-loaded, desktop only) ----------
+  if (!('ontouchstart' in window) && !reduced) {
+    import('../../lib/card-tilt').then((m) => m.initCardTilt())
+    import('../../lib/magnetic-button').then((m) => m.initMagneticButtons())
+  }
+</script>

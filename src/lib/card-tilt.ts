@@ -4,10 +4,17 @@ import { prefersReducedMotion } from './animations'
 /**
  * Card tilt effect (desktop only):
  * - Targets all elements with .card-hover class
- * - On mousemove: subtle 3D perspective tilt (max ±3 degrees)
+ * - On mousemove: subtle 3D perspective tilt
  * - Adds a radial gradient highlight following the cursor
  * - On mouseleave: smooth return to flat
  * - Respects prefers-reduced-motion
+ *
+ * Per-card config via data attributes (all optional):
+ *   data-card-glow="0,109,219"   — RGB triplet for cursor highlight (default 74,125,255)
+ *   data-card-glow-alpha="0.14"  — highlight max alpha (default 0.08)
+ *   data-card-tilt-max="3"       — max tilt in degrees (default 3)
+ *   data-card-tilt-duration="0.3"— tilt-update duration (default 0.3)
+ *   data-card-tilt-ease="power2.out" — gsap ease for tilt update
  */
 export function initCardTilt(): void {
   if ('ontouchstart' in window || prefersReducedMotion()) return
@@ -15,9 +22,12 @@ export function initCardTilt(): void {
   const cards = gsap.utils.toArray<HTMLElement>('.card-hover')
   if (cards.length === 0) return
 
-  const MAX_TILT = 3 // degrees
-
   cards.forEach((card) => {
+    const glow = card.dataset.cardGlow ?? '74,125,255'
+    const glowAlpha = parseFloat(card.dataset.cardGlowAlpha ?? '0.08')
+    const tiltMax = parseFloat(card.dataset.cardTiltMax ?? '3')
+    const tiltDuration = parseFloat(card.dataset.cardTiltDuration ?? '0.3')
+    const tiltEase = card.dataset.cardTiltEase ?? 'power2.out'
     // Ensure perspective is set on parent for 3D transforms
     card.style.transformStyle = 'preserve-3d'
     if (!card.parentElement?.style.perspective) {
@@ -55,20 +65,20 @@ export function initCardTilt(): void {
       const normalizedY = (y - centerY) / centerY
 
       // Tilt: rotateX is inverted (mouse at top = positive rotation)
-      const rotateX = -normalizedY * MAX_TILT
-      const rotateY = normalizedX * MAX_TILT
+      const rotateX = -normalizedY * tiltMax
+      const rotateY = normalizedX * tiltMax
 
       gsap.to(card, {
         rotateX,
         rotateY,
-        duration: 0.3,
-        ease: 'power2.out',
+        duration: tiltDuration,
+        ease: tiltEase,
         overwrite: 'auto',
       })
 
-      // Update highlight gradient
+      // Update highlight gradient with per-card brand color
       highlight.style.opacity = '1'
-      highlight.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(74, 125, 255, 0.08) 0%, transparent 60%)`
+      highlight.style.background = `radial-gradient(circle at ${x}px ${y}px, rgba(${glow}, ${glowAlpha}) 0%, transparent 60%)`
     })
 
     card.addEventListener('mouseleave', () => {

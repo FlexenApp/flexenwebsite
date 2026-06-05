@@ -1,16 +1,16 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro'
+﻿---
+import MinimalLegalLayout from '../../layouts/MinimalLegalLayout.astro'
 import { getBreadcrumbSchema } from '../../lib/seo'
 
 const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Home', url: 'https://flexen.app/en/' },
-  { name: 'Privacy Policy', url: 'https://flexen.app/en/privacy' },
+  { name: 'Home', url: 'https://flexen.co/en/' },
+  { name: 'Privacy Policy', url: 'https://flexen.co/en/privacy' },
 ])
 ---
 
-<BaseLayout
-  title="Privacy Policy — Flexen"
-  description="Privacy policy for the Flexen App website. Information about how we handle your data."
+<MinimalLegalLayout
+  title="Privacy Policy — Flexen UG"
+  description="Privacy policy for Flexen UG (haftungsbeschränkt). Covers flexen.co and all products (Flexen, Project Pluto)."
   locale="en"
   canonicalPath="/en/privacy"
   schema={breadcrumbSchema}
@@ -18,18 +18,25 @@ const breadcrumbSchema = getBreadcrumbSchema([
   <section class="section min-h-screen">
     <div class="container">
       <div class="content max-w-3xl">
-        <h1 class="font-heading mb-12 text-h1 font-bold">Privacy Policy</h1>
+        <h1 class="font-heading mb-4 text-h1 font-bold">Privacy Policy</h1>
+        <p class="text-secondary text-body mb-12">
+          This privacy policy applies to <strong class="text-white">flexen.co</strong> and all
+          products of Flexen UG (haftungsbeschr&auml;nkt) — currently
+          <strong class="text-white">Flexen</strong> and
+          <strong class="text-white">Project Pluto</strong>. In-app data processing is additionally
+          governed by each product's in-app privacy notice.
+        </p>
 
         <div class="prose prose-invert text-secondary text-body space-y-8">
           <div>
             <h2 class="font-heading mb-4 text-h3 font-bold text-white">1. Controller</h2>
             <p>
               The controller for data processing on this website is:<br /><br />
-              <strong class="text-white">[Company Name]</strong><br />
-              [Street + Number]<br />
-              [Postal Code + City], Germany<br />
-              Email: <a href="mailto:datenschutz@flexen.app" class="text-flexen-accent hover:underline"
-                >datenschutz@flexen.app</a
+              <strong class="text-white">Flexen UG (haftungsbeschr&auml;nkt)</strong><br />
+              Paul-Heidelbach-Stra&szlig;e 14<br />
+              34134 Kassel, Germany<br />
+              Email: <a href="mailto:info@flexen.co" class="text-flexen-accent hover:underline"
+                >info@flexen.co</a
               >
             </p>
           </div>
@@ -37,38 +44,51 @@ const breadcrumbSchema = getBreadcrumbSchema([
           <div>
             <h2 class="font-heading mb-4 text-h3 font-bold text-white">2. Hosting</h2>
             <p>
-              This website is hosted by Vercel Inc. When you visit the website, information (e.g. IP address, time of
-              access) is automatically stored in server log files. This data cannot be attributed to specific
-              individuals. The legal basis is Art. 6(1)(f) GDPR (legitimate interest in stable website operation).
+              This website is hosted by Google Firebase Hosting (Google Ireland Limited, Gordon House, Barrow
+              Street, Dublin 4, Ireland). When you visit the website, information (e.g. IP address, time of
+              access, page requested, user agent) is automatically stored in server log files. This data is
+              used solely for the purpose of stable website operation and cannot be attributed to specific
+              individuals. The legal basis is Art.&nbsp;6(1)(f) GDPR (legitimate interest in stable website
+              operation).
             </p>
           </div>
 
           <div>
-            <h2 class="font-heading mb-4 text-h3 font-bold text-white">3. Analytics</h2>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">3. Contact by Email</h2>
             <p>
-              We use Plausible Analytics — a privacy-friendly, cookie-free analytics tool. Plausible does not collect
-              personal data, does not set cookies, and is fully GDPR compliant. Servers are located in the EU. More
-              information: <a
-                href="https://plausible.io/data-policy"
-                target="_blank"
-                rel="noopener"
-                class="text-flexen-accent hover:underline">plausible.io/data-policy</a
-              >.
+              When you contact us by email (e.g.
+              <a href="mailto:info@flexen.co" class="text-flexen-accent hover:underline"
+                >info@flexen.co</a
+              >), we process the data you submit (email address, content, name if provided) for the purpose
+              of handling your request. Legal basis is Art.&nbsp;6(1)(f) GDPR (legitimate interest in
+              responding). The data is deleted as soon as it is no longer required for our response and no
+              statutory retention obligations apply.
             </p>
           </div>
 
           <div>
-            <h2 class="font-heading mb-4 text-h3 font-bold text-white">4. Analytics in the Flexen App (PostHog)</h2>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">4. Cookies and Tracking on this Website</h2>
             <p>
+              This website sets <strong class="text-white">no cookies</strong> and uses
+              <strong class="text-white">no tracking</strong>. No third-party scripts (e.g. Google Analytics,
+              Facebook Pixel) are embedded.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">5. Analytics in the Flexen App (PostHog)</h2>
+            <p>
+              <em>This section concerns the Flexen mobile app, not this website.</em>
+            </p>
+            <p class="mt-4">
               With your explicit consent, we use <strong class="text-white">PostHog</strong> (PostHog Inc., 2261 Market
               Street #4008, San Francisco, CA 94114, USA) in the Flexen mobile app to analyse usage. All processing
               takes place exclusively on EU servers in Frankfurt, Germany — your data never leaves the European Union.
             </p>
             <p class="mt-4">
-              <strong class="text-white">Legal basis:</strong> Art. 6(1)(a) GDPR (consent). You can withdraw your consent
-              at any time in the app's settings under &ldquo;Anonymous usage statistics&rdquo;. This feature is <strong
-                class="text-white">disabled by default</strong
-              > on first use (opt-in).
+              <strong class="text-white">Legal basis:</strong> Art.&nbsp;6(1)(a) GDPR (consent). You can withdraw your
+              consent at any time in the app's settings under &ldquo;Anonymous usage statistics&rdquo;. This feature is
+              <strong class="text-white">disabled by default</strong> on first use (opt-in).
             </p>
             <p class="mt-4">
               <strong class="text-white">Purpose:</strong> Improving the app, detecting errors, understanding which features
@@ -77,22 +97,20 @@ const breadcrumbSchema = getBreadcrumbSchema([
             <p class="mt-4"><strong class="text-white">Data processed:</strong></p>
             <ul class="mt-2 list-disc space-y-2 pl-6">
               <li>
-                Event metadata (e.g. &ldquo;meal logged&rdquo;, &ldquo;workout completed&rdquo;), <strong
-                  class="text-white">without</strong
-                > meal or workout content
+                Event metadata (e.g. &ldquo;meal logged&rdquo;, &ldquo;workout completed&rdquo;),
+                <strong class="text-white">without</strong> meal or workout content
               </li>
               <li>Screen views and tab switches</li>
               <li>Device and operating system information (model, OS version, language)</li>
               <li>
-                Session replays: recordings of your screen interactions, with <strong class="text-white"
-                  >all text and images automatically masked</strong
-                >
+                Session replays: recordings of your screen interactions, with
+                <strong class="text-white">all text and images automatically masked</strong>
               </li>
               <li>A pseudonymous user ID (Firebase UID) to associate events</li>
             </ul>
             <p class="mt-4">
-              <strong class="text-white">What we explicitly do NOT collect:</strong> the contents of your meals, chat messages
-              with Julio, weight values, steps, sleep data or any other health parameters.
+              <strong class="text-white">What we explicitly do NOT collect:</strong> the contents of your meals, chat
+              messages with Julio, weight values, steps, sleep data or any other health parameters.
             </p>
             <p class="mt-4">
               <strong class="text-white">Retention:</strong> Event data for a maximum of 12 months, session replays for 30
@@ -100,7 +118,7 @@ const breadcrumbSchema = getBreadcrumbSchema([
             </p>
             <p class="mt-4">
               <strong class="text-white">Data processing agreement:</strong> We have a Data Processing Agreement (DPA) with
-              PostHog pursuant to Art. 28 GDPR. PostHog privacy policy: <a
+              PostHog pursuant to Art.&nbsp;28 GDPR. PostHog privacy policy: <a
                 href="https://posthog.com/privacy"
                 target="_blank"
                 rel="noopener"
@@ -110,33 +128,34 @@ const breadcrumbSchema = getBreadcrumbSchema([
           </div>
 
           <div>
-            <h2 class="font-heading mb-4 text-h3 font-bold text-white">5. Your Rights</h2>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">6. Your Rights</h2>
             <p>You have the right to:</p>
             <ul class="mt-4 list-disc space-y-2 pl-6">
-              <li>Access your stored data (Art. 15 GDPR)</li>
-              <li>Rectification of inaccurate data (Art. 16 GDPR)</li>
-              <li>Erasure of your data (Art. 17 GDPR)</li>
-              <li>Restriction of processing (Art. 18 GDPR)</li>
-              <li>Data portability (Art. 20 GDPR)</li>
-              <li>Object to processing (Art. 21 GDPR)</li>
+              <li>Access your stored data (Art.&nbsp;15 GDPR)</li>
+              <li>Rectification of inaccurate data (Art.&nbsp;16 GDPR)</li>
+              <li>Erasure of your data (Art.&nbsp;17 GDPR)</li>
+              <li>Restriction of processing (Art.&nbsp;18 GDPR)</li>
+              <li>Data portability (Art.&nbsp;20 GDPR)</li>
+              <li>Object to processing (Art.&nbsp;21 GDPR)</li>
+              <li>Lodge a complaint with a data protection authority (Art.&nbsp;77 GDPR)</li>
             </ul>
             <p class="mt-4">
-              Contact us at: <a href="mailto:datenschutz@flexen.app" class="text-flexen-accent hover:underline"
-                >datenschutz@flexen.app</a
+              Contact us at: <a href="mailto:info@flexen.co" class="text-flexen-accent hover:underline"
+                >info@flexen.co</a
               >
             </p>
           </div>
 
           <div>
-            <h2 class="font-heading mb-4 text-h3 font-bold text-white">6. External Links</h2>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">7. External Links</h2>
             <p>
-              This website links to the Apple App Store and Google Play Store for downloading the Flexen App. The
-              respective privacy policies of Apple and Google apply to data processing by these services.
+              This website links to the Apple App Store and Google Play Store. The respective privacy policies of
+              Apple and Google apply to data processing by these services.
             </p>
           </div>
 
           <div>
-            <h2 class="font-heading mb-4 text-h3 font-bold text-white">7. Fonts</h2>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">8. Fonts</h2>
             <p>
               This website uses locally hosted fonts (self-hosting). No connections to external font servers (e.g.
               Google Fonts) are established.
@@ -144,22 +163,15 @@ const breadcrumbSchema = getBreadcrumbSchema([
           </div>
 
           <div>
-            <h2 class="font-heading mb-4 text-h3 font-bold text-white">8. Changes</h2>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">9. Changes</h2>
             <p>
-              We reserve the right to update this privacy policy. The current version is always available on this page.<br
-              /><br />
-              Last updated: March 2026
-            </p>
-          </div>
-
-          <div class="gradient-card mt-12 rounded-2xl border border-border p-6">
-            <p class="mb-2 font-semibold text-white">Note</p>
-            <p class="text-sm">
-              This privacy policy is a draft and must be reviewed by a legal professional before launch.
+              We reserve the right to update this privacy policy to reflect changes in the legal landscape or in
+              our services. The current version is always available on this page.<br /><br />
+              Last updated: June 2026
             </p>
           </div>
         </div>
       </div>
     </div>
   </section>
-</BaseLayout>
+</MinimalLegalLayout>

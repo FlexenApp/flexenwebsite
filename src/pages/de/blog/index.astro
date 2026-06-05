@@ -1,11 +1,11 @@
----
+﻿---
 import { getCollection } from 'astro:content'
 import BaseLayout from '../../../layouts/BaseLayout.astro'
 import { getBreadcrumbSchema } from '../../../lib/seo'
 
 const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Startseite', url: 'https://flexen.app/de/' },
-  { name: 'Blog', url: 'https://flexen.app/de/blog' },
+  { name: 'Startseite', url: 'https://flexen.co/de/' },
+  { name: 'Blog', url: 'https://flexen.co/de/blog' },
 ])
 
 const allPosts = (await getCollection('blog'))

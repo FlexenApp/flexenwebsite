@@ -1,4 +1,4 @@
----
+﻿---
 import BaseLayout from './BaseLayout.astro'
 import NewsletterSignup from '../components/astro/NewsletterSignup.astro'
 import { getArticleSchema } from '../lib/seo'
@@ -26,7 +26,7 @@ const schema = getArticleSchema({
   description,
   datePublished: date.toISOString(),
   image,
-  url: `https://flexen.app${Astro.url.pathname}`,
+  url: `https://flexen.co${Astro.url.pathname}`,
 })
 
 const categoryLabels: Record<string, string> = {

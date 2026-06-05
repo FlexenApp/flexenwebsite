@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 300" fill="none">
+  <!--
+    Project Pluto — Wordmark Reverse (Light-on-Dark)
+    Icon: Option C — Moon-Crescent
+    Background: --pluto-bg dark (#1A1410)
+    Foreground: --pluto-card-secondary-text / cream (#FAF6E8)
+    Usage: dark-mode surfaces, deep-brown card backgrounds, marketing on dark BG
+    Minimum width: 80px
+  -->
+
+  <!-- Dark background panel -->
+  <rect width="1000" height="300" fill="#1A1410" rx="8"/>
+
+  <!-- Icon-Mark: Moon-Crescent (cream on dark) -->
+  <g transform="translate(10, 40) scale(0.859)" aria-hidden="true">
+    <g transform="rotate(-12, 128, 128)">
+      <path
+        d="M 148 182
+           A 92 92 0 1 0 180 46
+           A 72 72 0 0 1 148 182 Z"
+        fill="#FAF6E8"
+      />
+    </g>
+  </g>
+
+  <!-- Wordmark: "pluto" reversed (cream) -->
+  <text
+    x="238"
+    y="196"
+    font-family="'Fraunces', 'Palatino Linotype', Georgia, serif"
+    font-size="132"
+    font-weight="500"
+    letter-spacing="-0.02em"
+    fill="#FAF6E8"
+    dominant-baseline="auto"
+  >pluto</text>
+</svg>

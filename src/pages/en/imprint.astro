@@ -1,16 +1,16 @@
----
-import BaseLayout from '../../layouts/BaseLayout.astro'
+﻿---
+import MinimalLegalLayout from '../../layouts/MinimalLegalLayout.astro'
 import { getBreadcrumbSchema } from '../../lib/seo'
 
 const breadcrumbSchema = getBreadcrumbSchema([
-  { name: 'Home', url: 'https://flexen.app/en/' },
-  { name: 'Imprint', url: 'https://flexen.app/en/imprint' },
+  { name: 'Home', url: 'https://flexen.co/en/' },
+  { name: 'Imprint', url: 'https://flexen.co/en/imprint' },
 ])
 ---
 
-<BaseLayout
-  title="Imprint — Flexen"
-  description="Legal imprint and provider identification for Flexen App."
+<MinimalLegalLayout
+  title="Imprint — Flexen UG"
+  description="Legal imprint and provider identification for Flexen UG (haftungsbeschränkt)."
   locale="en"
   canonicalPath="/en/imprint"
   schema={breadcrumbSchema}
@@ -18,7 +18,13 @@ const breadcrumbSchema = getBreadcrumbSchema([
   <section class="section min-h-screen">
     <div class="container">
       <div class="content max-w-3xl">
-        <h1 class="font-heading mb-12 text-h1 font-bold">Imprint</h1>
+        <h1 class="font-heading mb-4 text-h1 font-bold">Imprint</h1>
+        <p class="text-secondary text-body mb-12">
+          This imprint applies to <strong class="text-white">flexen.co</strong> and to all
+          products of Flexen UG (haftungsbeschr&auml;nkt) — currently
+          <strong class="text-white">Flexen</strong> and
+          <strong class="text-white">Project Pluto</strong>.
+        </p>
 
         <div class="prose prose-invert text-secondary text-body space-y-8">
           <div>
@@ -26,9 +32,9 @@ const breadcrumbSchema = getBreadcrumbSchema([
               Information according to &sect; 5 DDG
             </h2>
             <p>
-              <strong class="text-white">[Company Name]</strong><br />
-              [Street + Number]<br />
-              [Postal Code + City]<br />
+              <strong class="text-white">Flexen UG (haftungsbeschr&auml;nkt)</strong><br />
+              Paul-Heidelbach-Stra&szlig;e 14<br />
+              34134 Kassel<br />
               Germany
             </p>
           </div>
@@ -36,19 +42,18 @@ const breadcrumbSchema = getBreadcrumbSchema([
           <div>
             <h2 class="font-heading mb-4 text-h3 font-bold text-white">Contact</h2>
             <p>
-              Email: <a href="mailto:kontakt@flexen.app" class="text-flexen-accent hover:underline"
-                >kontakt@flexen.app</a
-              ><br />
-              Phone: [+49 XXX XXXXXXX]
+              Email: <a href="mailto:info@flexen.co" class="text-flexen-accent hover:underline"
+                >info@flexen.co</a
+              >
             </p>
           </div>
 
           <div>
             <h2 class="font-heading mb-4 text-h3 font-bold text-white">Commercial Register</h2>
             <p>
-              Register Court: [Local Court]<br />
-              Register Number: [HRB XXXXX]<br />
-              Managing Director: [Name]
+              Register Court: Amtsgericht Kassel (Local Court Kassel)<br />
+              Register Number: HRB 20498<br />
+              Managing Directors: Leonard Hoppe, Marcel Schneider, Leon Schmelzle
             </p>
           </div>
 
@@ -56,7 +61,18 @@ const breadcrumbSchema = getBreadcrumbSchema([
             <h2 class="font-heading mb-4 text-h3 font-bold text-white">VAT ID</h2>
             <p>
               VAT identification number according to &sect; 27a UStG:<br />
-              DE XXXXXXXXX
+              DE459052032
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">
+              Responsible for content
+            </h2>
+            <p>
+              pursuant to &sect; 18 (2) MStV:<br />
+              Leonard Hoppe<br />
+              Paul-Heidelbach-Stra&szlig;e 14, 34134 Kassel
             </p>
           </div>
 
@@ -80,4 +96,4 @@ const breadcrumbSchema = getBreadcrumbSchema([
       </div>
     </div>
   </section>
-</BaseLayout>
+</MinimalLegalLayout>

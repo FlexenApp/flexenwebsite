@@ -24,7 +24,7 @@ interface Props {
 const {
   title,
   description,
-  ogImage = 'https://flexen.app/og/default.jpg',
+  ogImage = 'https://flexen.co/og/default.jpg',
   locale = 'de',
   canonicalPath = Astro.url.pathname,
   schema,
@@ -32,7 +32,7 @@ const {
   hideFooter = false,
 } = Astro.props
 
-const siteUrl = 'https://flexen.app'
+const siteUrl = 'https://flexen.co'
 const canonical = `${siteUrl}${canonicalPath}`
 const pathWithoutLocale = canonicalPath.replace(/^\/(de|en)/, '')
 

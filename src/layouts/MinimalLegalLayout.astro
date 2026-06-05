@@ -1,0 +1,244 @@
+---
+import { ClientRouter } from 'astro:transitions'
+import '../styles/global.css'
+import '../styles/animations.css'
+import { getOrganizationSchema } from '../lib/seo'
+import { localePath } from '../lib/i18n'
+
+interface Props {
+  title: string
+  description: string
+  ogImage?: string
+  locale?: 'de' | 'en'
+  canonicalPath?: string
+  schema?: object | object[]
+}
+
+const {
+  title,
+  description,
+  ogImage = 'https://flexen.co/og/default.jpg',
+  locale = 'de',
+  canonicalPath = Astro.url.pathname,
+  schema,
+} = Astro.props
+
+const isEn = locale === 'en'
+const siteUrl = 'https://flexen.co'
+const canonical = `${siteUrl}${canonicalPath}`
+const pathWithoutLocale = canonicalPath.replace(/^\/(de|en)/, '')
+
+const pathMap: Record<string, string> = {
+  '/preise': '/pricing',
+  '/pricing': '/preise',
+  '/ueber-uns': '/about',
+  '/about': '/ueber-uns',
+  '/datenschutz': '/privacy',
+  '/privacy': '/datenschutz',
+  '/datenschutz/': '/privacy/',
+  '/privacy/': '/datenschutz/',
+  '/impressum': '/imprint',
+  '/imprint': '/impressum',
+  '/impressum/': '/imprint/',
+  '/imprint/': '/impressum/',
+  '/agb': '/terms',
+  '/terms': '/agb',
+  '/agb/': '/terms/',
+  '/terms/': '/agb/',
+}
+const altPath = pathMap[pathWithoutLocale] ?? pathWithoutLocale
+const altLocale = isEn ? 'de' : 'en'
+const altLocaleHref = `/${altLocale}${altPath}`
+
+const privacyHref = localePath(locale, isEn ? '/privacy' : '/datenschutz')
+const imprintHref = localePath(locale, isEn ? '/imprint' : '/impressum')
+const termsHref = localePath(locale, isEn ? '/terms' : '/agb')
+
+const labels = isEn
+  ? {
+      languageLabel: 'DE',
+      legalImprint: 'Imprint',
+      legalPrivacy: 'Privacy',
+      legalTerms: 'Terms',
+      back: 'Back to home',
+      copyright: `© ${new Date().getFullYear()} Flexen UG (haftungsbeschränkt) — All rights reserved`,
+      altLang: 'Switch language to German',
+      logoAlt: 'Flexen UG',
+    }
+  : {
+      languageLabel: 'EN',
+      legalImprint: 'Impressum',
+      legalPrivacy: 'Datenschutz',
+      legalTerms: 'AGB',
+      back: 'Zurück zur Startseite',
+      copyright: `© ${new Date().getFullYear()} Flexen UG (haftungsbeschränkt) — Alle Rechte vorbehalten`,
+      altLang: 'Sprache wechseln zu Englisch',
+      logoAlt: 'Flexen UG',
+    }
+---
+
+<!doctype html>
+<html lang={locale}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="generator" content={Astro.generator} />
+
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={canonical} />
+    <meta name="robots" content="index, follow" />
+
+    <link rel="alternate" hreflang="de" href={`${siteUrl}/de${locale === 'de' ? pathWithoutLocale : altPath}`} />
+    <link rel="alternate" hreflang="en" href={`${siteUrl}/en${locale === 'en' ? pathWithoutLocale : altPath}`} />
+    <link rel="alternate" hreflang="x-default" href={`${siteUrl}/de${locale === 'de' ? pathWithoutLocale : altPath}`} />
+
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={isEn ? 'en_US' : 'de_DE'} />
+    <meta property="og:site_name" content="Flexen UG" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <meta name="theme-color" content="#001622" />
+
+    <link rel="preload" href="/fonts/SpaceGrotesk-Variable.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="/fonts/DMSans-Variable.woff2" as="font" type="font/woff2" crossorigin />
+
+    {
+      import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN && (
+        <script
+          is:inline
+          defer
+          data-domain={import.meta.env.PUBLIC_PLAUSIBLE_DOMAIN}
+          src={import.meta.env.PUBLIC_PLAUSIBLE_SCRIPT || 'https://plausible.io/js/script.js'}
+        />
+      )
+    }
+
+    <script is:inline type="application/ld+json" set:html={JSON.stringify(getOrganizationSchema())} />
+    {schema && !Array.isArray(schema) && <script is:inline type="application/ld+json" set:html={JSON.stringify(schema)} />}
+    {Array.isArray(schema) && schema.map((s) => <script is:inline type="application/ld+json" set:html={JSON.stringify(s)} />)}
+
+    <ClientRouter />
+  </head>
+  <body class="bg-flexen-dark text-white">
+    <a
+      href="#main-content"
+      class="focus:gradient-accent sr-only focus:not-sr-only focus:fixed focus:top-4 focus:left-4 focus:z-100 focus:rounded-lg focus:px-4 focus:py-2 focus:font-semibold focus:text-white"
+    >
+      {isEn ? 'Skip to content' : 'Zum Inhalt springen'}
+    </a>
+
+    <!-- Solid #001622 backdrop, grain overlay only — no orb on legal pages -->
+    <div class="dark-section relative min-h-screen">
+      <div class="grain-overlay" aria-hidden="true"></div>
+
+      <!-- Top Bar: identical to MinimalLanding -->
+      <header class="relative z-10">
+        <div class="container">
+          <div class="flex items-center justify-between py-6 md:py-8">
+            <a
+              href={localePath(locale, '/')}
+              class="flex items-center gap-3"
+              aria-label={labels.logoAlt}
+            >
+              <img src="/images/logo/logo-white.png" alt="Flexen UG" class="h-7 w-auto md:h-8" />
+            </a>
+            <div class="flex items-center gap-6">
+              <a
+                href={localePath(locale, '/')}
+                class="hidden font-body text-small font-medium text-white/55 transition-colors hover:text-white sm:inline-flex"
+              >
+                <span aria-hidden="true" class="mr-2">←</span>
+                {labels.back}
+              </a>
+              <a
+                href={altLocaleHref}
+                class="font-body text-sm font-medium uppercase tracking-wide text-white/55 transition-colors hover:text-white"
+                aria-label={labels.altLang}
+              >
+                {labels.languageLabel}
+              </a>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main: legal-prose container ensures DM Sans body, 65ch max-width, h2 left-border -->
+      <main id="main-content" class="relative z-10 pb-24 pt-8 md:pt-12">
+        <div class="container">
+          <div class="legal-prose mx-auto">
+            <slot />
+          </div>
+        </div>
+      </main>
+
+      <!-- Footer: symmetric with MinimalLanding -->
+      <footer class="relative z-10 border-t border-white/5">
+        <div class="container">
+          <div
+            class="flex flex-col items-center justify-between gap-4 py-8 font-body text-small text-white/50 md:flex-row"
+          >
+            <p class="text-caption md:text-small">{labels.copyright}</p>
+            <nav aria-label={isEn ? 'Legal' : 'Rechtliches'}>
+              <ul class="flex items-center gap-6">
+                <li>
+                  <a href={imprintHref} class="transition-colors hover:text-white"
+                    >{labels.legalImprint}</a
+                  >
+                </li>
+                <li>
+                  <a href={privacyHref} class="transition-colors hover:text-white"
+                    >{labels.legalPrivacy}</a
+                  >
+                </li>
+                <li>
+                  <a href={termsHref} class="transition-colors hover:text-white"
+                    >{labels.legalTerms}</a
+                  >
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script>
+      // Reveal h1 on first paint (single .reveal — paragraphs arrive plainly per spec §5)
+      const h1 = document.querySelector<HTMLElement>('main h1')
+      const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches
+      if (h1 && !reduced) {
+        h1.style.opacity = '0'
+        h1.style.transform = 'translateY(8px)'
+        requestAnimationFrame(() => {
+          h1.style.transition = 'opacity 600ms cubic-bezier(0.16, 1, 0.3, 1), transform 600ms cubic-bezier(0.16, 1, 0.3, 1)'
+          h1.style.opacity = '1'
+          h1.style.transform = 'translateY(0)'
+        })
+      }
+
+      // Smooth scroll for anchor links
+      const links = document.querySelectorAll<HTMLAnchorElement>('a[href^="#"]')
+      links.forEach((a) => {
+        a.addEventListener('click', (e) => {
+          const id = a.getAttribute('href')?.slice(1)
+          if (!id) return
+          const el = document.getElementById(id)
+          if (!el) return
+          e.preventDefault()
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        })
+      })
+    </script>
+  </body>
+</html>
