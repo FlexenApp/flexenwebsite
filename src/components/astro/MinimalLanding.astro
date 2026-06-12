@@ -39,6 +39,8 @@ const copy = isEn
       legalImprint: 'Imprint',
       legalPrivacy: 'Privacy',
       legalTerms: 'Terms',
+      legalSupport: 'Support',
+      legalDelete: 'Delete account',
       copyright: `© ${new Date().getFullYear()} Flexen UG (haftungsbeschränkt) — All rights reserved`,
       languageLabel: 'DE',
       altLang: 'Sprache wechseln zu Deutsch',
@@ -72,6 +74,8 @@ const copy = isEn
       legalImprint: 'Impressum',
       legalPrivacy: 'Datenschutz',
       legalTerms: 'AGB',
+      legalSupport: 'Support',
+      legalDelete: 'Konto löschen',
       copyright: `© ${new Date().getFullYear()} Flexen UG (haftungsbeschränkt) — Alle Rechte vorbehalten`,
       languageLabel: 'EN',
       altLang: 'Switch language to English',
@@ -82,6 +86,8 @@ const altLocaleHref = isEn ? '/de/' : '/en/'
 const privacyHref = localePath(locale, isEn ? '/privacy' : '/datenschutz')
 const imprintHref = localePath(locale, isEn ? '/imprint' : '/impressum')
 const termsHref = localePath(locale, isEn ? '/terms' : '/agb')
+const supportHref = localePath(locale, '/support')
+const deleteHref = localePath(locale, isEn ? '/delete-account' : '/konto-loeschen')
 ---
 
 <div class="gradient-hero relative flex min-h-screen flex-col">
@@ -265,6 +271,16 @@ const termsHref = localePath(locale, isEn ? '/terms' : '/agb')
             </li>
             <li>
               <a href={termsHref} class="transition-colors hover:text-white">{copy.legalTerms}</a>
+            </li>
+            <li>
+              <a href={supportHref} class="transition-colors hover:text-white"
+                >{copy.legalSupport}</a
+              >
+            </li>
+            <li>
+              <a href={deleteHref} class="transition-colors hover:text-white"
+                >{copy.legalDelete}</a
+              >
             </li>
           </ul>
         </nav>

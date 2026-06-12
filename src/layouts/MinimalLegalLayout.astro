@@ -45,6 +45,10 @@ const pathMap: Record<string, string> = {
   '/terms': '/agb',
   '/agb/': '/terms/',
   '/terms/': '/agb/',
+  '/konto-loeschen': '/delete-account',
+  '/delete-account': '/konto-loeschen',
+  '/konto-loeschen/': '/delete-account/',
+  '/delete-account/': '/konto-loeschen/',
 }
 const altPath = pathMap[pathWithoutLocale] ?? pathWithoutLocale
 const altLocale = isEn ? 'de' : 'en'
@@ -53,6 +57,8 @@ const altLocaleHref = `/${altLocale}${altPath}`
 const privacyHref = localePath(locale, isEn ? '/privacy' : '/datenschutz')
 const imprintHref = localePath(locale, isEn ? '/imprint' : '/impressum')
 const termsHref = localePath(locale, isEn ? '/terms' : '/agb')
+const supportHref = localePath(locale, '/support')
+const deleteHref = localePath(locale, isEn ? '/delete-account' : '/konto-loeschen')
 
 const labels = isEn
   ? {
@@ -60,6 +66,8 @@ const labels = isEn
       legalImprint: 'Imprint',
       legalPrivacy: 'Privacy',
       legalTerms: 'Terms',
+      legalSupport: 'Support',
+      legalDelete: 'Delete account',
       back: 'Back to home',
       copyright: `© ${new Date().getFullYear()} Flexen UG (haftungsbeschränkt) — All rights reserved`,
       altLang: 'Switch language to German',
@@ -70,6 +78,8 @@ const labels = isEn
       legalImprint: 'Impressum',
       legalPrivacy: 'Datenschutz',
       legalTerms: 'AGB',
+      legalSupport: 'Support',
+      legalDelete: 'Konto löschen',
       back: 'Zurück zur Startseite',
       copyright: `© ${new Date().getFullYear()} Flexen UG (haftungsbeschränkt) — Alle Rechte vorbehalten`,
       altLang: 'Sprache wechseln zu Englisch',
@@ -204,6 +214,16 @@ const labels = isEn
                 <li>
                   <a href={termsHref} class="transition-colors hover:text-white"
                     >{labels.legalTerms}</a
+                  >
+                </li>
+                <li>
+                  <a href={supportHref} class="transition-colors hover:text-white"
+                    >{labels.legalSupport}</a
+                  >
+                </li>
+                <li>
+                  <a href={deleteHref} class="transition-colors hover:text-white"
+                    >{labels.legalDelete}</a
                   >
                 </li>
               </ul>
