@@ -1,0 +1,115 @@
+---
+import MinimalLegalLayout from '../../layouts/MinimalLegalLayout.astro'
+import { getBreadcrumbSchema } from '../../lib/seo'
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Startseite', url: 'https://flexen.co/de/' },
+  { name: 'Support', url: 'https://flexen.co/de/support' },
+])
+---
+
+<MinimalLegalLayout
+  title="Support — Flexen"
+  description="Support für die Flexen-App: Kontakt, Antwortzeiten und Hilfe zu Konto, Abo und Datenexport."
+  locale="de"
+  canonicalPath="/de/support"
+  schema={breadcrumbSchema}
+>
+  <section class="section min-h-screen">
+    <div class="container">
+      <div class="content max-w-3xl">
+        <h1 class="font-heading mb-4 text-h1 font-bold">Support</h1>
+        <p class="text-secondary text-body mb-12">
+          Du hast eine Frage zur <strong class="text-white">Flexen-App</strong> oder brauchst
+          Hilfe mit deinem Konto? Hier findest du alle Kontaktwege und Antworten auf die
+          h&auml;ufigsten Themen.
+        </p>
+
+        <div class="prose prose-invert text-secondary text-body space-y-8">
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">Kontakt</h2>
+            <p>
+              Schreib uns eine E-Mail an
+              <a href="mailto:info@flexen.co" class="text-flexen-accent hover:underline"
+                >info@flexen.co</a
+              >. Wir antworten in der Regel innerhalb von
+              <strong class="text-white">48 Stunden an Werktagen</strong>.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">
+              Was in deine Anfrage geh&ouml;rt
+            </h2>
+            <p>Damit wir dir schnell helfen k&ouml;nnen, nenn uns bitte:</p>
+            <ul class="mt-4 list-disc space-y-2 pl-6">
+              <li>
+                <strong class="text-white">App-Version</strong> (findest du in der App unter
+                Einstellungen)
+              </li>
+              <li>
+                <strong class="text-white">Ger&auml;t und Betriebssystem</strong> (z.&nbsp;B.
+                iPhone 15, iOS 18 oder Samsung Galaxy S24, Android 15)
+              </li>
+              <li>
+                <strong class="text-white">Beschreibung des Problems</strong> — was hast du
+                gemacht, was ist passiert, was h&auml;ttest du erwartet? Screenshots helfen.
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">H&auml;ufige Themen</h2>
+            <ul class="mt-4 list-disc space-y-4 pl-6">
+              <li>
+                <strong class="text-white">Konto l&ouml;schen:</strong> Du kannst dein Konto
+                direkt in der App l&ouml;schen (Einstellungen &rarr; Konto &rarr; Konto
+                l&ouml;schen) oder per E-Mail. Alle Details findest du auf der Seite
+                <a href="/de/konto-loeschen" class="text-flexen-accent hover:underline"
+                  >Konto l&ouml;schen</a
+                >.
+              </li>
+              <li>
+                <strong class="text-white">Abo k&uuml;ndigen:</strong> Abos werden
+                vollst&auml;ndig &uuml;ber Apple bzw. Google abgewickelt. K&uuml;ndige dein Abo
+                in den Einstellungen deines
+                <strong class="text-white">App&nbsp;Store</strong>-Kontos (iOS: Einstellungen
+                &rarr; Apple-Konto &rarr; Abonnements) oder im
+                <strong class="text-white">Google&nbsp;Play&nbsp;Store</strong> (Profil &rarr;
+                Zahlungen &amp; Abos &rarr; Abos). Eine K&uuml;ndigung in der Flexen-App ist
+                nicht m&ouml;glich.
+              </li>
+              <li>
+                <strong class="text-white">Datenexport:</strong> Du m&ouml;chtest eine Kopie
+                deiner Daten? Schreib uns eine E-Mail an
+                <a href="mailto:info@flexen.co" class="text-flexen-accent hover:underline"
+                  >info@flexen.co</a
+                > von deiner registrierten E-Mail-Adresse — wir stellen dir deine Daten
+                zusammen.
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">Rechtliches</h2>
+            <ul class="mt-4 list-disc space-y-2 pl-6">
+              <li>
+                <a href="/de/datenschutz" class="text-flexen-accent hover:underline"
+                  >Datenschutzerkl&auml;rung</a
+                >
+              </li>
+              <li>
+                <a href="/de/agb" class="text-flexen-accent hover:underline">AGB</a>
+              </li>
+              <li>
+                <a href="/de/konto-loeschen" class="text-flexen-accent hover:underline"
+                  >Konto l&ouml;schen</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MinimalLegalLayout>

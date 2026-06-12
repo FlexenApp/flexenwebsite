@@ -79,6 +79,17 @@ const content = locale === 'de' ? de : en
                 href={localePath(locale, locale === 'de' ? '/agb' : '/terms')}
                 class="transition-colors hover:text-white">{content.footer.legal.terms}</a>
             </li>
+            <li>
+              <a
+                href={localePath(locale, '/support')}
+                class="transition-colors hover:text-white">Support</a>
+            </li>
+            <li>
+              <a
+                href={localePath(locale, locale === 'de' ? '/konto-loeschen' : '/delete-account')}
+                class="transition-colors hover:text-white"
+                >{locale === 'de' ? 'Konto löschen' : 'Delete account'}</a>
+            </li>
           </ul>
         </div>
 

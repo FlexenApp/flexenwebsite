@@ -1,0 +1,115 @@
+---
+import MinimalLegalLayout from '../../layouts/MinimalLegalLayout.astro'
+import { getBreadcrumbSchema } from '../../lib/seo'
+
+const breadcrumbSchema = getBreadcrumbSchema([
+  { name: 'Home', url: 'https://flexen.co/en/' },
+  { name: 'Support', url: 'https://flexen.co/en/support' },
+])
+---
+
+<MinimalLegalLayout
+  title="Support — Flexen"
+  description="Support for the Flexen app: contact, response times, and help with your account, subscription, and data export."
+  locale="en"
+  canonicalPath="/en/support"
+  schema={breadcrumbSchema}
+>
+  <section class="section min-h-screen">
+    <div class="container">
+      <div class="content max-w-3xl">
+        <h1 class="font-heading mb-4 text-h1 font-bold">Support</h1>
+        <p class="text-secondary text-body mb-12">
+          Have a question about the <strong class="text-white">Flexen app</strong> or need help
+          with your account? Here you'll find all contact options and answers to the most
+          common topics.
+        </p>
+
+        <div class="prose prose-invert text-secondary text-body space-y-8">
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">Contact</h2>
+            <p>
+              Send us an email at
+              <a href="mailto:info@flexen.co" class="text-flexen-accent hover:underline"
+                >info@flexen.co</a
+              >. We usually respond within
+              <strong class="text-white">48 hours on business days</strong>.
+            </p>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">
+              What to include in your request
+            </h2>
+            <p>So we can help you quickly, please tell us:</p>
+            <ul class="mt-4 list-disc space-y-2 pl-6">
+              <li>
+                <strong class="text-white">App version</strong> (you'll find it in the app
+                under Settings)
+              </li>
+              <li>
+                <strong class="text-white">Device and operating system</strong> (e.g. iPhone
+                15, iOS 18 or Samsung Galaxy S24, Android 15)
+              </li>
+              <li>
+                <strong class="text-white">Description of the issue</strong> — what did you do,
+                what happened, what did you expect? Screenshots help.
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">Common topics</h2>
+            <ul class="mt-4 list-disc space-y-4 pl-6">
+              <li>
+                <strong class="text-white">Delete your account:</strong> You can delete your
+                account directly in the app (Settings &rarr; Account &rarr; Delete account) or
+                by email. Find all details on the
+                <a href="/en/delete-account" class="text-flexen-accent hover:underline"
+                  >Delete account</a
+                > page.
+              </li>
+              <li>
+                <strong class="text-white">Cancel your subscription:</strong> Subscriptions are
+                handled entirely by Apple and Google. Cancel your subscription in your
+                <strong class="text-white">App&nbsp;Store</strong> account settings (iOS:
+                Settings &rarr; Apple Account &rarr; Subscriptions) or in the
+                <strong class="text-white">Google&nbsp;Play&nbsp;Store</strong> (Profile &rarr;
+                Payments &amp; subscriptions &rarr; Subscriptions). Cancelling inside the
+                Flexen app is not possible.
+              </li>
+              <li>
+                <strong class="text-white">Data export:</strong> Want a copy of your data?
+                Email us at
+                <a href="mailto:info@flexen.co" class="text-flexen-accent hover:underline"
+                  >info@flexen.co</a
+                > from your registered email address — we'll compile your data for you.
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h2 class="font-heading mb-4 text-h3 font-bold text-white">Legal</h2>
+            <ul class="mt-4 list-disc space-y-2 pl-6">
+              <li>
+                <a href="/en/privacy" class="text-flexen-accent hover:underline"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="/en/terms" class="text-flexen-accent hover:underline"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a href="/en/delete-account" class="text-flexen-accent hover:underline"
+                  >Delete account</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</MinimalLegalLayout>
