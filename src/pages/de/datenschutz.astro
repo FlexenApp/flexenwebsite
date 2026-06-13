@@ -256,14 +256,49 @@ const breadcrumbSchema = getBreadcrumbSchema([
 
           <div>
             <h2 class="font-heading text-h3 mb-4 font-bold text-white">
-              10. Flexen-App: Barcode-Lookup (OpenFoodFacts)
+              10. Flexen-App: Externe Lebensmittel- &amp; Medikamenten-Datenbanken
             </h2>
             <p>
-              Wenn du einen Lebensmittel-Barcode scannst, fragt die App die Produktdaten bei
-              <strong class="text-white">OpenFoodFacts</strong> (Open Food Facts, Frankreich) ab. Dabei wird ausschlie&szlig;lich
-              die <strong class="text-white">Barcode-Nummer</strong> des Produkts &uuml;bermittelt — keine personenbezogenen
-              Daten und keine Informationen aus deinem Konto. Rechtsgrundlage ist Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO
-              (Bereitstellung der Scan-Funktion).
+              Zur Suche von N&auml;hrwerten und Medikamenten greift die App auf externe Nachschlage-Datenbanken zu.
+              Dabei werden — je nach genutzter Funktion — nur die jeweiligen Suchbegriffe bzw. Barcode-Nummern
+              &uuml;bermittelt, nicht dein Profil:
+            </p>
+            <ul class="mt-4 list-disc space-y-2 pl-6">
+              <li>
+                <strong class="text-white">OpenFoodFacts</strong> (Open Food Facts, Frankreich) — Wenn du einen
+                Lebensmittel-Barcode scannst, wird ausschlie&szlig;lich die <strong class="text-white">Barcode-Nummer</strong>
+                des Produkts &uuml;bermittelt — keine personenbezogenen Daten und keine Informationen aus deinem Konto.
+                Die Verarbeitung erfolgt in der EU; kein Drittlandtransfer.
+              </li>
+              <li>
+                <strong class="text-white">FatSecret Platform API</strong> (FatSecret, USA) — Lebensmittel- und
+                N&auml;hrwert-Datenbank. Die Anfrage l&auml;uft &uuml;ber unseren Server (Cloud Function in der EU,
+                Region europe-west1); an FatSecret wird nur der <strong class="text-white">Lebensmittel-Suchbegriff</strong>
+                weitergegeben, nicht deine Nutzer-ID. Soweit dabei ein Transfer in die USA stattfindet, st&uuml;tzen wir
+                diesen auf die EU-Standardvertragsklauseln (Art.&nbsp;46 Abs.&nbsp;2 lit.&nbsp;c DSGVO).
+                <!-- [NEEDS_LEGAL]: FatSecret-Drittlandgarantie (SCC/DPF-Zertifizierung) und AVV nach Art. 28 DSGVO vor Release verifizieren. -->
+              </li>
+              <li>
+                <strong class="text-white">USDA FoodData Central</strong> (U.S. Department of Agriculture, USA) —
+                staatliche Lebensmittel- und N&auml;hrwert-Datenbank. Die Anfrage l&auml;uft ebenfalls &uuml;ber unseren
+                Server (Cloud Function in der EU); &uuml;bermittelt wird nur der
+                <strong class="text-white">Lebensmittel-Suchbegriff</strong>, nicht deine Nutzer-ID.
+                <!-- [NEEDS_LEGAL]: Drittland-Rechtsgrundlage f&uuml;r USDA (US-Beh&ouml;rde, kein DPF/AVV-Standardweg) kl&auml;ren. -->
+              </li>
+              <li>
+                <strong class="text-white">NLM RxTerms / RxNav</strong> (U.S. National Library of Medicine, USA) —
+                Medikamenten-Datenbank f&uuml;r die Suche nach Medikamentennamen. Diese Anfrage erfolgt
+                <strong class="text-white">direkt von deinem Ger&auml;t</strong> an einen Server in den USA. Dabei werden
+                der von dir eingegebene <strong class="text-white">Medikamenten-Suchbegriff</strong> (eine gesundheitsbezogene
+                Angabe) sowie deine IP-Adresse &uuml;bermittelt. Es findet ein
+                <strong class="text-white">Drittlandtransfer in die USA</strong> statt.
+                <!-- [NEEDS_LEGAL]: Direkter Client-Call zu clinicaltables.nlm.nih.gov in die USA. Art.-9-Rechtsgrundlage und Drittland-Garantie (US-Behörde, kein DPF/SCC verfügbar) ungeklärt; Option: Anfrage über EU-Proxy (Cloud Function) leiten statt direkt vom Client. Vor Release juristisch bewerten. -->
+              </li>
+            </ul>
+            <p class="mt-4">
+              Rechtsgrundlage f&uuml;r diese Nachschlage-Funktionen ist Art.&nbsp;6 Abs.&nbsp;1 lit.&nbsp;b DSGVO
+              (Bereitstellung der jeweiligen Funktion); soweit Medikamenten-Suchbegriffe als Gesundheitsdaten betroffen
+              sind, deine ausdr&uuml;ckliche Einwilligung nach Art.&nbsp;9 Abs.&nbsp;2 lit.&nbsp;a DSGVO.
             </p>
           </div>
 
@@ -369,6 +404,16 @@ const breadcrumbSchema = getBreadcrumbSchema([
                 siehe Abschnitt&nbsp;10).
               </li>
               <li>
+                <strong class="text-white">FatSecret</strong> (USA) und <strong class="text-white">USDA FoodData Central</strong>
+                (USA) — Lebensmittel-/N&auml;hrwert-Datenbanken, jeweils &uuml;ber unseren Server-Proxy in der EU und nur
+                mit dem Suchbegriff (siehe Abschnitt&nbsp;10).
+              </li>
+              <li>
+                <strong class="text-white">U.S. National Library of Medicine (NLM RxTerms / RxNav)</strong> (USA) —
+                Medikamenten-Suche; direkter Abruf von deinem Ger&auml;t in die USA mit Suchbegriff und IP-Adresse
+                (siehe Abschnitt&nbsp;10).
+              </li>
+              <li>
                 <strong class="text-white">Apple / Google</strong> — Abwicklung von K&auml;ufen und Abonnements (siehe Abschnitt&nbsp;11).
               </li>
               <li>
@@ -381,6 +426,12 @@ const breadcrumbSchema = getBreadcrumbSchema([
               Abs.&nbsp;2 lit.&nbsp;c DSGVO) sowie auf das EU-US Data Privacy Framework, unter dem Google zertifiziert
               ist (Stand: 12. Juni 2026). Mit Google besteht ein Vertrag zur Auftragsverarbeitung gem&auml;&szlig;
               Art.&nbsp;28 DSGVO.
+            </p>
+            <p class="mt-4">
+              F&uuml;r die in Abschnitt&nbsp;10 genannten Lebensmittel- und Medikamenten-Datenbanken (FatSecret, USDA
+              FoodData Central, NLM RxTerms / RxNav) k&ouml;nnen Daten in die USA &uuml;bermittelt werden. Bei der
+              Medikamenten-Suche &uuml;ber die NLM (US-Beh&ouml;rde) erfolgt der Abruf direkt von deinem Ger&auml;t.
+              <!-- [NEEDS_LEGAL]: Drittland-Garantien fuer FatSecret/USDA/NLM (SCC, DPF-Zertifizierung bzw. Ausnahme nach Art. 49 DSGVO) sowie AVV nach Art. 28 DSGVO pruefen; fuer den direkten NLM-Client-Call EU-Proxy-Loesung erwaegen. -->
             </p>
           </div>
 

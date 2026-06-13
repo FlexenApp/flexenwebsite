@@ -236,13 +236,45 @@ const breadcrumbSchema = getBreadcrumbSchema([
 
           <div>
             <h2 class="font-heading text-h3 mb-4 font-bold text-white">
-              10. Flexen App: Barcode Lookup (OpenFoodFacts)
+              10. Flexen App: External Food &amp; Medication Databases
             </h2>
             <p>
-              When you scan a food barcode, the app retrieves the product data from
-              <strong class="text-white">OpenFoodFacts</strong> (Open Food Facts, France). Only the product's
-              <strong class="text-white">barcode number</strong> is transmitted — no personal data and no information from
-              your account. Legal basis is Art.&nbsp;6(1)(b) GDPR (provision of the scanning feature).
+              To look up nutrition values and medications, the app queries external reference databases. Depending on the
+              feature you use, only the respective search terms or barcode numbers are transmitted — not your profile:
+            </p>
+            <ul class="mt-4 list-disc space-y-2 pl-6">
+              <li>
+                <strong class="text-white">OpenFoodFacts</strong> (Open Food Facts, France) — When you scan a food
+                barcode, only the product's <strong class="text-white">barcode number</strong> is transmitted — no
+                personal data and no information from your account. Processing takes place in the EU; no third-country
+                transfer.
+              </li>
+              <li>
+                <strong class="text-white">FatSecret Platform API</strong> (FatSecret, USA) — food and nutrition database.
+                The request is routed through our server (Cloud Function in the EU, europe-west1 region); only the
+                <strong class="text-white">food search term</strong> is passed to FatSecret, not your user ID. Where a
+                transfer to the USA occurs, we rely on the EU Standard Contractual Clauses (Art.&nbsp;46(2)(c) GDPR).
+                <!-- [NEEDS_LEGAL]: Verify FatSecret third-country safeguard (SCC/DPF certification) and an Art. 28 GDPR DPA before release. -->
+              </li>
+              <li>
+                <strong class="text-white">USDA FoodData Central</strong> (U.S. Department of Agriculture, USA) —
+                government food and nutrition database. The request is likewise routed through our server (Cloud Function
+                in the EU); only the <strong class="text-white">food search term</strong> is transmitted, not your user ID.
+                <!-- [NEEDS_LEGAL]: Clarify third-country legal basis for USDA (US authority, no standard DPF/DPA route). -->
+              </li>
+              <li>
+                <strong class="text-white">NLM RxTerms / RxNav</strong> (U.S. National Library of Medicine, USA) —
+                medication database for searching medication names. This request is made
+                <strong class="text-white">directly from your device</strong> to a server in the USA. In doing so, the
+                <strong class="text-white">medication search term</strong> you enter (a health-related data point) and your
+                IP address are transmitted. A <strong class="text-white">third-country transfer to the USA</strong> takes
+                place.
+                <!-- [NEEDS_LEGAL]: Direct client call to clinicaltables.nlm.nih.gov in the USA. Art. 9 legal basis and third-country safeguard (US authority, no DPF/SCC available) unresolved; option: route the request through an EU proxy (Cloud Function) instead of directly from the client. Assess legally before release. -->
+              </li>
+            </ul>
+            <p class="mt-4">
+              The legal basis for these lookup features is Art.&nbsp;6(1)(b) GDPR (provision of the respective feature);
+              where medication search terms constitute health data, your explicit consent under Art.&nbsp;9(2)(a) GDPR.
             </p>
           </div>
 
@@ -344,6 +376,16 @@ const breadcrumbSchema = getBreadcrumbSchema([
                 only, see section&nbsp;10).
               </li>
               <li>
+                <strong class="text-white">FatSecret</strong> (USA) and <strong class="text-white">USDA FoodData Central</strong>
+                (USA) — food/nutrition databases, each via our server proxy in the EU and with the search term only (see
+                section&nbsp;10).
+              </li>
+              <li>
+                <strong class="text-white">U.S. National Library of Medicine (NLM RxTerms / RxNav)</strong> (USA) —
+                medication search; queried directly from your device to the USA with the search term and IP address (see
+                section&nbsp;10).
+              </li>
+              <li>
                 <strong class="text-white">Apple / Google</strong> — handling of purchases and subscriptions (see section&nbsp;11).
               </li>
               <li>
@@ -355,6 +397,12 @@ const breadcrumbSchema = getBreadcrumbSchema([
               the USA, the transfer is based on the EU Standard Contractual Clauses (Art.&nbsp;46(2)(c) GDPR) and on the
               EU-US Data Privacy Framework, under which Google is certified (as of 12 June 2026). We have a Data
               Processing Agreement with Google pursuant to Art.&nbsp;28 GDPR.
+            </p>
+            <p class="mt-4">
+              For the food and medication databases named in section&nbsp;10 (FatSecret, USDA FoodData Central, NLM
+              RxTerms / RxNav), data may be transferred to the USA. For the medication search via the NLM (US authority),
+              the request is made directly from your device.
+              <!-- [NEEDS_LEGAL]: Verify third-country safeguards for FatSecret/USDA/NLM (SCC, DPF certification or Art. 49 GDPR derogation) and Art. 28 GDPR DPAs; consider an EU proxy solution for the direct NLM client call. -->
             </p>
           </div>
 
